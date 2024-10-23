@@ -23,7 +23,7 @@ MonoBehaviour:
   - {fileID: 831694236546328515}
   StringsBanks:
   - {fileID: 4982341041968944528}
-  cacheTime: 638653367472260058
+  cacheTime: 638653396769630585
   cacheVersion: 131620
 --- !u!114 &831694236546328515
 MonoBehaviour:
@@ -40,7 +40,7 @@ MonoBehaviour:
   Path: Assets/_Audio/SpaceAudio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638653367472256939
+  lastModified: 638653396766662918
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -60,10 +60,10 @@ MonoBehaviour:
   Path: Assets/_Audio/SpaceAudio/Build/Desktop/VO.bank
   Name: VO
   StudioPath: bank:/VO
-  lastModified: 638653367472260058
+  lastModified: 638653396769630585
   FileSizes:
   - Name: Desktop
-    Value: 52672
+    Value: 52704
   Exists: 1
 --- !u!114 &4982341041968944528
 MonoBehaviour:
@@ -80,7 +80,7 @@ MonoBehaviour:
   Path: Assets/_Audio/SpaceAudio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638653367472258239
+  lastModified: 638653396766685272
   FileSizes:
   - Name: Desktop
     Value: 812

@@ -1,18 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
-public class DialogueTrigger : MonoBehaviour
+public class DialogueTrigger : GameTrigger
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] EventReference _dialogueEvent;
 
-    // Update is called once per frame
-    void Update()
+    protected override void ProcessTrigger()
     {
-        
+        NarrativeManager.Instance.PlaySequence(_dialogueEvent);
     }
 }

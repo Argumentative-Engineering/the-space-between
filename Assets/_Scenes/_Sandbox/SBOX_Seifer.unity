@@ -888,7 +888,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1389192726}
   - component: {fileID: 1389192728}
-  - component: {fileID: 1389192727}
+  - component: {fileID: 1389192729}
   m_Layer: 0
   m_Name: Dialogue Trigger
   m_TagString: Untagged
@@ -905,40 +905,12 @@ Transform:
   m_GameObject: {fileID: 1389192725}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.42, y: 0, z: 5.7}
+  m_LocalPosition: {x: 0.2, y: 1.33, z: 5.22}
   m_LocalScale: {x: 9.105923, y: 3.9142, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1389192727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1389192725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e40f3b45392cc42658a003cbdb9d178f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnTrigger:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1297340300}
-        m_TargetAssemblyTypeName: NarrativeManager, Assembly-CSharp
-        m_MethodName: PlaySequence
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 93fc74f435f3f714789df06718797ee1,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: DialogueSequence, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!65 &1389192728
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -960,6 +932,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1389192729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389192725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1b4067d6631048c19a1895777d3a334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+  RunOnce: 1
+  _dialogueEvent:
+    Guid:
+      Data1: 1560179409
+      Data2: 1248107466
+      Data3: 574892686
+      Data4: -1898927512
+    Path: event:/Dialogue/Intro_01
 --- !u!1 &1567473781
 GameObject:
   m_ObjectHideFlags: 0
@@ -1299,7 +1294,7 @@ Transform:
   m_GameObject: {fileID: 1878487702}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.45, y: 1.1545241, z: 3.72}
+  m_LocalPosition: {x: 4.843, y: 1.1545241, z: 5.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

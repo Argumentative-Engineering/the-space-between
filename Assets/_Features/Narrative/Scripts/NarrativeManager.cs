@@ -1,10 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.WindowsRuntime;
 using DG.Tweening;
-using FMOD;
 using FMOD.Studio;
 using FMODUnity;
 using TMPro;
@@ -41,7 +35,6 @@ public class NarrativeManager : MonoBehaviour
         _audioSource.OnComplete -= StopSequence;
     }
 
-
     public void PlaySequence(EventReference dialogue)
     {
         _dialogueInstance = RuntimeManager.CreateInstance(dialogue);
@@ -63,36 +56,18 @@ public class NarrativeManager : MonoBehaviour
 
     private void OnMarkerEvent(string marker)
     {
+        if (marker == "end") StopSequence();
+
         var splits = marker.Split('_');
         var speaker = splits[0];
         var text = splits[1];
         _dialogueSpeakerUI.text = speaker;
         _dialogueTextUI.text = text;
+
+        _dialogueSpeakerUI.DOKill();
+        _dialogueTextUI.DOKill();
+
         _dialogueSpeakerUI.DOFade(1, _fadeDuration);
         _dialogueTextUI.DOFade(1, _fadeDuration);
-
     }
-
-
-    // IEnumerator Play()
-    // {
-    //     foreach (var line in CurrentSequence.Lines)
-    //         _lines.Enqueue(line);
-
-    //     while (_lines.TryDequeue(out DialogueLine line))
-    //     {
-    //         _dialogueSpeakerUI.text = line.Speaker;
-    //         _dialogueTextUI.text = line.DialogueText;
-    //         _dialogueSpeakerUI.DOFade(1, _fadeDuration);
-    //         _dialogueTextUI.DOFade(1, _fadeDuration);
-
-    //         _playNextLine = false;
-
-    //         yield return CurrentSequence.IsContinuous
-    //             ? new WaitForSeconds(_audioSource.clip.length)
-    //             : new WaitUntil(() => _playNextLine);
-    //     }
-
-    //     StopSequence();
-    // }
 }

@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class GameTrigger : MonoBehaviour
 {
     public UnityEvent OnTrigger;
+    public bool RunOnce;
 
     Collider _col;
     private void OnValidate()
@@ -18,5 +19,9 @@ public class GameTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         OnTrigger?.Invoke();
+        ProcessTrigger();
+        if (RunOnce) Destroy(this);
     }
+
+    protected virtual void ProcessTrigger() { }
 }
