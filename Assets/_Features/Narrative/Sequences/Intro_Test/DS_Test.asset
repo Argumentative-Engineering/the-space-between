@@ -15,5 +15,8 @@ MonoBehaviour:
   IsContinuous: 1
   Lines:
   - Speaker: Seifer
-    DialogueText: I'm currently testing this shit FR
-    DialogueVoiceOver: {fileID: 0}
+    DialogueText: I'm going to eat your butt...
+    DialogueVoiceOver: {fileID: 8300000, guid: 69c758a4915f84b378d65534c4c61376, type: 3}
+  - Speaker: Jimae
+    DialogueText: NOOOOOOO
+    DialogueVoiceOver: {fileID: 8300000, guid: de2d2b61018b44027a3456b518f8ee7f, type: 3}

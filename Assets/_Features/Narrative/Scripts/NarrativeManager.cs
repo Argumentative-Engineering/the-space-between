@@ -9,6 +9,7 @@ public class NarrativeManager : MonoBehaviour
 {
     [Header("Settings")]
     public DialogueSequence CurrentSequence;
+    [SerializeField] float _fadeDuration = 0.2f;
 
     [Header("References")]
     [SerializeField] AudioSource _audioSource;
@@ -18,8 +19,6 @@ public class NarrativeManager : MonoBehaviour
     readonly Queue<DialogueLine> _lines = new();
     Coroutine _dialogueCoroutine;
     bool _playNextLine;
-
-    Sequence _textAnimSequence;
 
     public static NarrativeManager Instance { get; private set; }
     private void Awake()
@@ -47,6 +46,9 @@ public class NarrativeManager : MonoBehaviour
         _dialogueCoroutine = null;
         _audioSource.Stop();
         _lines.Clear();
+
+        _dialogueSpeakerUI.DOFade(0, _fadeDuration);
+        _dialogueTextUI.DOFade(0, _fadeDuration);
     }
 
     public void PlayNextLine()
@@ -61,10 +63,12 @@ public class NarrativeManager : MonoBehaviour
 
         while (_lines.TryDequeue(out DialogueLine line))
         {
-            _textAnimSequence.Play();
             _dialogueSpeakerUI.text = line.Speaker;
             _dialogueTextUI.text = line.DialogueText;
             _audioSource.clip = line.DialogueVoiceOver;
+            _dialogueSpeakerUI.DOFade(1, _fadeDuration);
+            _dialogueTextUI.DOFade(1, _fadeDuration);
+
             _audioSource.Play();
             _playNextLine = false;
 
