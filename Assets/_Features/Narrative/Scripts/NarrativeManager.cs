@@ -1,40 +1,49 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using DG.Tweening;
+using FMOD;
+using FMOD.Studio;
+using FMODUnity;
 using TMPro;
 using UnityEngine;
-
+public class TimelineInfo
+{
+    public StringWrapper LastMarker = new StringWrapper();
+}
 public class NarrativeManager : MonoBehaviour
 {
     [Header("Settings")]
-    public DialogueSequence CurrentSequence;
+    public EventReference DialogueEvent;
     [SerializeField] float _fadeDuration = 0.2f;
 
     [Header("References")]
-    [SerializeField] AudioSource _audioSource;
     [SerializeField] TextMeshProUGUI _dialogueTextUI;
     [SerializeField] TextMeshProUGUI _dialogueSpeakerUI;
 
-    readonly Queue<DialogueLine> _lines = new();
     Coroutine _dialogueCoroutine;
-    bool _playNextLine;
+    EventInstance _dialogueInstance;
+
+    TimelineInfo _timelineInfo;
+    GCHandle _timelineHandle;
+    EVENT_CALLBACK _markerCallback;
 
     public static NarrativeManager Instance { get; private set; }
     private void Awake()
     {
         Instance = this;
+
+        _timelineInfo = new TimelineInfo();
+        _markerCallback = new EVENT_CALLBACK(MarkerEventCallback);
+        _timelineHandle = GCHandle.Alloc(_timelineInfo);
+
     }
 
-    public void PlaySequence(DialogueSequence sequence)
+    public void PlaySequence(EventReference dialogue)
     {
-        if (_lines.Count > 0 || _dialogueCoroutine != null)
-        {
-            Debug.LogError("Ongoing dialogue!");
-            return;
-        }
-
-        CurrentSequence = sequence;
+        DialogueEvent = dialogue;
         _dialogueCoroutine = StartCoroutine(Play());
     }
 
@@ -44,39 +53,53 @@ public class NarrativeManager : MonoBehaviour
 
         StopCoroutine(_dialogueCoroutine);
         _dialogueCoroutine = null;
-        _audioSource.Stop();
-        _lines.Clear();
 
         _dialogueSpeakerUI.DOFade(0, _fadeDuration);
         _dialogueTextUI.DOFade(0, _fadeDuration);
     }
 
-    public void PlayNextLine()
-    {
-        _playNextLine = true;
-    }
-
     IEnumerator Play()
     {
-        foreach (var line in CurrentSequence.Lines)
-            _lines.Enqueue(line);
+        if (_dialogueInstance.isValid()) _dialogueInstance.release();
 
-        while (_lines.TryDequeue(out DialogueLine line))
-        {
-            _dialogueSpeakerUI.text = line.Speaker;
-            _dialogueTextUI.text = line.DialogueText;
-            _audioSource.clip = line.DialogueVoiceOver;
-            _dialogueSpeakerUI.DOFade(1, _fadeDuration);
-            _dialogueTextUI.DOFade(1, _fadeDuration);
+        _dialogueInstance = RuntimeManager.CreateInstance(DialogueEvent);
+        _dialogueInstance.setUserData(GCHandle.ToIntPtr(_timelineHandle));
+        _dialogueInstance.setCallback(_markerCallback, EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
 
-            _audioSource.Play();
-            _playNextLine = false;
-
-            yield return CurrentSequence.IsContinuous
-                ? new WaitForSeconds(_audioSource.clip.length)
-                : new WaitUntil(() => _playNextLine);
-        }
-
-        StopSequence();
+        _dialogueInstance.start();
     }
+
+    [AOT.MonoPInvokeCallback(typeof(FMOD.Studio.EVENT_CALLBACK))]
+    private RESULT MarkerEventCallback(EVENT_CALLBACK_TYPE type, IntPtr _event, IntPtr parameters)
+    {
+    }
+
+    void OnDestroy()
+    {
+        _dialogueInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        _dialogueInstance.release();
+    }
+
+
+    // IEnumerator Play()
+    // {
+    //     foreach (var line in CurrentSequence.Lines)
+    //         _lines.Enqueue(line);
+
+    //     while (_lines.TryDequeue(out DialogueLine line))
+    //     {
+    //         _dialogueSpeakerUI.text = line.Speaker;
+    //         _dialogueTextUI.text = line.DialogueText;
+    //         _dialogueSpeakerUI.DOFade(1, _fadeDuration);
+    //         _dialogueTextUI.DOFade(1, _fadeDuration);
+
+    //         _playNextLine = false;
+
+    //         yield return CurrentSequence.IsContinuous
+    //             ? new WaitForSeconds(_audioSource.clip.length)
+    //             : new WaitUntil(() => _playNextLine);
+    //     }
+
+    //     StopSequence();
+    // }
 }
