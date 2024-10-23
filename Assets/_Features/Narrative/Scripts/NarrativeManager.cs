@@ -9,75 +9,68 @@ using FMOD.Studio;
 using FMODUnity;
 using TMPro;
 using UnityEngine;
-public class TimelineInfo
-{
-    public StringWrapper LastMarker = new StringWrapper();
-}
+
+[RequireComponent(typeof(AudioSystem))]
 public class NarrativeManager : MonoBehaviour
 {
     [Header("Settings")]
-    public EventReference DialogueEvent;
     [SerializeField] float _fadeDuration = 0.2f;
 
     [Header("References")]
+    [SerializeField] AudioSystem _audioSource;
     [SerializeField] TextMeshProUGUI _dialogueTextUI;
     [SerializeField] TextMeshProUGUI _dialogueSpeakerUI;
 
-    Coroutine _dialogueCoroutine;
     EventInstance _dialogueInstance;
-
-    TimelineInfo _timelineInfo;
-    GCHandle _timelineHandle;
-    EVENT_CALLBACK _markerCallback;
 
     public static NarrativeManager Instance { get; private set; }
     private void Awake()
     {
         Instance = this;
-
-        _timelineInfo = new TimelineInfo();
-        _markerCallback = new EVENT_CALLBACK(MarkerEventCallback);
-        _timelineHandle = GCHandle.Alloc(_timelineInfo);
-
     }
+
+    private void OnEnable()
+    {
+        _audioSource.OnMarker += OnMarkerEvent;
+        _audioSource.OnComplete += StopSequence;
+    }
+    private void OnDisable()
+    {
+
+        _audioSource.OnMarker -= OnMarkerEvent;
+        _audioSource.OnComplete -= StopSequence;
+    }
+
 
     public void PlaySequence(EventReference dialogue)
     {
-        DialogueEvent = dialogue;
-        _dialogueCoroutine = StartCoroutine(Play());
+        _dialogueInstance = RuntimeManager.CreateInstance(dialogue);
+        _dialogueInstance.start();
+        _audioSource.AssignEvents(_dialogueInstance);
     }
 
     public void StopSequence()
     {
-        if (_dialogueCoroutine == null) return;
-
-        StopCoroutine(_dialogueCoroutine);
-        _dialogueCoroutine = null;
-
         _dialogueSpeakerUI.DOFade(0, _fadeDuration);
         _dialogueTextUI.DOFade(0, _fadeDuration);
-    }
-
-    IEnumerator Play()
-    {
-        if (_dialogueInstance.isValid()) _dialogueInstance.release();
-
-        _dialogueInstance = RuntimeManager.CreateInstance(DialogueEvent);
-        _dialogueInstance.setUserData(GCHandle.ToIntPtr(_timelineHandle));
-        _dialogueInstance.setCallback(_markerCallback, EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
-
-        _dialogueInstance.start();
-    }
-
-    [AOT.MonoPInvokeCallback(typeof(FMOD.Studio.EVENT_CALLBACK))]
-    private RESULT MarkerEventCallback(EVENT_CALLBACK_TYPE type, IntPtr _event, IntPtr parameters)
-    {
     }
 
     void OnDestroy()
     {
         _dialogueInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         _dialogueInstance.release();
+    }
+
+    private void OnMarkerEvent(string marker)
+    {
+        var splits = marker.Split('_');
+        var speaker = splits[0];
+        var text = splits[1];
+        _dialogueSpeakerUI.text = speaker;
+        _dialogueTextUI.text = text;
+        _dialogueSpeakerUI.DOFade(1, _fadeDuration);
+        _dialogueTextUI.DOFade(1, _fadeDuration);
+
     }
 
 
