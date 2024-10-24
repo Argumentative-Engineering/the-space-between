@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/_Sandbox/SBOX_Seifer.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/_Scenes/SCN_Core.unity
+    guid: 070a81babcff5483fb32ff4f1ce206a3
+  - enabled: 1
+    path: Assets/_Features/Scenarios/lena-intro-helen/SCEN_lena-intro-helen.unity
+    guid: 78059b8d1384546eb8086e11b96d20c9
   m_configObjects: {}
