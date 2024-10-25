@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fe2486cf161aa8489498b93df701f1b, type: 3}
-  m_Name: lena-intro-helen
+  m_Name: SUB_Lena_MarinePostcard
   m_EditorClassIdentifier: 
   DialogueEvent:
     Guid:

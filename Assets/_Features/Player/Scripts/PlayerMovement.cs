@@ -14,6 +14,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (_settings.IsFrozen)
+        {
+            _rigidbody.velocity = Vector3.zero;
+            return;
+        }
         if (_settings.LookClamp.x != 0)
             _input.RotationVector.x = Mathf.Clamp(_input.RotationVector.x, -_settings.LookClamp.x, _settings.LookClamp.x);
 
@@ -25,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (_settings.IsFrozen) return;
         var vec = (Camera.main.transform.forward * _input.MoveVector.y + Camera.main.transform.right * _input.MoveVector.x).normalized * _moveSpeed;
         _rigidbody.AddForce(vec);
     }

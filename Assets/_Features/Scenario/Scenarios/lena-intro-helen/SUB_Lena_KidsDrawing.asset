@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe2486cf161aa8489498b93df701f1b, type: 3}
+  m_Name: SUB_Lena_KidsDrawing
+  m_EditorClassIdentifier: 
+  DialogueEvent:
+    Guid:
+      Data1: 916438367
+      Data2: 1338290775
+      Data3: 1225226137
+      Data4: -999241336
+    Path: event:/Dialogue/lena-intro-helen/Lena_KidsDrawing
+  Subtitles:
+  - Key: lena-drawing-001
+    Speaker: Lena
+    Text: I've left a lot of things and people behind for this
+  - Key: lena-drawing-002
+    Speaker: Lena
+    Text: for this supposed greater good.
+  - Key: lena-drawing-003
+    Speaker: Lena
+    Text: For them, as I was told back then, to convince me.
