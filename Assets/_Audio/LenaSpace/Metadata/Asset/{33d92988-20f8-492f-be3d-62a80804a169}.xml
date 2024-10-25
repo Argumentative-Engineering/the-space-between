@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{33d92988-20f8-492f-be3d-62a80804a169}">
+		<property name="assetPath">
+			<value>Dialogue/lena-intro-helen/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{59b80936-5114-418d-9e0b-e3c3ac83cc0b}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3978898964487637419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Dialogue.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/_Audio/LenaSpace/Build/Desktop/Dialogue.bank
+  Name: Dialogue
+  StudioPath: bank:/Dialogue
+  lastModified: 638655041509225692
+  FileSizes:
+  - Name: Desktop
+    Value: 95136
+  Exists: 1
+--- !u!114 &-3244233374311610670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/_Audio/LenaSpace/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638655023075645629
+  FileSizes:
+  - Name: Desktop
+    Value: 842
+  Exists: 1
+--- !u!114 &-1483246309528866834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/_Audio/LenaSpace/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638655023075624749
+  FileSizes:
+  - Name: Desktop
+    Value: 1036
+  Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,17 +73,17 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 4982341041968944528}
-  - {fileID: 831694236546328515}
-  - {fileID: 3454553125403722147}
+  - {fileID: -3244233374311610670}
+  - {fileID: -1483246309528866834}
+  - {fileID: -3978898964487637419}
   EditorEvents:
-  - {fileID: 6760936359736842150}
+  - {fileID: 6057692513757837323}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 831694236546328515}
+  - {fileID: -1483246309528866834}
   StringsBanks:
-  - {fileID: 4982341041968944528}
-  cacheTime: 638654722699057883
+  - {fileID: -3244233374311610670}
+  cacheTime: 638655041509225692
   cacheVersion: 131620
 --- !u!114 &831694236546328515
 MonoBehaviour:
@@ -85,6 +145,33 @@ MonoBehaviour:
   - Name: Desktop
     Value: 812
   Exists: 1
+--- !u!114 &6057692513757837323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Dialogue/lena-intro-helen/Lena_KidsDrawing
+  m_EditorClassIdentifier: 
+  Path: event:/Dialogue/lena-intro-helen/Lena_KidsDrawing
+  Guid:
+    Data1: 916438367
+    Data2: 1338290775
+    Data3: 1225226137
+    Data4: -999241336
+  Banks:
+  - {fileID: -3978898964487637419}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 9000
 --- !u!114 &6760936359736842150
 MonoBehaviour:
   m_ObjectHideFlags: 0

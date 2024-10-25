@@ -1,3 +1,4 @@
+using System.Linq;
 using DG.Tweening;
 using FMOD.Studio;
 using FMODUnity;
@@ -16,6 +17,7 @@ public class NarrativeManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI _dialogueSpeakerUI;
 
     EventInstance _dialogueInstance;
+    DialogueData _currentDialogue;
 
     public static NarrativeManager Instance { get; private set; }
     private void Awake()
@@ -35,6 +37,12 @@ public class NarrativeManager : MonoBehaviour
         _audioSource.OnComplete -= StopSequence;
     }
 
+    public void PlayDialogue(DialogueData data)
+    {
+        _currentDialogue = data;
+        PlaySequence(data.DialogueEvent);
+    }
+
     public void PlaySequence(EventReference dialogue)
     {
         _dialogueInstance = RuntimeManager.CreateInstance(dialogue);
@@ -44,8 +52,7 @@ public class NarrativeManager : MonoBehaviour
 
     public void StopSequence()
     {
-        _dialogueSpeakerUI.DOFade(0, _fadeDuration);
-        _dialogueTextUI.DOFade(0, _fadeDuration);
+
     }
 
     void OnDestroy()
@@ -56,18 +63,31 @@ public class NarrativeManager : MonoBehaviour
 
     private void OnMarkerEvent(string marker)
     {
-        if (marker == "end") StopSequence();
+        // if (marker == "end")
+        // {
+        //     StopSequence();
+        //     return;
+        // }
 
-        var splits = marker.Split('_');
-        var speaker = splits[0];
-        var text = splits[1];
-        _dialogueSpeakerUI.text = speaker;
-        _dialogueTextUI.text = text;
+        var line = _currentDialogue.Subtitles.Where(d => d.Key == marker).FirstOrDefault() ?? new Subtitle()
+        {
+            Speaker = "Test speaker",
+            Text = "I'm missing dialogue please contact seifer or jimae or aaron:(",
+        };
+
+        // var splits = marker.Split('_');
+        // var speaker = splits[0];
+        // var text = splits[1];
+        _dialogueSpeakerUI.text = line.Speaker.Trim();
+        _dialogueTextUI.text = line.Text.Trim();
 
         _dialogueSpeakerUI.DOKill();
         _dialogueTextUI.DOKill();
 
         _dialogueSpeakerUI.DOFade(1, _fadeDuration);
         _dialogueTextUI.DOFade(1, _fadeDuration);
+
+        _dialogueSpeakerUI.DOFade(0, _fadeDuration).SetDelay(10);
+        _dialogueTextUI.DOFade(0, _fadeDuration).SetDelay(10);
     }
 }

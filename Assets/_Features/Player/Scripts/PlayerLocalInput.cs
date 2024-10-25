@@ -20,8 +20,8 @@ public class PlayerLocalInput : MonoBehaviour
     private void OnEnable()
     {
         _input.Player.Move.performed += OnMovePerformed;
-        // _input.Player.Use.performed += OnUsePerformed;
         _input.Player.Move.canceled += OnMoveCanceled;
+        _input.Player.Interact.performed += OnUsePerformed;
         _input.Player.Look.performed += OnLookPerformed;
         _input.Enable();
     }
@@ -30,6 +30,7 @@ public class PlayerLocalInput : MonoBehaviour
     {
         _input.Player.Move.performed -= OnMovePerformed;
         _input.Player.Move.canceled -= OnMoveCanceled;
+        _input.Player.Interact.performed -= OnUsePerformed;
         _input.Player.Look.performed -= OnLookPerformed;
         _input.Disable();
     }
@@ -39,7 +40,7 @@ public class PlayerLocalInput : MonoBehaviour
 
     private void OnUsePerformed(InputAction.CallbackContext context)
     {
-        MoveVector = context.ReadValue<Vector2>();
+        OnInteract?.Invoke();
     }
 
     private void OnLookPerformed(InputAction.CallbackContext context)

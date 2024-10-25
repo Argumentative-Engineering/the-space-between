@@ -163,8 +163,8 @@ MonoBehaviour:
   active: 1
   Properties:
     LiveUpdate:
-      Value: 0
-      HasValue: 0
+      Value: 1
+      HasValue: 1
     LiveUpdatePort:
       Value: 9264
       HasValue: 1
@@ -463,12 +463,12 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: Assets/_Audio/SpaceAudio/SpaceAudio.fspro
-  sourceBankPath: Assets/_Audio/SpaceAudio/Build
+  sourceProjectPath: Assets/_Audio/LenaSpace/LenaSpace.fspro
+  sourceBankPath: Assets/_Audio/LenaSpace/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
-  AutomaticEventLoading: 1
+  AutomaticEventLoading: 0
   BankLoadType: 0
   AutomaticSampleLoading: 0
   EncryptionKey: 
@@ -488,7 +488,7 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks:
-  - VO
+  - Dialogue
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
