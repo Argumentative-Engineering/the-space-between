@@ -33,13 +33,22 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Thrust",
-                    "type": "Value",
-                    "id": "a6c28055-cf41-422e-8e53-4e192b617ea3",
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "cffaa63f-a672-442c-8191-82632079b296",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Push",
+                    "type": "Button",
+                    "id": "ccd0f339-e1be-4fcd-9755-4ed604ef9690",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -264,70 +273,48 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Keyboard",
-                    "id": "da814d04-1ea0-43c7-92ca-c8389032df6c",
-                    "path": "1DAxis",
+                    "name": "",
+                    "id": "2b7e1d41-1a67-463b-b6f5-5accc63b04ac",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Thrust",
-                    "isComposite": true,
+                    "groups": "Gamepad",
+                    "action": "Push",
+                    "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "negative",
-                    "id": "1ae6502d-fb2a-4595-97c4-97fdea1eeef2",
-                    "path": "<Keyboard>/leftShift",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Thrust",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "8badd283-b98b-4855-b32c-df307bfd43f5",
+                    "name": "",
+                    "id": "8481a98a-9a4c-4f41-a94b-b112e270b464",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Thrust",
+                    "action": "Push",
                     "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Gamepad",
-                    "id": "bb89e441-f0e3-4abd-8fac-1e0dbeb38c17",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Thrust",
-                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "negative",
-                    "id": "09158181-d10d-4973-bc1e-385ead42e2fd",
-                    "path": "<Gamepad>/leftTrigger",
+                    "name": "",
+                    "id": "ec337c4c-b0de-4cec-a5a2-f3545988f43e",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Thrust",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Interact",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
-                    "name": "positive",
-                    "id": "3341ad72-930f-41fb-a43d-7937e8d684e8",
-                    "path": "<Gamepad>/rightTrigger",
+                    "name": "",
+                    "id": "0aa3efee-bdfd-4b5a-bdcd-94a75854d9b2",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Thrust",
+                    "action": "Interact",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 }
             ]
         },

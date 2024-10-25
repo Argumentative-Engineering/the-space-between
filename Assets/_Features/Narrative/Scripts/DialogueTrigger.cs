@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using FMODUnity;
 using UnityEngine;
 
-public class DialogueTrigger : GameTrigger
+public class DialogueTrigger : TriggerInteractable
 {
     [SerializeField] EventReference _dialogueEvent;
 
-    protected override void ProcessTrigger()
+    protected override void Trigger()
     {
         NarrativeManager.Instance.PlaySequence(_dialogueEvent);
     }
