@@ -38,8 +38,8 @@ public class PlayerInteraction : MonoBehaviour
     public void MoveCamera(Vector3 pos, Quaternion rot)
     {
         _settings.IsFrozen = true;
-        _prevPos = pos;
-        _prevRot = rot;
+        _prevPos = Camera.main.transform.position;
+        _prevRot = Camera.main.transform.rotation;
         Camera.main.transform.SetPositionAndRotation(pos, rot);
     }
 }
