@@ -11,7 +11,7 @@ public class TriggerInteractable : GameInteractable
 
     private void OnTriggerEnter(Collider other)
     {
-        Interact();
+        TryInteract();
         Trigger();
     }
 

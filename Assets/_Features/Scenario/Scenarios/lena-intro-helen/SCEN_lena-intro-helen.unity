@@ -278,7 +278,7 @@ Transform:
   m_GameObject: {fileID: 223021766}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0012377817, y: -0, z: -0, w: 0.9999992}
-  m_LocalPosition: {x: -1.432, y: -1.0480001, z: 1.978}
+  m_LocalPosition: {x: -1.626, y: -1.0480001, z: 1.978}
   m_LocalScale: {x: 0.3416659, y: 0.04378791, z: 0.3416659}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -510,7 +510,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   RunOnce: 1
-  _dialogueEvent: {fileID: 11400000, guid: 507b378541880c642b7875cb6c3693be, type: 2}
+  _dialogueEvent: {fileID: 11400000, guid: 5f90bfa5c878d15469e72a9de0f0b531, type: 2}
   _cameraPoint: {fileID: 405602045}
 --- !u!1 &664749325
 GameObject:
@@ -540,7 +540,7 @@ Transform:
   m_GameObject: {fileID: 664749325}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0012377817, y: -0, z: -0, w: 0.9999992}
-  m_LocalPosition: {x: -1.432, y: -1.003, z: 1.978}
+  m_LocalPosition: {x: -1.626, y: -1.003, z: 1.978}
   m_LocalScale: {x: 0.3416659, y: 0.04378791, z: 0.3416659}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -770,7 +770,7 @@ Transform:
   m_GameObject: {fileID: 1228376193}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0012377817, y: -0, z: -0, w: 0.9999992}
-  m_LocalPosition: {x: -1.432, y: -1.0999999, z: 1.978}
+  m_LocalPosition: {x: -1.626, y: -1.0999999, z: 1.978}
   m_LocalScale: {x: 0.3416659, y: 0.04378791, z: 0.3416659}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -999,6 +999,37 @@ Transform:
   - {fileID: 8528085166611308944}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1656985235
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1656985236}
+  m_Layer: 3
+  m_Name: Camera Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1656985236
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656985235}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.00000019371507, y: -0.70710725, z: 0.70710635, w: 0.00000023841855}
+  m_LocalPosition: {x: 0, y: 16.2, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2090915738}
+  m_LocalEulerAnglesHint: {x: 90, y: -180, z: 0}
 --- !u!1001 &1881576405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1106,7 +1137,7 @@ Transform:
   m_GameObject: {fileID: 1961119743}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0012377817, y: -0, z: -0, w: 0.9999992}
-  m_LocalPosition: {x: -1.432, y: -1.1570001, z: 1.978}
+  m_LocalPosition: {x: -1.626, y: -1.1570001, z: 1.978}
   m_LocalScale: {x: 0.3416659, y: 0.04378791, z: 0.3416659}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1211,13 +1242,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2090915737}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40605253, y: -0, z: -0, w: 0.9138498}
-  m_LocalPosition: {x: -1.432, y: -1.064, z: 2.299}
+  m_LocalRotation: {x: 0.29113895, y: 0.63702166, z: -0.28304878, w: 0.655229}
+  m_LocalPosition: {x: -1.313, y: -1.064, z: 2.04}
   m_LocalScale: {x: 0.3416659, y: 0.04378791, z: 0.3416659}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1656985236}
   m_Father: {fileID: 1254689345}
-  m_LocalEulerAnglesHint: {x: 47.914, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 47.914, y: 88.386, z: 0}
 --- !u!65 &2090915739
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1305,8 +1337,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   RunOnce: 1
-  _dialogueEvent: {fileID: 0}
-  _cameraPoint: {fileID: 0}
+  _dialogueEvent: {fileID: 11400000, guid: 493beb10420425b49add46bd85bec166, type: 2}
+  _cameraPoint: {fileID: 1656985236}
 --- !u!4 &196072190621340257 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1fee22ab264fba045872de909460b86c,

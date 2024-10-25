@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9062660586814833747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Dialogue/lena-intro-helen/Lena_MarinePostcard
+  m_EditorClassIdentifier: 
+  Path: event:/Dialogue/lena-intro-helen/Lena_MarinePostcard
+  Guid:
+    Data1: -889762261
+    Data2: 1109295495
+    Data3: 805291955
+    Data4: 538226000
+  Banks:
+  - {fileID: -3978898964487637419}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 10804
 --- !u!114 &-3978898964487637419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,10 +42,10 @@ MonoBehaviour:
   Path: Assets/_Audio/LenaSpace/Build/Desktop/Dialogue.bank
   Name: Dialogue
   StudioPath: bank:/Dialogue
-  lastModified: 638655041509225692
+  lastModified: 638655064926982196
   FileSizes:
   - Name: Desktop
-    Value: 95136
+    Value: 395040
   Exists: 1
 --- !u!114 &-3244233374311610670
 MonoBehaviour:
@@ -35,10 +62,10 @@ MonoBehaviour:
   Path: Assets/_Audio/LenaSpace/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638655023075645629
+  lastModified: 638655061876656571
   FileSizes:
   - Name: Desktop
-    Value: 842
+    Value: 934
   Exists: 1
 --- !u!114 &-1483246309528866834
 MonoBehaviour:
@@ -55,7 +82,7 @@ MonoBehaviour:
   Path: Assets/_Audio/LenaSpace/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638655023075624749
+  lastModified: 638655061876641535
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -78,12 +105,14 @@ MonoBehaviour:
   - {fileID: -3978898964487637419}
   EditorEvents:
   - {fileID: 6057692513757837323}
+  - {fileID: -9062660586814833747}
+  - {fileID: 5968261938504849982}
   EditorParameters: []
   MasterBanks:
   - {fileID: -1483246309528866834}
   StringsBanks:
   - {fileID: -3244233374311610670}
-  cacheTime: 638655041509225692
+  cacheTime: 638655064926982196
   cacheVersion: 131620
 --- !u!114 &831694236546328515
 MonoBehaviour:
@@ -145,6 +174,33 @@ MonoBehaviour:
   - Name: Desktop
     Value: 812
   Exists: 1
+--- !u!114 &5968261938504849982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Dialogue/lena-intro-helen/Lena_DVD
+  m_EditorClassIdentifier: 
+  Path: event:/Dialogue/lena-intro-helen/Lena_DVD
+  Guid:
+    Data1: -420107177
+    Data2: 1111071286
+    Data3: -1154196318
+    Data4: 1579030477
+  Banks:
+  - {fileID: -3978898964487637419}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 15500
 --- !u!114 &6057692513757837323
 MonoBehaviour:
   m_ObjectHideFlags: 0

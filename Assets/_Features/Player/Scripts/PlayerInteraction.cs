@@ -29,8 +29,8 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (hit.collider.TryGetComponent(out GameInteractable interactable))
             {
-                interactable.Interact();
-                _isInteracting = true;
+                if (interactable.TryInteract())
+                    _isInteracting = true;
             }
         }
     }

@@ -94,7 +94,7 @@
 	<object class="MixerBusPanner" id="{a27ded3d-3f00-434e-b8b7-c4794006ee3b}" />
 	<object class="SingleSound" id="{897a29c5-c169-412b-a5f2-9ca23a1b08db}">
 		<property name="length">
-			<value>37.342562358276631</value>
+			<value>10.804971695439182</value>
 		</property>
 		<property name="timelockedOffset">
 			<value>1</value>
@@ -122,7 +122,7 @@
 			<value>0</value>
 		</property>
 		<property name="name">
-			<value>lena-marine-001</value>
+			<value>lena-postcard-001</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{a953e842-5b5c-46f7-ac84-2fe4d9a3c8f3}</destination>
@@ -136,7 +136,7 @@
 			<value>4.9000000000000004</value>
 		</property>
 		<property name="name">
-			<value>lena-marine-002</value>
+			<value>lena-postcard-002</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{a953e842-5b5c-46f7-ac84-2fe4d9a3c8f3}</destination>

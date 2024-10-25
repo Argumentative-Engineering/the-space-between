@@ -19,6 +19,8 @@ public class NarrativeManager : MonoBehaviour
     EventInstance _dialogueInstance;
     DialogueData _currentDialogue;
 
+    public bool IsRunning { get; set; }
+
     public static NarrativeManager Instance { get; private set; }
     private void Awake()
     {
@@ -28,13 +30,11 @@ public class NarrativeManager : MonoBehaviour
     private void OnEnable()
     {
         _audioSource.OnMarker += OnMarkerEvent;
-        _audioSource.OnComplete += StopSequence;
     }
     private void OnDisable()
     {
 
         _audioSource.OnMarker -= OnMarkerEvent;
-        _audioSource.OnComplete -= StopSequence;
     }
 
     public void PlayDialogue(DialogueData data)
@@ -48,11 +48,7 @@ public class NarrativeManager : MonoBehaviour
         _dialogueInstance = RuntimeManager.CreateInstance(dialogue);
         _dialogueInstance.start();
         _audioSource.AssignEvents(_dialogueInstance);
-    }
-
-    public void StopSequence()
-    {
-
+        IsRunning = true;
     }
 
     void OnDestroy()
@@ -63,21 +59,12 @@ public class NarrativeManager : MonoBehaviour
 
     private void OnMarkerEvent(string marker)
     {
-        // if (marker == "end")
-        // {
-        //     StopSequence();
-        //     return;
-        // }
-
         var line = _currentDialogue.Subtitles.Where(d => d.Key == marker).FirstOrDefault() ?? new Subtitle()
         {
             Speaker = "Test speaker",
             Text = "I'm missing dialogue please contact seifer or jimae or aaron:(",
         };
 
-        // var splits = marker.Split('_');
-        // var speaker = splits[0];
-        // var text = splits[1];
         _dialogueSpeakerUI.text = line.Speaker.Trim();
         _dialogueTextUI.text = line.Text.Trim();
 
@@ -88,6 +75,9 @@ public class NarrativeManager : MonoBehaviour
         _dialogueTextUI.DOFade(1, _fadeDuration);
 
         _dialogueSpeakerUI.DOFade(0, _fadeDuration).SetDelay(10);
-        _dialogueTextUI.DOFade(0, _fadeDuration).SetDelay(10);
+        _dialogueTextUI.DOFade(0, _fadeDuration).SetDelay(10).OnComplete(() =>
+        {
+            IsRunning = false;
+        });
     }
 }

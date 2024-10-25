@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe2486cf161aa8489498b93df701f1b, type: 3}
+  m_Name: SUB_Lena_Postcard
+  m_EditorClassIdentifier: 
+  DialogueEvent:
+    Guid:
+      Data1: -889762261
+      Data2: 1109295495
+      Data3: 805291955
+      Data4: 538226000
+    Path: event:/Dialogue/lena-intro-helen/Lena_MarinePostcard
+  Subtitles:
+  - Key: lena-postcard-001
+    Speaker: Lena
+    Text: I wonder if it'll be similar, if I'll know for myself which one's more
+      terrifying.
+  - Key: lena-postcard-002
+    Speaker: Lena
+    Text: "If I'll be able to put an end to the debate of what\u2019s worse between
+      unknown dark oceans and unknown dark space."

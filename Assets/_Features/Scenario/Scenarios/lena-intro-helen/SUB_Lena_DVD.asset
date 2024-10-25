@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe2486cf161aa8489498b93df701f1b, type: 3}
+  m_Name: SUB_Lena_DVD
+  m_EditorClassIdentifier: 
+  DialogueEvent:
+    Guid:
+      Data1: -420107177
+      Data2: 1111071286
+      Data3: -1154196318
+      Data4: 1579030477
+    Path: event:/Dialogue/lena-intro-helen/Lena_DVD
+  Subtitles:
+  - Key: lena-dvd-001
+    Speaker: Lena
+    Text: I'm not sure what this'll do for me honestly.
+  - Key: lena-dvd-002
+    Speaker: Lena
+    Text: One piece of entertainment. I thought it would have been poetic to bring
+      what inspired me as a kid to be here now,
+  - Key: lena-dvd-003
+    Speaker: Lena
+    Text: but all it does is remind me of risks and coldness that I already live
+      in.
+  - Key: lena-dvd-004
+    Speaker: Lena
+    Text: And will have to live in for longer than I want.
