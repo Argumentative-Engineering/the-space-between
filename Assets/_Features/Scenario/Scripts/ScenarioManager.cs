@@ -16,4 +16,9 @@ public class ScenarioManager : MonoBehaviour
     {
         Instance = this;
     }
+
+    public void RunNextScenario()
+    {
+
+    }
 }

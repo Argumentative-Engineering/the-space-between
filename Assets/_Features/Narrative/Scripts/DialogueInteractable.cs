@@ -7,11 +7,11 @@ public class DialogueInteractable : GameInteractable
 
     public override bool TryInteract()
     {
-        base.TryInteract();
         if (NarrativeManager.Instance.IsRunning) return false;
         NarrativeManager.Instance.PlayDialogue(_dialogueEvent);
         GameManager.Instance.Player.GetComponent<PlayerInteraction>().MoveCamera(_cameraPoint.position, _cameraPoint.rotation);
 
+        base.TryInteract();
         return true;
     }
 }

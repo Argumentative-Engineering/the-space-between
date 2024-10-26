@@ -74,8 +74,8 @@ public class NarrativeManager : MonoBehaviour
         _dialogueSpeakerUI.DOFade(1, _fadeDuration);
         _dialogueTextUI.DOFade(1, _fadeDuration);
 
-        _dialogueSpeakerUI.DOFade(0, _fadeDuration).SetDelay(10);
-        _dialogueTextUI.DOFade(0, _fadeDuration).SetDelay(10).OnComplete(() =>
+        _dialogueSpeakerUI.DOFade(0, _fadeDuration).SetDelay(5);
+        _dialogueTextUI.DOFade(0, _fadeDuration).SetDelay(5).OnComplete(() =>
         {
             IsRunning = false;
         });
