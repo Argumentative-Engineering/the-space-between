@@ -1,5 +1,5 @@
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
@@ -10,25 +10,16 @@ public class ScenarioKey
 
 public class ScenarioController : MonoBehaviour
 {
+    // for tracking purposes
+    public string ScenarioName;
     [SerializeField] Transform _playerStart;
     public Dictionary<string, dynamic> ScenarioKeys = new();
-    public ScenarioController NextScenario;
 
-    public virtual void RunScenario()
+    public virtual IEnumerator RunScenario()
     {
         if (_playerStart != null)
             GameManager.Instance.MovePlayer(_playerStart);
-    }
 
-    public void PlayNextScenario()
-    {
-        NextScenario.RunScenario();
-    }
-
-    public void RegisterScenario(ScenarioController scenario)
-    {
-        ScenarioManager.Instance.Scenarios.Enqueue(scenario);
-        if (scenario.NextScenario != null)
-            ScenarioManager.Instance.Scenarios.Enqueue(scenario.NextScenario);
+        yield return null;
     }
 }

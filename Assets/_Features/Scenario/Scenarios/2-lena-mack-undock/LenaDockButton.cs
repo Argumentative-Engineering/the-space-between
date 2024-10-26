@@ -29,9 +29,12 @@ public class LenaDockButton : DialogueInteractable
     {
         if (!_canDock) return false;
         if (!base.TryInteract()) return false;
-        _dockButton.material.DOColor(Color.white, "_EmissionColor", 0.3f);
+        _dockButton.material.DOColor(Color.white, "_EmissionColor", 0.3f).OnComplete(() => NextSeq());
         return true;
     }
 
-
+    void NextSeq()
+    {
+        ScenarioManager.Instance.RunNextScenario();
+    }
 }

@@ -7,6 +7,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] LayerMask _interactMask;
 
     [Header("References")]
+    [SerializeField] PlayerLocalInput _input;
     [SerializeField] PlayerSettings _settings;
 
     bool _isInteracting;
@@ -33,6 +34,14 @@ public class PlayerInteraction : MonoBehaviour
                 if (interactable.TryInteract())
                     _isInteracting = true;
             }
+        }
+    }
+
+    void Update()
+    {
+        if (_isInteracting && _input.MoveVector.y < 0)
+        {
+            Interact();
         }
     }
 

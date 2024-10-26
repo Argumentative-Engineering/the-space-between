@@ -51,17 +51,39 @@ public class NarrativeManager : MonoBehaviour
         IsRunning = true;
     }
 
+    public void StopSequence()
+    {
+        _dialogueSpeakerUI.DOFade(0, _fadeDuration).SetDelay(5);
+        _dialogueTextUI.DOFade(0, _fadeDuration).SetDelay(5);
+
+        _dialogueInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        _dialogueInstance.release();
+
+        IsRunning = false;
+    }
+
     void OnDestroy()
     {
         _dialogueInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         _dialogueInstance.release();
+
+        IsRunning = false;
     }
 
     private void OnMarkerEvent(string marker)
     {
+        _dialogueSpeakerUI.DOKill();
+        _dialogueTextUI.DOKill();
+
         if (marker.StartsWith("evt:"))
         {
             EventManager.Instance.BroadcastEvent(marker.Split(":")[1]);
+            return;
+        }
+
+        if (marker == "end")
+        {
+            StopSequence();
             return;
         }
 
@@ -75,16 +97,9 @@ public class NarrativeManager : MonoBehaviour
         _dialogueSpeakerUI.text = line.Speaker.Trim();
         _dialogueTextUI.text = line.Text.Trim();
 
-        _dialogueSpeakerUI.DOKill();
-        _dialogueTextUI.DOKill();
 
         _dialogueSpeakerUI.DOFade(1, _fadeDuration);
         _dialogueTextUI.DOFade(1, _fadeDuration);
 
-        _dialogueSpeakerUI.DOFade(0, _fadeDuration).SetDelay(5);
-        _dialogueTextUI.DOFade(0, _fadeDuration).SetDelay(5).OnComplete(() =>
-        {
-            IsRunning = false;
-        });
     }
 }

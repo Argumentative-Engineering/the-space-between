@@ -78,6 +78,7 @@
 		</relationship>
 		<relationship name="markers">
 			<destination>{b1f0b4f8-7369-4208-829b-206baec89908}</destination>
+			<destination>{514d8951-6061-489a-a729-9e883b48b2d5}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{5ac63524-2c1f-4242-80bc-ab5b677e7abd}">
@@ -139,6 +140,20 @@
 		</property>
 		<property name="name">
 			<value>lena-godspeed</value>
+		</property>
+		<relationship name="timeline">
+			<destination>{091634b8-793d-4111-8d8d-c8df9683a4a0}</destination>
+		</relationship>
+		<relationship name="markerTrack">
+			<destination>{4ebcba63-8aa7-4fc1-aa09-d93776eeb5db}</destination>
+		</relationship>
+	</object>
+	<object class="NamedMarker" id="{514d8951-6061-489a-a729-9e883b48b2d5}">
+		<property name="position">
+			<value>2.3599999999999999</value>
+		</property>
+		<property name="name">
+			<value>end</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{091634b8-793d-4111-8d8d-c8df9683a4a0}</destination>

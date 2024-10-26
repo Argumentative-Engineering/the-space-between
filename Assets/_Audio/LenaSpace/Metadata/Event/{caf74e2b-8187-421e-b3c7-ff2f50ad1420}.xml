@@ -74,6 +74,8 @@
 		<relationship name="markers">
 			<destination>{14121770-d08a-4f51-bcb7-d86aac3faf98}</destination>
 			<destination>{9a2a79d6-5938-4b35-a593-9299630c4662}</destination>
+			<destination>{eda59f1f-46d2-4d75-9c00-790173dc95cf}</destination>
+			<destination>{6ba06713-4256-4bd9-ad97-8351d27e386b}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{138cb5d6-3c18-4788-857a-71f1e17111c2}">
@@ -138,6 +140,34 @@
 		</property>
 		<property name="name">
 			<value>lena-postcard-002</value>
+		</property>
+		<relationship name="timeline">
+			<destination>{a953e842-5b5c-46f7-ac84-2fe4d9a3c8f3}</destination>
+		</relationship>
+		<relationship name="markerTrack">
+			<destination>{14e943f2-525e-4ba0-a5ba-aa18e3a1bbeb}</destination>
+		</relationship>
+	</object>
+	<object class="NamedMarker" id="{eda59f1f-46d2-4d75-9c00-790173dc95cf}">
+		<property name="position">
+			<value>10.800000000000001</value>
+		</property>
+		<property name="name">
+			<value>end</value>
+		</property>
+		<relationship name="timeline">
+			<destination>{a953e842-5b5c-46f7-ac84-2fe4d9a3c8f3}</destination>
+		</relationship>
+		<relationship name="markerTrack">
+			<destination>{14e943f2-525e-4ba0-a5ba-aa18e3a1bbeb}</destination>
+		</relationship>
+	</object>
+	<object class="NamedMarker" id="{6ba06713-4256-4bd9-ad97-8351d27e386b}">
+		<property name="position">
+			<value>10.599606264610431</value>
+		</property>
+		<property name="name">
+			<value>evt:item-checked</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{a953e842-5b5c-46f7-ac84-2fe4d9a3c8f3}</destination>

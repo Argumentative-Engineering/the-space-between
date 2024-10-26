@@ -76,6 +76,8 @@
 			<destination>{0932fec2-8186-4aa0-90a5-980138b8cff4}</destination>
 			<destination>{49155b56-fa90-4d1d-937d-fe056277e7ba}</destination>
 			<destination>{4ac277c5-a25e-4487-b062-5bda0c779c90}</destination>
+			<destination>{65a47030-4a85-4e6d-b749-0ed97f40dd13}</destination>
+			<destination>{5fac1f69-f5ac-4ed3-817f-92abc45e2040}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{a2b9e269-e834-4bbb-aa0c-f03727149983}">
@@ -165,6 +167,34 @@
 		</property>
 		<property name="name">
 			<value>lena-dvd-004</value>
+		</property>
+		<relationship name="timeline">
+			<destination>{4372c334-7da2-4a5f-80e0-0d961a2a82a9}</destination>
+		</relationship>
+		<relationship name="markerTrack">
+			<destination>{69325316-2a60-4604-b065-77c57bb2e8c3}</destination>
+		</relationship>
+	</object>
+	<object class="NamedMarker" id="{65a47030-4a85-4e6d-b749-0ed97f40dd13}">
+		<property name="position">
+			<value>15.5</value>
+		</property>
+		<property name="name">
+			<value>end</value>
+		</property>
+		<relationship name="timeline">
+			<destination>{4372c334-7da2-4a5f-80e0-0d961a2a82a9}</destination>
+		</relationship>
+		<relationship name="markerTrack">
+			<destination>{69325316-2a60-4604-b065-77c57bb2e8c3}</destination>
+		</relationship>
+	</object>
+	<object class="NamedMarker" id="{5fac1f69-f5ac-4ed3-817f-92abc45e2040}">
+		<property name="position">
+			<value>15.4</value>
+		</property>
+		<property name="name">
+			<value>evt:item-checked</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{4372c334-7da2-4a5f-80e0-0d961a2a82a9}</destination>

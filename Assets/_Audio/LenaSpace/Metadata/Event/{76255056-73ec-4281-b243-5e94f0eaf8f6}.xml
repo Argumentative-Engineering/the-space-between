@@ -90,6 +90,7 @@
 			<destination>{2799779f-0892-4bf1-978c-29e2ede0d520}</destination>
 			<destination>{e88986b5-917f-4e9f-bd69-38dbdc32852c}</destination>
 			<destination>{1e5f91fc-94c0-4210-bcd5-130c0ed454cb}</destination>
+			<destination>{4cb8b3f8-1462-4a2c-bc82-c675a25b8a81}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{863bb92c-06f1-404a-81ea-ce5303cb6466}">
@@ -252,6 +253,20 @@
 		</property>
 		<property name="name">
 			<value>evt:dock-button</value>
+		</property>
+		<relationship name="timeline">
+			<destination>{9a16cdd5-0093-4e68-9088-032148f463b0}</destination>
+		</relationship>
+		<relationship name="markerTrack">
+			<destination>{ef699441-9231-4d80-bca7-60f26755bc11}</destination>
+		</relationship>
+	</object>
+	<object class="NamedMarker" id="{4cb8b3f8-1462-4a2c-bc82-c675a25b8a81}">
+		<property name="position">
+			<value>8.724137931034484</value>
+		</property>
+		<property name="name">
+			<value>end</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{9a16cdd5-0093-4e68-9088-032148f463b0}</destination>

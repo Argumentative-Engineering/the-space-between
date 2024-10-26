@@ -1,3 +1,6 @@
+using System.Collections;
+using UnityEngine;
+
 public class LenaIntroScenario : ScenarioController
 {
     private void Awake()
@@ -7,24 +10,27 @@ public class LenaIntroScenario : ScenarioController
 
     private void Start()
     {
-        RegisterScenario(this);
         ScenarioManager.Instance.RunNextScenario();
+        EventManager.Instance.RegisterListener("item-checked", CheckedItem);
     }
 
-    public void CheckedItem()
+    private void OnDisable()
+    {
+        EventManager.Instance.UnregisterListener("item-checked", CheckedItem);
+    }
+
+    public void CheckedItem(object[] obj)
     {
         var count = ScenarioKeys["item-checked-count"];
         count++;
         ScenarioKeys["item-checked-count"] = count;
 
         if (count == 3)
-        {
             Invoke(nameof(StartBeeping), 5);
-        }
     }
 
     void StartBeeping()
     {
-        ScenarioManager.Instance.RunScenario(NextScenario);
+        ScenarioManager.Instance.RunNextScenario();
     }
 }
