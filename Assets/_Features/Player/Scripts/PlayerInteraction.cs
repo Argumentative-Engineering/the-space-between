@@ -14,13 +14,14 @@ public class PlayerInteraction : MonoBehaviour
     Vector3 _prevPos;
     Quaternion _prevRot;
 
-
     public void Interact()
     {
         if (_isInteracting)
         {
             _isInteracting = false;
             MoveCamera(_prevPos, _prevRot);
+            _prevPos = Vector3.zero;
+            _prevRot = Quaternion.identity;
             _settings.IsFrozen = false;
         }
         if (_settings.IsFrozen) return;
@@ -37,6 +38,7 @@ public class PlayerInteraction : MonoBehaviour
 
     public void MoveCamera(Vector3 pos, Quaternion rot)
     {
+        if (pos == Vector3.zero || rot == Quaternion.identity) return;
         _settings.IsFrozen = true;
         _prevPos = Camera.main.transform.position;
         _prevRot = Camera.main.transform.rotation;

@@ -9,9 +9,10 @@ public class DialogueInteractable : GameInteractable
     {
         if (NarrativeManager.Instance.IsRunning) return false;
         NarrativeManager.Instance.PlayDialogue(_dialogueEvent);
-        GameManager.Instance.Player.GetComponent<PlayerInteraction>().MoveCamera(_cameraPoint.position, _cameraPoint.rotation);
+        if (_cameraPoint != null)
+            GameManager.Instance.Player.GetComponent<PlayerInteraction>().MoveCamera(_cameraPoint.position, _cameraPoint.rotation);
 
-        base.TryInteract();
-        return true;
+
+        return base.TryInteract();
     }
 }

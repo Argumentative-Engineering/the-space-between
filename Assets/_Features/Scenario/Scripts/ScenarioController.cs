@@ -12,9 +12,23 @@ public class ScenarioController : MonoBehaviour
 {
     [SerializeField] Transform _playerStart;
     public Dictionary<string, dynamic> ScenarioKeys = new();
+    public ScenarioController NextScenario;
 
-    private void Start()
+    public virtual void RunScenario()
     {
-        GameManager.Instance.MovePlayer(_playerStart);
+        if (_playerStart != null)
+            GameManager.Instance.MovePlayer(_playerStart);
+    }
+
+    public void PlayNextScenario()
+    {
+        NextScenario.RunScenario();
+    }
+
+    public void RegisterScenario(ScenarioController scenario)
+    {
+        ScenarioManager.Instance.Scenarios.Enqueue(scenario);
+        if (scenario.NextScenario != null)
+            ScenarioManager.Instance.Scenarios.Enqueue(scenario.NextScenario);
     }
 }

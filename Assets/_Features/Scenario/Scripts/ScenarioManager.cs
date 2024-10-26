@@ -1,13 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using NaughtyAttributes;
 using UnityEngine;
 
 public class ScenarioManager : MonoBehaviour
 {
-    [ReorderableList]
-    [Scene]
-    public List<string> ScenarioList;
+    public Queue<ScenarioController> Scenarios = new();
 
     [field: SerializeField, ReadOnly] public ScenarioController CurrentScenario { get; set; }
 
@@ -19,6 +16,25 @@ public class ScenarioManager : MonoBehaviour
 
     public void RunNextScenario()
     {
-
+        if (Scenarios.TryDequeue(out ScenarioController scenario))
+        {
+            CurrentScenario = scenario;
+            CurrentScenario.RunScenario();
+        }
     }
+    public void RunScenario(ScenarioController scenario)
+    {
+        CurrentScenario = scenario;
+    }
+
+#if UNITY_EDITOR
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            RunNextScenario();
+        }
+    }
+#endif
+
 }

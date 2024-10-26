@@ -1,5 +1,25 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9222354211349397678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambience.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/_Audio/LenaSpace/Build/Desktop/Ambience.bank
+  Name: Ambience
+  StudioPath: bank:/Ambience
+  lastModified: 638655705915627608
+  FileSizes:
+  - Name: Desktop
+    Value: 100192
+  Exists: 1
 --- !u!114 &-9062660586814833747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20,6 +40,7 @@ MonoBehaviour:
     Data4: 538226000
   Banks:
   - {fileID: -3978898964487637419}
+  - {fileID: -1483246309528866834}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -27,6 +48,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 10804
+--- !u!114 &-6849341741913151027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Dialogue/lena-mack-undock/Lena_Godspeed
+  m_EditorClassIdentifier: 
+  Path: event:/Dialogue/lena-mack-undock/Lena_Godspeed
+  Guid:
+    Data1: -1876591246
+    Data2: 1271001561
+    Data3: 170651528
+    Data4: -1872074447
+  Banks:
+  - {fileID: -3978898964487637419}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
 --- !u!114 &-3978898964487637419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,10 +90,30 @@ MonoBehaviour:
   Path: Assets/_Audio/LenaSpace/Build/Desktop/Dialogue.bank
   Name: Dialogue
   StudioPath: bank:/Dialogue
-  lastModified: 638655064926982196
+  lastModified: 638655764445689058
   FileSizes:
   - Name: Desktop
-    Value: 395040
+    Value: 399616
+  Exists: 1
+--- !u!114 &-3807329486584259714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/_Audio/LenaSpace/Build/Desktop/SFX.bank
+  Name: SFX
+  StudioPath: bank:/SFX
+  lastModified: 638655708299346244
+  FileSizes:
+  - Name: Desktop
+    Value: 2368
   Exists: 1
 --- !u!114 &-3244233374311610670
 MonoBehaviour:
@@ -62,11 +130,39 @@ MonoBehaviour:
   Path: Assets/_Audio/LenaSpace/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638655061876656571
+  lastModified: 638655764445441724
   FileSizes:
   - Name: Desktop
-    Value: 934
+    Value: 1240
   Exists: 1
+--- !u!114 &-2056158652255594142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/Helen/HelenHum_Loop
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/Helen/HelenHum_Loop
+  Guid:
+    Data1: 2012177736
+    Data2: 1339414165
+    Data3: -1451472759
+    Data4: 1555768133
+  Banks:
+  - {fileID: -9222354211349397678}
+  - {fileID: -1483246309528866834}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 10000
 --- !u!114 &-1483246309528866834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,10 +178,10 @@ MonoBehaviour:
   Path: Assets/_Audio/LenaSpace/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638655061876641535
+  lastModified: 638655764445421141
   FileSizes:
   - Name: Desktop
-    Value: 1036
+    Value: 495040
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -103,16 +199,22 @@ MonoBehaviour:
   - {fileID: -3244233374311610670}
   - {fileID: -1483246309528866834}
   - {fileID: -3978898964487637419}
+  - {fileID: -9222354211349397678}
+  - {fileID: -3807329486584259714}
   EditorEvents:
   - {fileID: 6057692513757837323}
   - {fileID: -9062660586814833747}
   - {fileID: 5968261938504849982}
+  - {fileID: -2056158652255594142}
+  - {fileID: 4532552803095734090}
+  - {fileID: 7315804157518444909}
+  - {fileID: -6849341741913151027}
   EditorParameters: []
   MasterBanks:
   - {fileID: -1483246309528866834}
   StringsBanks:
   - {fileID: -3244233374311610670}
-  cacheTime: 638655064926982196
+  cacheTime: 638655764445689058
   cacheVersion: 131620
 --- !u!114 &831694236546328515
 MonoBehaviour:
@@ -154,6 +256,33 @@ MonoBehaviour:
   - Name: Desktop
     Value: 52704
   Exists: 1
+--- !u!114 &4532552803095734090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Dialogue/lena-mack-undock/Lena_Mack_Ready
+  m_EditorClassIdentifier: 
+  Path: event:/Dialogue/lena-mack-undock/Lena_Mack_Ready
+  Guid:
+    Data1: 1982156886
+    Data2: 1115780076
+    Data3: -1805761614
+    Data4: -151459088
+  Banks:
+  - {fileID: -3978898964487637419}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 8724
 --- !u!114 &4982341041968944528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,6 +323,7 @@ MonoBehaviour:
     Data4: 1579030477
   Banks:
   - {fileID: -3978898964487637419}
+  - {fileID: -1483246309528866834}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -221,6 +351,7 @@ MonoBehaviour:
     Data4: -999241336
   Banks:
   - {fileID: -3978898964487637419}
+  - {fileID: -1483246309528866834}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -255,3 +386,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 5000
+--- !u!114 &7315804157518444909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/MicBeep
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/MicBeep
+  Guid:
+    Data1: 844967834
+    Data2: 1291148487
+    Data3: -906964297
+    Data4: -801567553
+  Banks:
+  - {fileID: -3807329486584259714}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{a5fad618-c5e4-45ec-be91-b1851c916e48}">
+		<property name="assetPath">
+			<value>Ambience/AMB_HelenInterior_Loop.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>10</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{59b80936-5114-418d-9e0b-e3c3ac83cc0b}</destination>
+		</relationship>
+	</object>
+</objects>

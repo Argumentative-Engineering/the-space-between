@@ -59,11 +59,18 @@ public class NarrativeManager : MonoBehaviour
 
     private void OnMarkerEvent(string marker)
     {
-        var line = _currentDialogue.Subtitles.Where(d => d.Key == marker).FirstOrDefault() ?? new Subtitle()
+        if (marker.StartsWith("evt:"))
         {
-            Speaker = "Test speaker",
-            Text = "I'm missing dialogue please contact seifer or jimae or aaron:(",
-        };
+            EventManager.Instance.BroadcastEvent(marker.Split(":")[1]);
+            return;
+        }
+
+        var line = _currentDialogue.Subtitles.Where(d => d.Key == marker).FirstOrDefault();
+        if (line == null)
+        {
+            Debug.LogError($"Missing dialogue for: {marker}; Current dialogue: {_currentDialogue.DialogueEvent.Path}");
+            return;
+        }
 
         _dialogueSpeakerUI.text = line.Speaker.Trim();
         _dialogueTextUI.text = line.Text.Trim();
