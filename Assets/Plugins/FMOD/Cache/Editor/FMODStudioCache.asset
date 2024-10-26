@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: Assets/_Audio/LenaSpace/Build/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 638655705915627608
+  lastModified: 638655853624135304
   FileSizes:
   - Name: Desktop
     Value: 100192
@@ -90,7 +90,7 @@ MonoBehaviour:
   Path: Assets/_Audio/LenaSpace/Build/Desktop/Dialogue.bank
   Name: Dialogue
   StudioPath: bank:/Dialogue
-  lastModified: 638655764445689058
+  lastModified: 638655853624156978
   FileSizes:
   - Name: Desktop
     Value: 399616
@@ -110,7 +110,7 @@ MonoBehaviour:
   Path: Assets/_Audio/LenaSpace/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638655708299346244
+  lastModified: 638655853624204198
   FileSizes:
   - Name: Desktop
     Value: 2368
@@ -130,7 +130,7 @@ MonoBehaviour:
   Path: Assets/_Audio/LenaSpace/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638655764445441724
+  lastModified: 638655853624204198
   FileSizes:
   - Name: Desktop
     Value: 1240
@@ -178,7 +178,7 @@ MonoBehaviour:
   Path: Assets/_Audio/LenaSpace/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638655764445421141
+  lastModified: 638655853624194192
   FileSizes:
   - Name: Desktop
     Value: 495040
@@ -214,7 +214,7 @@ MonoBehaviour:
   - {fileID: -1483246309528866834}
   StringsBanks:
   - {fileID: -3244233374311610670}
-  cacheTime: 638655764445689058
+  cacheTime: 638655853624204198
   cacheVersion: 131620
 --- !u!114 &831694236546328515
 MonoBehaviour:
