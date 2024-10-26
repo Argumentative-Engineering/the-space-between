@@ -10,7 +10,7 @@ public class ObjectInsideVolume : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == ObjectToCount && ObjectsInside.Contains(other.gameObject))
+        if (ObjectsInside.Contains(other.gameObject))
         {
             ObjectsInside.Remove(other.gameObject);
         }
