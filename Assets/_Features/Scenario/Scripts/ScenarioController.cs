@@ -14,11 +14,14 @@ public class ScenarioController : MonoBehaviour
     public string ScenarioName;
     [SerializeField] Transform _playerStart;
     public Dictionary<string, dynamic> ScenarioKeys = new();
-
+    [SerializeField] PlayerMovementSettingsData _playerSettingsData;
     public virtual IEnumerator RunScenario()
     {
         if (_playerStart != null)
             GameManager.Instance.MovePlayer(_playerStart);
+
+        if (_playerSettingsData != null)
+            GameManager.Instance.Player.GetComponent<PlayerSettings>().UpdateSettings(_playerSettingsData);
 
         yield return null;
     }

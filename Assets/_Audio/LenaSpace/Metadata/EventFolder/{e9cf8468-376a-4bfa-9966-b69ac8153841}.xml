@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EventFolder" id="{e9cf8468-376a-4bfa-9966-b69ac8153841}">
+		<property name="name">
+			<value>lena-fb-swing</value>
+		</property>
+		<relationship name="folder">
+			<destination>{9c28516c-909d-46c0-b995-d9558c5514e5}</destination>
+		</relationship>
+	</object>
+</objects>
