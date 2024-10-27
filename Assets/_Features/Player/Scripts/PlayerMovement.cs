@@ -4,9 +4,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Settings")]
-    [SerializeField] float _moveSpeed = 5;
-
     [Header("References")]
     [SerializeField] PlayerSettings _settings;
     [SerializeField] Rigidbody _rigidbody;
@@ -31,7 +28,13 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         if (_settings.IsFrozen) return;
-        var vec = (Camera.main.transform.forward * _input.MoveVector.y + Camera.main.transform.right * _input.MoveVector.x).normalized * _moveSpeed;
+        var fwd = Camera.main.transform.forward;
+        var right = Camera.main.transform.right;
+
+        if (_settings.PlayerMovementSettings.UseGravity)
+            fwd.y = right.y = 0;
+
+        var vec = (fwd * _input.MoveVector.y + right * _input.MoveVector.x).normalized * _settings.PlayerMovementSettings.MoveSpeed;
         _rigidbody.AddForce(vec);
     }
 }

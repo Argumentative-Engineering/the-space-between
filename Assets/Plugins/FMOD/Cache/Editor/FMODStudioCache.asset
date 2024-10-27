@@ -90,10 +90,14 @@ MonoBehaviour:
   Path: Assets/_Audio/LenaSpace/Build/Desktop/Dialogue.bank
   Name: Dialogue
   StudioPath: bank:/Dialogue
+<<<<<<< HEAD
+  lastModified: 638656666300499903
+=======
   lastModified: 638656342710892841
+>>>>>>> e4af6b74a9426c965426e9f9b03f19b8855e71ff
   FileSizes:
   - Name: Desktop
-    Value: 399904
+    Value: 401120
   Exists: 1
 --- !u!114 &-3807329486584259714
 MonoBehaviour:
@@ -130,10 +134,14 @@ MonoBehaviour:
   Path: Assets/_Audio/LenaSpace/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
+<<<<<<< HEAD
+  lastModified: 638656666301200765
+=======
   lastModified: 638656342710944855
+>>>>>>> e4af6b74a9426c965426e9f9b03f19b8855e71ff
   FileSizes:
   - Name: Desktop
-    Value: 1296
+    Value: 1346
   Exists: 1
 --- !u!114 &-2513396972850113897
 MonoBehaviour:
@@ -205,7 +213,11 @@ MonoBehaviour:
   Path: Assets/_Audio/LenaSpace/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
+<<<<<<< HEAD
+  lastModified: 638656666301190777
+=======
   lastModified: 638656342710940064
+>>>>>>> e4af6b74a9426c965426e9f9b03f19b8855e71ff
   FileSizes:
   - Name: Desktop
     Value: 495264
@@ -237,12 +249,17 @@ MonoBehaviour:
   - {fileID: 7315804157518444909}
   - {fileID: -6849341741913151027}
   - {fileID: -2513396972850113897}
+  - {fileID: 3215152171934781956}
   EditorParameters: []
   MasterBanks:
   - {fileID: -1483246309528866834}
   StringsBanks:
   - {fileID: -3244233374311610670}
+<<<<<<< HEAD
+  cacheTime: 638656666301200765
+=======
   cacheTime: 638656342710955560
+>>>>>>> e4af6b74a9426c965426e9f9b03f19b8855e71ff
   cacheVersion: 131620
 --- !u!114 &831694236546328515
 MonoBehaviour:
@@ -264,6 +281,33 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1036
   Exists: 1
+--- !u!114 &3215152171934781956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Dialogue/lena-fb-swing/Kid_PushMe
+  m_EditorClassIdentifier: 
+  Path: event:/Dialogue/lena-fb-swing/Kid_PushMe
+  Guid:
+    Data1: 788159195
+    Data2: 1175841596
+    Data3: -1497249359
+    Data4: -10670694
+  Banks:
+  - {fileID: -3978898964487637419}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 6500
 --- !u!114 &3454553125403722147
 MonoBehaviour:
   m_ObjectHideFlags: 0

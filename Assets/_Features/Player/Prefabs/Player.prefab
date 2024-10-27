@@ -165,6 +165,7 @@ MonoBehaviour:
   _interactMask:
     serializedVersion: 2
     m_Bits: 8
+  _input: {fileID: 7718282090340846793}
   _settings: {fileID: 5782732184512538843}
 --- !u!1 &6105751361745100380
 GameObject:
