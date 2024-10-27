@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class DialogueTrigger : TriggerInteractable
 {
-    [SerializeField] EventReference _dialogueEvent;
+    [SerializeField] DialogueData _dialogueEvent;
 
     protected override void Trigger()
     {
-        NarrativeManager.Instance.PlaySequence(_dialogueEvent);
+        if (NarrativeManager.Instance.IsRunning) return;
+        NarrativeManager.Instance.PlayDialogue(_dialogueEvent);
     }
 }

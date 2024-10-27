@@ -10,7 +10,6 @@ public class LenaIntroScenario : ScenarioController
 
     private void Start()
     {
-        ScenarioManager.Instance.RunNextScenario();
         EventManager.Instance.RegisterListener("item-checked", CheckedItem);
     }
 

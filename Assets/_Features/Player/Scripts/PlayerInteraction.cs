@@ -37,14 +37,6 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        if (_isInteracting && _input.MoveVector.y < 0)
-        {
-            Interact();
-        }
-    }
-
     public void MoveCamera(Vector3 pos, Quaternion rot)
     {
         if (pos == Vector3.zero || rot == Quaternion.identity) return;

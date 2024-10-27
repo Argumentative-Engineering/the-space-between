@@ -70,7 +70,10 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
-Assets/_Audio/SpaceAudio/.cache
-Assets/_Audio/SpaceAudio/.cache
-Assets/_Audio/SpaceAudio/Metadata
+
+# FMOD stuff
 fmod_editor.log
+Assets/_Audio/LenaSpace/.cache
+Assets/_Audio/LenaSpace/.cache
+Assets/_Audio/LenaSpace/Metadata
+

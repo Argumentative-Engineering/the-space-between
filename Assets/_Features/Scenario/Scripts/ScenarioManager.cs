@@ -22,7 +22,11 @@ public class ScenarioManager : MonoBehaviour
             print(scenario);
             Scenarios.Enqueue(scenario);
         }
+    }
 
+    void Start()
+    {
+        RunNextScenario();
     }
 
     public void RunNextScenario()
@@ -52,6 +56,11 @@ public class ScenarioManager : MonoBehaviour
         {
             RunNextScenario();
         }
+    }
+
+    private void OnGUI()
+    {
+        GUI.Label(new Rect(20, 30, 1000, 1000), $"Current Scenario: {CurrentScenario.name}");
     }
 #endif
 
