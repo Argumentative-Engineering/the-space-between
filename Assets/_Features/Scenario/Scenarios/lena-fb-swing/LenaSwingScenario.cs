@@ -13,6 +13,16 @@ public class LenaSwingScenario : ScenarioController
     private void OnPushSwing(object[] obj)
     {
         _pushCount = (int)obj[0];
+
+        if (_pushCount == 5 && !NarrativeManager.Instance.IsRunning)
+        {
+            Invoke(nameof(NextScene), 3);
+        }
+    }
+
+    public void NextScene()
+    {
+        print("NEXT SCENE");
     }
 
     public void KidYell()

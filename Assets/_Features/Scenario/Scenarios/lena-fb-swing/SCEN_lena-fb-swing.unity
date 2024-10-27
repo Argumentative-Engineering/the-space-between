@@ -150,13 +150,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 22045222}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0013316837, y: 0.99744874, z: 0.019344237, w: -0.0687025}
-  m_LocalPosition: {x: 0.551, y: 1.342, z: 7.224}
+  m_LocalRotation: {x: -0.018480517, y: 0.98383844, z: -0.12473465, w: -0.1271293}
+  m_LocalPosition: {x: 1.77, y: 2.42, z: 7.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8848336737493922131}
-  m_LocalEulerAnglesHint: {x: -2.222, y: -172.12, z: 0}
+  m_LocalEulerAnglesHint: {x: 14.486, y: -165.309, z: -0.275}
 --- !u!114 &22045224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,6 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 861aea1334ba86e4cad4982adc84ebc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Tooltip: Push swing
   OnInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -354,6 +355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1b4067d6631048c19a1895777d3a334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Tooltip: 
   OnInteract:
     m_PersistentCalls:
       m_Calls:
@@ -433,8 +435,8 @@ HingeJoint:
   m_ExtendedLimits: 0
   m_UseAcceleration: 0
   m_Limits:
-    min: -116.48084
-    max: 111.7051
+    min: -166.91144
+    max: 163.42653
     bounciness: 0.2
     bounceMinVelocity: 0.2
     contactDistance: 0
@@ -468,7 +470,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!1 &832575517
