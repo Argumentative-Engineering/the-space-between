@@ -27,7 +27,7 @@ public class PlayerInteraction : MonoBehaviour
         }
         if (_settings.IsFrozen) return;
 
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, _range, _interactMask))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, _range, _interactMask) && !_isInteracting)
         {
             if (hit.collider.TryGetComponent(out GameInteractable interactable))
             {
