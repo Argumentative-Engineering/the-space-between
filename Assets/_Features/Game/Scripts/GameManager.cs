@@ -1,7 +1,7 @@
 using System;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public enum GameState
 {
@@ -14,14 +14,12 @@ public class GameManager : MonoBehaviour
 {
     [field: SerializeField] public GameObject Player { get; private set; }
     [field: SerializeField] public GameState GameState { get; private set; }
-    [SerializeField] Image _fadeImage;
 
     public static GameManager Instance { get; private set; }
     private void Awake()
     {
         Instance = this;
         SetGameState(GameState.Game);
-        _fadeImage.DOFade(0, 0.01f);
     }
 
     public void SetGameState(GameState newState)
@@ -52,13 +50,25 @@ public class GameManager : MonoBehaviour
         Player.GetComponent<PlayerLocalInput>().SnapToRotation(targetTransform.localRotation);
     }
 
-    public void Fade(float fadeAmount, Action onFadeComplete)
+
+    public void LoadLevel(string sceneName)
     {
-        Player.GetComponent<PlayerSettings>().IsFrozen = true;
-        _fadeImage.DOFade(fadeAmount, 2).OnComplete(() =>
+        var scn = ScenarioManager.Instance;
+        CutsceneManager.Instance.Fade(1, () =>
         {
-            Player.GetComponent<PlayerSettings>().IsFrozen = false;
-            onFadeComplete?.Invoke();
+            scn.UnloadScenarios();
+            NarrativeManager.Instance.UnloadAllAudio();
+            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+            var loading = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+            loading.completed += (op) =>
+            {
+                if (op.isDone)
+                {
+                    scn.LoadScenarios();
+                    scn.RunNextScenario();
+                    CutsceneManager.Instance.Fade(0, null);
+                }
+            };
         });
     }
 }

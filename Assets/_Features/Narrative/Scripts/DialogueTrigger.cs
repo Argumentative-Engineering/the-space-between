@@ -8,7 +8,6 @@ public class DialogueTrigger : TriggerInteractable
 
     protected override void Trigger()
     {
-        if (NarrativeManager.Instance.IsRunning) return;
         NarrativeManager.Instance.PlayDialogue(_dialogueEvent);
     }
 }

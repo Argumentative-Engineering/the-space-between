@@ -41,7 +41,6 @@ public class PlayerInteraction : MonoBehaviour
             if (_interactable.TryInteract())
                 IsInteracting = true;
         }
-
     }
 
     void Update()

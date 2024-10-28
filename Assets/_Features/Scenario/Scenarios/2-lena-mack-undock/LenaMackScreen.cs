@@ -27,8 +27,13 @@ public class LenaMackScreen : DialogueInteractable
 
     private void StartBeeping(object[] obj)
     {
-        Tooltip = "Talk to Mack";
         _isBeeping = (bool)obj[0];
+        if (!_isBeeping)
+        {
+            StopBeeping();
+            return;
+        }
+        Tooltip = "Talk to Mack";
         float duration = 1f;
 
         _light.intensity = 0;
@@ -51,8 +56,14 @@ public class LenaMackScreen : DialogueInteractable
     public override bool TryInteract()
     {
         if (!_isBeeping) return false;
+        StopBeeping();
+        return base.TryInteract();
+    }
+
+    void StopBeeping()
+    {
+        _light.DOColor(Color.white * 0, 0.5f);
         _light.DOKill();
         _sound.Stop();
-        return base.TryInteract();
     }
 }

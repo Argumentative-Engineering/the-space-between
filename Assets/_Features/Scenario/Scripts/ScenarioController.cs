@@ -19,7 +19,7 @@ public class ScenarioController : MonoBehaviour
     [Header("Scenario Specific")]
     [SerializeField] GameObject[] _hiddenTillRun;
 
-    private void Start()
+    private void Awake()
     {
         ShowHidden(false);
     }
@@ -39,6 +39,12 @@ public class ScenarioController : MonoBehaviour
     void ShowHidden(bool visiblity)
     {
         foreach (var hidden in _hiddenTillRun)
+        {
             hidden.SetActive(visiblity);
+        }
+    }
+
+    public virtual void ExitScenario()
+    {
     }
 }

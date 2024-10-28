@@ -7,6 +7,8 @@ public class GameInteractable : MonoBehaviour
     public UnityEvent OnInteract;
     public bool RunOnce;
 
+    private void Start() { }
+
     public virtual bool TryInteract()
     {
         OnInteract?.Invoke();

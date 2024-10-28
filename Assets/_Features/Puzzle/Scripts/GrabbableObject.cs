@@ -44,6 +44,7 @@ public class GrabbableObject : GameInteractable
         //_rb.isKinematic = false;
         _rb.drag = 0;
         _rb.AddForce(Camera.main.transform.forward * 2f, ForceMode.Impulse);
+        GameManager.Instance.Player.GetComponent<PlayerInteraction>().IsInteracting = false;
     }
 
     void FixedUpdate()

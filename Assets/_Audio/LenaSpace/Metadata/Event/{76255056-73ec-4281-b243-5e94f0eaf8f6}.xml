@@ -179,7 +179,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{e884e04f-be4d-4586-b1f3-256a26986c55}">
 		<property name="volume">
-			<value>1</value>
+			<value>8</value>
 		</property>
 		<property name="name">
 			<value>Mack</value>
@@ -379,6 +379,7 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{92123595-df98-4dd9-b411-55b01968c42c}">
 		<relationship name="effects">
+			<destination>{23a93ab9-5e38-4bae-8005-f764d30daf94}</destination>
 			<destination>{6ef54a61-1fba-4062-b1f4-f5d639c9baa9}</destination>
 		</relationship>
 	</object>
@@ -537,6 +538,11 @@
 		</property>
 		<property name="value">
 			<value>0</value>
+		</property>
+	</object>
+	<object class="GainEffect" id="{23a93ab9-5e38-4bae-8005-f764d30daf94}">
+		<property name="gain">
+			<value>10</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{6ef54a61-1fba-4062-b1f4-f5d639c9baa9}" />

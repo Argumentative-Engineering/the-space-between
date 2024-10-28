@@ -28,7 +28,7 @@ public class LenaSwingScenario : ScenarioController
 
     public void NextScene()
     {
-        GameManager.Instance.Fade(1, () =>
+        CutsceneManager.Instance.Fade(1, () =>
         {
             print("NEXT SCENE");
         });

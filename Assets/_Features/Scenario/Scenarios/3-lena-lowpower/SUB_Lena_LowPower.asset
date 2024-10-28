@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DialogueEvent:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  Subtitles: []
+      Data1: 1584200758
+      Data2: 1167459713
+      Data3: -483669375
+      Data4: 1069092187
+    Path: event:/Dialogue/lena-lowpower/Lena_LowPower
+  Subtitles:
+  - Key: lena-lowpower-001
+    Speaker: Lena
+    Text: God, not again.
+  - Key: lena-lowpower-002
+    Speaker: Lena
+    Text: This fucking spacedust.
+  - Key: lena-lowpower-003
+    Speaker: Lena
+    Text: I'm gonna have to add "solar panel janitor" to my resume.
