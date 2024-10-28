@@ -22,13 +22,10 @@ MonoBehaviour:
   Subtitles:
   - Key: lena-ready-001
     Speaker: Lena
-    Text: Yeah, I'm here
-  - Key: lena-ready-002
-    Speaker: Lena
-    Text: You ready?
+    Text: I'm here, you ready?
   - Key: mack-ready
     Speaker: Mack
     Text: Ready as always, boss.
   - Key: lena-undock
     Speaker: Lena
-    Text: Unlocking Obsidian now
+    Text: Undocking Obsidian now

@@ -14,7 +14,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] TextMeshProUGUI _tooltipText;
     [SerializeField] Image _crosshairImage;
 
-    bool _isInteracting;
+    public bool IsInteracting { get; set; }
     GameInteractable _interactable;
 
     float _opacity;
@@ -26,9 +26,9 @@ public class PlayerInteraction : MonoBehaviour
 
     public void Interact()
     {
-        if (_isInteracting)
+        if (IsInteracting)
         {
-            _isInteracting = false;
+            IsInteracting = false;
             MoveCamera(_camPrevPos, _camPrevRot);
             _camPrevPos = Vector3.zero;
             _camPrevRot = Quaternion.identity;
@@ -36,10 +36,10 @@ public class PlayerInteraction : MonoBehaviour
         }
         if (_settings.IsFrozen) return;
 
-        if (_interactable != null && !_isInteracting)
+        if (_interactable != null && !IsInteracting)
         {
             if (_interactable.TryInteract())
-                _isInteracting = true;
+                IsInteracting = true;
         }
 
     }
@@ -63,8 +63,9 @@ public class PlayerInteraction : MonoBehaviour
             _opacity = Mathf.Clamp01(_opacity -= Time.deltaTime * _fadeSpeed);
         }
 
-        _crosshairImage.color = new Color(1, 1, 1, _opacity);
-        _tooltipText.color = new Color(1, 1, 1, _opacity);
+        var opacity = IsInteracting ? 0 : _opacity;
+        _crosshairImage.color = new Color(1, 1, 1, opacity);
+        _tooltipText.color = new Color(1, 1, 1, opacity);
     }
 
     public void MoveCamera(Vector3 pos, Quaternion rot)

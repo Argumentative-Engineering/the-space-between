@@ -25,12 +25,15 @@ MonoBehaviour:
     Text: I'm not sure what this'll do for me honestly.
   - Key: lena-dvd-002
     Speaker: Lena
-    Text: One piece of entertainment. I thought it would have been poetic to bring
-      what inspired me as a kid to be here now,
+    Text: 'One piece of entertainment. '
   - Key: lena-dvd-003
+    Speaker: Lena
+    Text: I thought it would have been poetic to bring what inspired me as a kid
+      to be here now,
+  - Key: lena-dvd-004
     Speaker: Lena
     Text: but all it does is remind me of risks and coldness that I already live
       in.
-  - Key: lena-dvd-004
+  - Key: lena-dvd-005
     Speaker: Lena
     Text: And will have to live in for longer than I want.

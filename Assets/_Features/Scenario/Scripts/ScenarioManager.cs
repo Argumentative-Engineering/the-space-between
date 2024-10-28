@@ -19,13 +19,10 @@ public class ScenarioManager : MonoBehaviour
         var scenarios = FindObjectsOfType<ScenarioController>().ToList().OrderBy(s => s.ScenarioName);
         foreach (var scenario in scenarios)
         {
-            print(scenario);
             Scenarios.Enqueue(scenario);
         }
-    }
 
-    void Start()
-    {
+
         RunNextScenario();
     }
 

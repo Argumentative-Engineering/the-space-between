@@ -20,6 +20,7 @@ public class LenaDockButton : DialogueInteractable
 
     private void DockButton(object[] obj)
     {
+        GameManager.Instance.Player.GetComponent<PlayerInteraction>().IsInteracting = false;
         _dockButton.material.EnableKeyword("_EMISSION");
         _dockButton.material.DOColor(Color.white * Mathf.Pow(2, 3), "_EmissionColor", 0.3f);
         _canDock = true;

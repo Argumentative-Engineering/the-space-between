@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class LenaLowPowerScenario : ScenarioController
 {
-    [Header("Scenario Specific")]
     [SerializeField] StudioEventEmitter _lowPowerAlarmEmitter;
 
     public override IEnumerator RunScenario()

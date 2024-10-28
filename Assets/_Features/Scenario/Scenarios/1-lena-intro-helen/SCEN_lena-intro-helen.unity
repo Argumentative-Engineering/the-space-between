@@ -440,6 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8060d0f438ac04f44b6728de2316904c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Tooltip: Kid's Drawing
   OnInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -997,6 +998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b35459be973403c4c9dfbf04f5f7b24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Tooltip: Undock Obsidian
   OnInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -1004,6 +1006,37 @@ MonoBehaviour:
   _dialogueEvent: {fileID: 11400000, guid: 1b5e2e999b0105f43814a1ce7ba0c26e, type: 2}
   _cameraPoint: {fileID: 0}
   _dockButton: {fileID: 2045225163}
+--- !u!114 &585063346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585063340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
 --- !u!1 &635839155
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,6 +1157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8060d0f438ac04f44b6728de2316904c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Tooltip: Marine Life Postcard
   OnInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -1428,6 +1462,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScenarioName: 1-lena-intro-helen
   _playerStart: {fileID: 706992907807386977}
+  _playerSettingsData: {fileID: 11400000, guid: 7743f4a19e3c76647b10f68d3d2e3e23,
+    type: 2}
+  _hiddenTillRun: []
 --- !u!1001 &1058776332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1758,6 +1795,7 @@ Transform:
   - {fileID: 419129120}
   - {fileID: 998542880}
   - {fileID: 1534832993}
+  - {fileID: 1959901012}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1351538894
@@ -2280,6 +2318,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScenarioName: 2-lena-mack-undock
   _playerStart: {fileID: 0}
+  _playerSettingsData: {fileID: 0}
+  _hiddenTillRun: []
 --- !u!1 &1859897429
 GameObject:
   m_ObjectHideFlags: 0
@@ -2330,11 +2370,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1304478082
+      Data2: 1201329022
+      Data3: 126175383
+      Data4: 1157965619
+    Path: event:/Dialogue/lena-mack-undock/Mack_YouReady_Loop
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0
@@ -2343,9 +2383,9 @@ MonoBehaviour:
   Preload: 0
   NonRigidbodyVelocity: 0
   Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1
+  OverrideAttenuation: 1
+  OverrideMinDistance: 0.7646912
+  OverrideMaxDistance: 20
 --- !u!114 &1859897432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2358,6 +2398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d07d0506d3a73d4a9b9d80fce49e593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Tooltip: Talk to Mack
   OnInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -2366,6 +2407,7 @@ MonoBehaviour:
   _cameraPoint: {fileID: 0}
   _light: {fileID: 106388421}
   _beeperButton: {fileID: 1986931893}
+  _sound: {fileID: 1859897431}
 --- !u!65 &1859897433
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2512,12 +2554,127 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScenarioName: 3-lena-lowpower
   _playerStart: {fileID: 0}
+  _playerSettingsData: {fileID: 0}
+  _hiddenTillRun:
+  - {fileID: 1959901010}
   _lowPowerAlarmEmitter: {fileID: 2003123477}
 --- !u!4 &1945725840 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bcacc53d0e149304ca1d3b3d00a9703a,
     type: 3}
   m_PrefabInstance: {fileID: 1211538563}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1959901009
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1254689345}
+    m_Modifications:
+    - target: {fileID: 409653612959265872, guid: 07cf3ffc5361bea41acf0e1c6203b7d7,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.509521
+      objectReference: {fileID: 0}
+    - target: {fileID: 409653612959265872, guid: 07cf3ffc5361bea41acf0e1c6203b7d7,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5.3663483
+      objectReference: {fileID: 0}
+    - target: {fileID: 409653612959265872, guid: 07cf3ffc5361bea41acf0e1c6203b7d7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.028
+      objectReference: {fileID: 0}
+    - target: {fileID: 409653612959265872, guid: 07cf3ffc5361bea41acf0e1c6203b7d7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 409653612959265872, guid: 07cf3ffc5361bea41acf0e1c6203b7d7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.961
+      objectReference: {fileID: 0}
+    - target: {fileID: 409653612959265872, guid: 07cf3ffc5361bea41acf0e1c6203b7d7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 409653612959265872, guid: 07cf3ffc5361bea41acf0e1c6203b7d7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 409653612959265872, guid: 07cf3ffc5361bea41acf0e1c6203b7d7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 409653612959265872, guid: 07cf3ffc5361bea41acf0e1c6203b7d7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 409653612959265872, guid: 07cf3ffc5361bea41acf0e1c6203b7d7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 409653612959265872, guid: 07cf3ffc5361bea41acf0e1c6203b7d7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 409653612959265872, guid: 07cf3ffc5361bea41acf0e1c6203b7d7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422368682542291805, guid: 07cf3ffc5361bea41acf0e1c6203b7d7,
+        type: 3}
+      propertyPath: m_Name
+      value: Volume
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1422368682542291805, guid: 07cf3ffc5361bea41acf0e1c6203b7d7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1959901011}
+  m_SourcePrefab: {fileID: 100100000, guid: 07cf3ffc5361bea41acf0e1c6203b7d7, type: 3}
+--- !u!1 &1959901010 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1422368682542291805, guid: 07cf3ffc5361bea41acf0e1c6203b7d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1959901009}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1959901011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959901010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1b4067d6631048c19a1895777d3a334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tooltip: 
+  OnInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  RunOnce: 1
+  _dialogueEvent: {fileID: 0}
+--- !u!4 &1959901012 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 409653612959265872, guid: 07cf3ffc5361bea41acf0e1c6203b7d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1959901009}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1961119743
 GameObject:
@@ -2763,6 +2920,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 585063345}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bcacc53d0e149304ca1d3b3d00a9703a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 585063346}
   m_SourcePrefab: {fileID: 100100000, guid: bcacc53d0e149304ca1d3b3d00a9703a, type: 3}
 --- !u!23 &2045225163 stripped
 MeshRenderer:
@@ -2889,6 +3050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8060d0f438ac04f44b6728de2316904c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Tooltip: DVD
   OnInteract:
     m_PersistentCalls:
       m_Calls: []
