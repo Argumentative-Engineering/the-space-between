@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe2486cf161aa8489498b93df701f1b, type: 3}
+  m_Name: SUB_Lena_FinishCleaningPanels
+  m_EditorClassIdentifier: 
+  DialogueEvent:
+    Guid:
+      Data1: 71640019
+      Data2: 1230042016
+      Data3: 149039027
+      Data4: -1782674021
+    Path: event:/Dialogue/lena-clean-panel/Lena_FinishedCleaningPanels
+  Subtitles:
+  - Key: lena-finish-clean
+    Speaker: Lena
+    Text: Done. something soemthing do next

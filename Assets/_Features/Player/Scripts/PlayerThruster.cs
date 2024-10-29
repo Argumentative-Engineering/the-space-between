@@ -6,8 +6,8 @@ using UnityEngine.Rendering;
 public class PlayerThruster : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] float _thrusterRange;
     [SerializeField] LayerMask _interactionMask;
+    [field: SerializeField] public float ThrusterRange { get; private set; } = 5;
 
     [Header("References")]
     [SerializeField] GameObject _thrusters;
@@ -17,8 +17,11 @@ public class PlayerThruster : MonoBehaviour
 
     Vector3 _startPos;
 
+    EventManager _evt;
+
     void Start()
     {
+        _evt = EventManager.Instance;
         _startPos = _thrusters.transform.localPosition;
         _thrusters.SetActive(false);
         SetThrusterVisiblity(false);
@@ -28,17 +31,11 @@ public class PlayerThruster : MonoBehaviour
     {
         if (!IsShowing || !_input.IsFiring) return;
 
+        // lazy to rewrite to have generic player thruster so i'll just use events.
+        // performance? idk lol dont care anymore
+        // laziest piece of code ever
+        _evt.BroadcastEvent("player-thrust", this, _interactionMask);
         _rb.AddForce(-Camera.main.transform.forward * 0.5f);
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, _thrusterRange, _interactionMask))
-        {
-            if (hit.collider.CompareTag("Clean"))
-            {
-                print("Clean");
-                var clean = hit.collider.GetComponent<Cleanable>();
-                clean.CleanPercent -= Time.deltaTime;
-            }
-
-        }
     }
 
     public void SetThrusterVisiblity(bool visiblity)
@@ -48,11 +45,5 @@ public class PlayerThruster : MonoBehaviour
 
         var targPos = visiblity ? _startPos : _startPos + Vector3.back;
         _thrusters.transform.DOLocalMove(targPos, 2f);
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawLine(Camera.main.transform.position, Camera.main.transform.position + Camera.main.transform.forward * _thrusterRange);
     }
 }

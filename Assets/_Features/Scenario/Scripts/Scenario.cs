@@ -36,7 +36,7 @@ public class Scenario : MonoBehaviour
         yield return null;
     }
 
-    void ShowHidden(bool visiblity)
+    protected void ShowHidden(bool visiblity)
     {
         foreach (var hidden in _hiddenTillRun)
         {

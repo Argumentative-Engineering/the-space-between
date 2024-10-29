@@ -7,14 +7,18 @@ public class PlayerSettings : MonoBehaviour
     public float MouseSensitivity;
     public Vector2 LookClamp;
     public bool IsFrozen;
+    public bool UseLocalRot;
+
     [field: SerializeField] public PlayerMovementSettingsData PlayerMovementSettings { get; private set; }
 
     [Header("References")]
     [SerializeField] Rigidbody _rb;
+    [SerializeField] GameObject _helmet;
 
     public void UpdateSettings(PlayerMovementSettingsData settings)
     {
         PlayerMovementSettings = settings;
         _rb.useGravity = PlayerMovementSettings.UseGravity;
+        _helmet.SetActive(settings.ShowHelmet);
     }
 }

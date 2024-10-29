@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_settings.IsFrozen)
         {
-            _rigidbody.velocity = Vector3.zero;
+            _rigidbody.velocity = Vector3.Lerp(_rigidbody.velocity, Vector3.zero, 10 * Time.deltaTime);
             return;
         }
         if (_settings.LookClamp.x != 0)
@@ -22,7 +22,10 @@ public class PlayerMovement : MonoBehaviour
         _input.RotationVector.y = Mathf.Clamp(_input.RotationVector.y, -_settings.LookClamp.y, _settings.LookClamp.y);
 
         _rigidbody.angularVelocity = Vector3.zero;
-        Camera.main.transform.rotation = Quaternion.Euler(_input.RotationVector.y, _input.RotationVector.x, 0);
+        if (_settings.UseLocalRot)
+            Camera.main.transform.localRotation = Quaternion.Euler(_input.RotationVector.y, _input.RotationVector.x, 0);
+        else
+            Camera.main.transform.rotation = Quaternion.Euler(_input.RotationVector.y, _input.RotationVector.x, 0);
     }
 
     void FixedUpdate()

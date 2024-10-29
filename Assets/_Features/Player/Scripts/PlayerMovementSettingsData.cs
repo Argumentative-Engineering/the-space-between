@@ -5,4 +5,5 @@ public class PlayerMovementSettingsData : ScriptableObject
 {
     public bool UseGravity = false;
     public float MoveSpeed;
+    public bool ShowHelmet = false;
 }

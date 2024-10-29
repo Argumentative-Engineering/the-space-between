@@ -17,12 +17,13 @@ public class CutsceneManager : MonoBehaviour
         _fadeImage.DOFade(0, 0.01f);
     }
 
-    public void Fade(float fadeAmount, Action onFadeComplete)
+    public void Fade(float fadeAmount, Action onFadeComplete, float duration = 2)
     {
         var player = GameManager.Instance.Player;
         player.GetComponent<PlayerSettings>().IsFrozen = true;
 
-        _fadeImage.DOFade(fadeAmount, 2).OnComplete(() =>
+        print("fade to " + fadeAmount);
+        _fadeImage.DOFade(fadeAmount, duration).OnComplete(() =>
         {
             player.GetComponent<PlayerSettings>().IsFrozen = false;
             onFadeComplete?.Invoke();

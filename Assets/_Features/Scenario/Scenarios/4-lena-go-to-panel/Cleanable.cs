@@ -8,14 +8,17 @@ public class Cleanable : MonoBehaviour
     [SerializeField] float _cleanThresholdPercent = 40;
     Vector3 _startScale;
 
+    float _startPercent;
+
     private void Start()
     {
+        _startPercent = CleanPercent;
         _startScale = transform.localScale;
     }
 
     private void Update()
     {
-        if (CleanPercent <= (CleanPercent * (_cleanThresholdPercent / 100)))
+        if (CleanPercent <= (_startPercent * (_cleanThresholdPercent / 100)))
         {
             _onCleaned?.Invoke();
             Destroy(gameObject);
