@@ -10,31 +10,29 @@ public class LenaDockButton : DialogueInteractable
     private void Start()
     {
         _evt = EventManager.Instance;
-        _evt.RegisterListener("dock-button", DockButton);
+        _evt.RegisterListener("dock-button", OnEnableDockButton);
+        Tooltip = "";
     }
 
     private void OnDisable()
     {
-        _evt.RegisterListener("dock-button", DockButton);
+        _evt.RegisterListener("dock-button", OnEnableDockButton);
     }
 
-    private void DockButton(object[] obj)
+    private void OnEnableDockButton(object[] obj)
     {
+        GameManager.Instance.Player.GetComponent<PlayerInteraction>().IsInteracting = false;
         _dockButton.material.EnableKeyword("_EMISSION");
         _dockButton.material.DOColor(Color.white * Mathf.Pow(2, 3), "_EmissionColor", 0.3f);
         _canDock = true;
+        Tooltip = "Undock Obsidian";
     }
 
     public override bool TryInteract()
     {
         if (!_canDock) return false;
-        if (!base.TryInteract()) return false;
-        _dockButton.material.DOColor(Color.white, "_EmissionColor", 0.3f).OnComplete(() => NextSeq());
-        return true;
-    }
-
-    void NextSeq()
-    {
+        _dockButton.material.DOColor(Color.white, "_EmissionColor", 2f);
         ScenarioManager.Instance.RunNextScenario();
+        return base.TryInteract();
     }
 }

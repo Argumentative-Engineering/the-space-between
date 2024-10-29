@@ -1,6 +1,7 @@
 
 using System;
 using DG.Tweening;
+using FMODUnity;
 using UnityEngine;
 
 public class LenaMackScreen : DialogueInteractable
@@ -8,6 +9,7 @@ public class LenaMackScreen : DialogueInteractable
     EventManager _evt;
     [SerializeField] Light _light;
     [SerializeField] Renderer _beeperButton;
+    [SerializeField] StudioEventEmitter _sound;
 
     bool _isBeeping;
 
@@ -15,6 +17,7 @@ public class LenaMackScreen : DialogueInteractable
     {
         _evt = EventManager.Instance;
         _evt.RegisterListener("start-beeping", StartBeeping);
+        Tooltip = "";
     }
 
     private void OnDisable()
@@ -25,6 +28,12 @@ public class LenaMackScreen : DialogueInteractable
     private void StartBeeping(object[] obj)
     {
         _isBeeping = (bool)obj[0];
+        if (!_isBeeping)
+        {
+            StopBeeping();
+            return;
+        }
+        Tooltip = "Talk to Mack";
         float duration = 1f;
 
         _light.intensity = 0;
@@ -40,10 +49,21 @@ public class LenaMackScreen : DialogueInteractable
                   targetEmission,
                   duration
               ).SetLoops(-1, LoopType.Yoyo);
+
+        _sound.Play();
     }
+
     public override bool TryInteract()
     {
         if (!_isBeeping) return false;
+        StopBeeping();
         return base.TryInteract();
+    }
+
+    void StopBeeping()
+    {
+        _light.DOColor(Color.white * 0, 0.5f);
+        _light.DOKill();
+        _sound.Stop();
     }
 }

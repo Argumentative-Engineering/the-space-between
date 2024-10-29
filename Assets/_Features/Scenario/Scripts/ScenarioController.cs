@@ -15,6 +15,15 @@ public class ScenarioController : MonoBehaviour
     [SerializeField] Transform _playerStart;
     public Dictionary<string, dynamic> ScenarioKeys = new();
     [SerializeField] PlayerMovementSettingsData _playerSettingsData;
+
+    [Header("Scenario Specific")]
+    [SerializeField] GameObject[] _hiddenTillRun;
+
+    private void Awake()
+    {
+        ShowHidden(false);
+    }
+
     public virtual IEnumerator RunScenario()
     {
         if (_playerStart != null)
@@ -23,6 +32,19 @@ public class ScenarioController : MonoBehaviour
         if (_playerSettingsData != null)
             GameManager.Instance.Player.GetComponent<PlayerSettings>().UpdateSettings(_playerSettingsData);
 
+        ShowHidden(true);
         yield return null;
+    }
+
+    void ShowHidden(bool visiblity)
+    {
+        foreach (var hidden in _hiddenTillRun)
+        {
+            hidden.SetActive(visiblity);
+        }
+    }
+
+    public virtual void ExitScenario()
+    {
     }
 }

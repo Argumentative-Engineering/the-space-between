@@ -15,25 +15,41 @@ public class ScenarioManager : MonoBehaviour
     {
         Instance = this;
 
-        // look for all scenarios and queue
-        var scenarios = FindObjectsOfType<ScenarioController>().ToList().OrderBy(s => s.ScenarioName);
-        foreach (var scenario in scenarios)
+        LoadScenarios();
+        RunNextScenario();
+    }
+
+    public void UnloadScenarios()
+    {
+        if (_currScenarioCoroutine != null)
         {
-            print(scenario);
-            Scenarios.Enqueue(scenario);
+            StopCoroutine(_currScenarioCoroutine);
+            _currScenarioCoroutine = null;
         }
 
+        Scenarios.Clear();
+    }
+
+    public void LoadScenarios()
+    {
+        var scenarios = FindObjectsOfType<ScenarioController>().ToList().OrderBy(s => s.ScenarioName);
+        foreach (var scenario in scenarios)
+            Scenarios.Enqueue(scenario);
     }
 
     public void RunNextScenario()
     {
         if (Scenarios.TryDequeue(out ScenarioController scenario))
         {
+            if (CurrentScenario != null)
+                CurrentScenario.ExitScenario();
+
             if (_currScenarioCoroutine != null)
             {
                 StopCoroutine(_currScenarioCoroutine);
                 _currScenarioCoroutine = null;
             }
+
             print("Running scenario: " + scenario.name);
             CurrentScenario = scenario;
             _currScenarioCoroutine = StartCoroutine(CurrentScenario.RunScenario());
@@ -52,6 +68,19 @@ public class ScenarioManager : MonoBehaviour
         {
             RunNextScenario();
         }
+    }
+
+    private void OnGUI()
+    {
+        if (Scenarios.Count == 0) return;
+        GUI.Label(new Rect(20, 30, 1000, 1000), $"Current Scenario: {CurrentScenario.name}");
+        var scens = "";
+
+        foreach (var scenario in Scenarios)
+        {
+            scens += $"{scenario.name} ";
+        }
+        GUI.Label(new Rect(20, 48, 1000, 1000), $"{scens}");
     }
 #endif
 

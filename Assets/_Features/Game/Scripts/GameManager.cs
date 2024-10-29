@@ -1,4 +1,7 @@
+using System;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameState
 {
@@ -16,7 +19,6 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        // DontDestroyOnLoad(this);
         SetGameState(GameState.Game);
     }
 
@@ -46,5 +48,27 @@ public class GameManager : MonoBehaviour
     {
         Player.GetComponent<Rigidbody>().position = targetTransform.position;
         Player.GetComponent<PlayerLocalInput>().SnapToRotation(targetTransform.localRotation);
+    }
+
+
+    public void LoadLevel(string sceneName)
+    {
+        var scn = ScenarioManager.Instance;
+        CutsceneManager.Instance.Fade(1, () =>
+        {
+            scn.UnloadScenarios();
+            NarrativeManager.Instance.UnloadAllAudio();
+            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+            var loading = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+            loading.completed += (op) =>
+            {
+                if (op.isDone)
+                {
+                    scn.LoadScenarios();
+                    scn.RunNextScenario();
+                    CutsceneManager.Instance.Fade(0, null);
+                }
+            };
+        });
     }
 }

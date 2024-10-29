@@ -1,4 +1,6 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -9,48 +11,68 @@ public class PlayerInteraction : MonoBehaviour
     [Header("References")]
     [SerializeField] PlayerLocalInput _input;
     [SerializeField] PlayerSettings _settings;
+    [SerializeField] TextMeshProUGUI _tooltipText;
+    [SerializeField] Image _crosshairImage;
 
-    bool _isInteracting;
+    public bool IsInteracting { get; set; }
+    GameInteractable _interactable;
 
-    Vector3 _prevPos;
-    Quaternion _prevRot;
+    float _opacity;
+
+    readonly float _fadeSpeed = 5;
+
+    Vector3 _camPrevPos;
+    Quaternion _camPrevRot;
 
     public void Interact()
     {
-        if (_isInteracting)
+        if (IsInteracting)
         {
-            _isInteracting = false;
-            MoveCamera(_prevPos, _prevRot);
-            _prevPos = Vector3.zero;
-            _prevRot = Quaternion.identity;
+            IsInteracting = false;
+            MoveCamera(_camPrevPos, _camPrevRot);
+            _camPrevPos = Vector3.zero;
+            _camPrevRot = Quaternion.identity;
             _settings.IsFrozen = false;
         }
         if (_settings.IsFrozen) return;
 
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, _range, _interactMask) && !_isInteracting)
+        if (_interactable != null && !IsInteracting)
         {
-            if (hit.collider.TryGetComponent(out GameInteractable interactable))
-            {
-                if (interactable.TryInteract())
-                    _isInteracting = true;
-            }
+            if (_interactable.TryInteract())
+                IsInteracting = true;
         }
     }
 
     void Update()
     {
-        if (_isInteracting && _input.MoveVector.y < 0)
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, _range, _interactMask))
         {
-            Interact();
+            if (hit.collider.TryGetComponent(out GameInteractable interactable))
+            {
+                _interactable = interactable;
+
+                _opacity = Mathf.Clamp01(_opacity += Time.deltaTime * _fadeSpeed);
+                if (_interactable.Tooltip != null)
+                    _tooltipText.text = _interactable.Tooltip;
+            }
         }
+        else
+        {
+            _interactable = null;
+            _opacity = Mathf.Clamp01(_opacity -= Time.deltaTime * _fadeSpeed);
+        }
+
+        var opacity = IsInteracting ? 0 : _opacity;
+        _crosshairImage.color = new Color(1, 1, 1, opacity);
+        _tooltipText.color = new Color(1, 1, 1, opacity);
     }
 
     public void MoveCamera(Vector3 pos, Quaternion rot)
     {
         if (pos == Vector3.zero || rot == Quaternion.identity) return;
         _settings.IsFrozen = true;
-        _prevPos = Camera.main.transform.position;
-        _prevRot = Camera.main.transform.rotation;
+        _camPrevPos = Camera.main.transform.position;
+        _camPrevRot = Camera.main.transform.rotation;
         Camera.main.transform.SetPositionAndRotation(pos, rot);
     }
 }
