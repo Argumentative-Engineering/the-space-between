@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -10,6 +11,7 @@ public class PlayerLocalInput : MonoBehaviour
     [SerializeField] PlayerSettings _settings;
 
     public UnityEvent OnInteract;
+    public bool IsFiring { get; private set; }
 
     GameInput _input;
     private void Awake()
@@ -22,6 +24,8 @@ public class PlayerLocalInput : MonoBehaviour
         _input.Player.Move.performed += OnMovePerformed;
         _input.Player.Move.canceled += OnMoveCanceled;
         _input.Player.Interact.performed += OnUsePerformed;
+        _input.Player.Fire.performed += OnFirePerformed;
+        _input.Player.Fire.canceled += OnFireCanceled;
         _input.Player.Look.performed += OnLookPerformed;
         _input.Enable();
     }
@@ -50,14 +54,13 @@ public class PlayerLocalInput : MonoBehaviour
         RotationVector.y -= rot.y * (_settings.MouseSensitivity / 100);
     }
 
+    private void OnFirePerformed(InputAction.CallbackContext context) => IsFiring = true;
+
+    private void OnFireCanceled(InputAction.CallbackContext context) => IsFiring = false;
+
     public void SnapToRotation(Quaternion rotation)
     {
         RotationVector.x = rotation.eulerAngles.y;
         RotationVector.y = rotation.eulerAngles.x;
-    }
-
-    public void SnapToRotation(Vector3 eulerAngles)
-    {
-        RotationVector = eulerAngles;
     }
 }

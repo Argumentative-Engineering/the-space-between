@@ -14,7 +14,7 @@ public class WorldRotator : MonoBehaviour
 
     void Start()
     {
-        _rot = transform.localEulerAngles.y;
+        _rot = -90;
     }
 
     void Update()
@@ -22,6 +22,6 @@ public class WorldRotator : MonoBehaviour
         _rot += Time.deltaTime;
         _skybox.SetFloat("_Rotation", (-_rot * _rotationSpeed % 360) + 180);
         _light.rotation = Quaternion.Euler(0, _rot * _rotationSpeed, 0);
-        _moon.rotation = Quaternion.Euler(0, _rot * _moonRotationSpeed, 0);
+        _moon.rotation = Quaternion.Euler(-90, 0, _rot * _moonRotationSpeed);
     }
 }

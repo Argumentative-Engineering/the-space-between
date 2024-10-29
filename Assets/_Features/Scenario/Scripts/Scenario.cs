@@ -8,7 +8,7 @@ public class ScenarioKey
     public string Key;
 }
 
-public class ScenarioController : MonoBehaviour
+public class Scenario : MonoBehaviour
 {
     // for tracking purposes
     public string ScenarioName;

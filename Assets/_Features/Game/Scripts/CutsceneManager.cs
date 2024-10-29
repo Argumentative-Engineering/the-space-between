@@ -32,6 +32,7 @@ public class CutsceneManager : MonoBehaviour
     public void RunCutscene(PlayableDirector director, Action OnComplete = null)
     {
         _hud.SetActive(false);
+        GameManager.Instance.Player.GetComponent<PlayerSettings>().IsFrozen = true;
         director.Play();
 
         director.stopped += (_) =>

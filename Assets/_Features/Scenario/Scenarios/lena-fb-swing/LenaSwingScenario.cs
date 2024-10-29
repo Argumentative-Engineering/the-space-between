@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class LenaSwingScenario : ScenarioController
+public class LenaSwingScenario : Scenario
 {
     bool _complete;
     int _pushCount = 0;

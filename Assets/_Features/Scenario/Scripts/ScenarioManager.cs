@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class ScenarioManager : MonoBehaviour
 {
-    public Queue<ScenarioController> Scenarios = new();
+    public Queue<Scenario> Scenarios = new();
 
-    [field: SerializeField, ReadOnly] public ScenarioController CurrentScenario { get; set; }
+    [field: SerializeField, ReadOnly] public Scenario CurrentScenario { get; set; }
     Coroutine _currScenarioCoroutine;
 
     public static ScenarioManager Instance { get; private set; }
@@ -32,14 +32,14 @@ public class ScenarioManager : MonoBehaviour
 
     public void LoadScenarios()
     {
-        var scenarios = FindObjectsOfType<ScenarioController>().ToList().OrderBy(s => s.ScenarioName);
+        var scenarios = FindObjectsOfType<Scenario>().ToList().OrderBy(s => s.ScenarioName);
         foreach (var scenario in scenarios)
             Scenarios.Enqueue(scenario);
     }
 
     public void RunNextScenario()
     {
-        if (Scenarios.TryDequeue(out ScenarioController scenario))
+        if (Scenarios.TryDequeue(out Scenario scenario))
         {
             if (CurrentScenario != null)
                 CurrentScenario.ExitScenario();
@@ -56,7 +56,7 @@ public class ScenarioManager : MonoBehaviour
         }
     }
 
-    public void RunScenario(ScenarioController scenario)
+    public void RunScenario(Scenario scenario)
     {
         CurrentScenario = scenario;
     }
@@ -72,10 +72,9 @@ public class ScenarioManager : MonoBehaviour
 
     private void OnGUI()
     {
-        if (Scenarios.Count == 0) return;
         GUI.Label(new Rect(20, 30, 1000, 1000), $"Current Scenario: {CurrentScenario.name}");
-        var scens = "";
-
+        if (Scenarios.Count == 0) return;
+        var scens = "Next: ";
         foreach (var scenario in Scenarios)
         {
             scens += $"{scenario.name} ";

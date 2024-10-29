@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class LenaMackUndockScenario : ScenarioController
+public class LenaMackUndockScenario : Scenario
 {
     public override IEnumerator RunScenario()
     {

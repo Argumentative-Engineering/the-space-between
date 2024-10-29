@@ -6,8 +6,9 @@ public class DialogueTrigger : TriggerInteractable
 {
     [SerializeField] DialogueData _dialogueEvent;
 
-    protected override void Trigger()
+    public override bool TryInteract()
     {
         NarrativeManager.Instance.PlayDialogue(_dialogueEvent);
+        return base.TryInteract();
     }
 }

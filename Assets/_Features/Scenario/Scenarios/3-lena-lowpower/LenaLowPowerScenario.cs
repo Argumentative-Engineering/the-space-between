@@ -3,7 +3,7 @@ using System.Collections;
 using FMODUnity;
 using UnityEngine;
 
-public class LenaLowPowerScenario : ScenarioController
+public class LenaLowPowerScenario : Scenario
 {
     [SerializeField] StudioEventEmitter _lowPowerAlarmEmitter;
 

@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/_Features/Scenario/Scenarios/1-lena-intro-helen/SCN_lena-inside-helen.unity
     guid: 66b65e13d0c48aa45ba09f7ca96e0faa
   - enabled: 1
-    path: Assets/_Features/Scenario/Scenarios/4-lena-outside-helen/SCN_lena-outside-helen.unity
+    path: Assets/_Features/Scenario/Scenarios/4-lena-go-to-panel/SCN_lena-outside-helen.unity
     guid: a9d92a0b444f7b24f920f04258bda60d
   m_configObjects: {}

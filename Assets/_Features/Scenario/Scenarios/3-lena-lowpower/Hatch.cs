@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Hatch : DialogueInteractable
 {
     [Header("References")]
-    [SerializeField] ScenarioController _scenario;
+    [SerializeField] Scenario _scenario;
     [SerializeField] DialogueData _hasntRemovedItemsDialogue, _noSuitDialogue, _finallyDialogue;
     [SerializeField] PlayableDirector _director;
 
