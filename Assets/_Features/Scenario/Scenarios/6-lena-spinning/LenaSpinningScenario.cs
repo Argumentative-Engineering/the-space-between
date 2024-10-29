@@ -21,11 +21,10 @@ public class LenaSpinningScenario : Scenario
         EventManager.Instance.UnregisterListener("player-thrust", OnPlayerThrust);
     }
 
-
     public override IEnumerator RunScenario()
     {
-        _startSpinning = true;
         yield return new WaitForSeconds(12);
+        _startSpinning = true;
         _player.GetComponent<PlayerThruster>().SetThrusterVisiblity(true);
 
         yield return base.RunScenario();
@@ -39,7 +38,7 @@ public class LenaSpinningScenario : Scenario
 
     private void Update()
     {
-        if (!_startSpinning && !_player.GetComponent<PlayerThruster>().IsShowing) return;
+        if (!_startSpinning) return;
 
         if (_spinningPercent <= 10)
         {
