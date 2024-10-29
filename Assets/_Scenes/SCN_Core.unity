@@ -888,6 +888,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 129582228}
     m_Modifications:
+    - target: {fileID: 1614658646629239188, guid: 7fb4e7b716036ef4abf8d56d91136434,
+        type: 3}
+      propertyPath: far clip plane
+      value: 10000
+      objectReference: {fileID: 0}
     - target: {fileID: 2115164739865227887, guid: 7fb4e7b716036ef4abf8d56d91136434,
         type: 3}
       propertyPath: m_Name
