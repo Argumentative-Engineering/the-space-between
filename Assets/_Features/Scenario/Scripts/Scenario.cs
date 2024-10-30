@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 [System.Serializable]
 public class ScenarioKey
@@ -46,5 +47,9 @@ public class Scenario : MonoBehaviour
 
     public virtual void ExitScenario()
     {
+        var dirs = FindObjectsOfType<PlayableDirector>();
+
+        foreach (var dir in dirs)
+            dir.Stop();
     }
 }

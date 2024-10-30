@@ -33,7 +33,7 @@ public class LenaSpinningScenario : Scenario
 
     private void OnPlayerThrust(object[] obj)
     {
-        _spinningPercent -= Time.deltaTime * 10;
+        _spinningPercent -= Time.deltaTime * 5;
     }
 
     private void Update()
