@@ -30,7 +30,7 @@ public class LenaSwingScenario : Scenario
     {
         CutsceneManager.Instance.Fade(1, () =>
         {
-            print("NEXT SCENE");
+            GameManager.Instance.LoadLevel("SCN_lena-outside-helen");
         });
     }
 

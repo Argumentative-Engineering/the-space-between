@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe2486cf161aa8489498b93df701f1b, type: 3}
+  m_Name: SUB_Lena_StopSpinning
+  m_EditorClassIdentifier: 
+  DialogueEvent:
+    Guid:
+      Data1: -319123010
+      Data2: 1148473023
+      Data3: -696860023
+      Data4: 1404550984
+    Path: event:/Dialogue/lena-spinning/Lena_StopSpinning
+  Subtitles:
+  - Key: lena-fuck
+    Speaker: Lena
+    Text: Freak !!
+  - Key: lena-jesus
+    Speaker: Lena
+    Text: jesus
+  - Key: lena-wth
+    Speaker: Lena
+    Text: mack r u there
+  - Key: lena-wth
+    Speaker: Lena
+    Text: mack r u there
+  - Key: lena-spot-scoria
+    Speaker: Lena
+    Text: Scoria.

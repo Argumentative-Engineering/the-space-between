@@ -1214,7 +1214,7 @@ PrefabInstance:
     - target: {fileID: 8041352107371608399, guid: 506bd5587a442db4db3c629787306560,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.33
+      value: -6.65
       objectReference: {fileID: 0}
     - target: {fileID: 8041352107371608399, guid: 506bd5587a442db4db3c629787306560,
         type: 3}
@@ -1224,12 +1224,12 @@ PrefabInstance:
     - target: {fileID: 8041352107371608399, guid: 506bd5587a442db4db3c629787306560,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -28.39
+      value: -43.39
       objectReference: {fileID: 0}
     - target: {fileID: 8041352107371608399, guid: 506bd5587a442db4db3c629787306560,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.3626342
+      value: 0.71029615
       objectReference: {fileID: 0}
     - target: {fileID: 8041352107371608399, guid: 506bd5587a442db4db3c629787306560,
         type: 3}
@@ -1239,7 +1239,7 @@ PrefabInstance:
     - target: {fileID: 8041352107371608399, guid: 506bd5587a442db4db3c629787306560,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.93193156
+      value: -0.70390296
       objectReference: {fileID: 0}
     - target: {fileID: 8041352107371608399, guid: 506bd5587a442db4db3c629787306560,
         type: 3}
@@ -1254,7 +1254,7 @@ PrefabInstance:
     - target: {fileID: 8041352107371608399, guid: 506bd5587a442db4db3c629787306560,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -137.476
+      value: -89.482
       objectReference: {fileID: 0}
     - target: {fileID: 8041352107371608399, guid: 506bd5587a442db4db3c629787306560,
         type: 3}
@@ -1351,7 +1351,6 @@ Transform:
   - {fileID: 268924456}
   - {fileID: 1660400585}
   - {fileID: 1916203691}
-  - {fileID: 2014264260}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1325689980
@@ -6930,56 +6929,6 @@ MonoBehaviour:
   _playerSettingsData: {fileID: 11400000, guid: 7743f4a19e3c76647b10f68d3d2e3e23,
     type: 2}
   _hiddenTillRun: []
---- !u!1 &2014264259
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2014264260}
-  - component: {fileID: 2014264261}
-  m_Layer: 0
-  m_Name: lena-spot-scoria
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2014264260
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2014264259}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1254689345}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2014264261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2014264259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cf17dc8dd661034b9ad1b5e8e3fbe8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScenarioName: 7-lena-spot-scoria
-  _playerStart: {fileID: 0}
-  _playerSettingsData: {fileID: 0}
-  _hiddenTillRun: []
-  _stopSpinningDialogue: {fileID: 11400000, guid: 0b0aa27d94d2a7448a3e6016b514c7be,
-    type: 2}
 --- !u!1 &2091404983
 GameObject:
   m_ObjectHideFlags: 0

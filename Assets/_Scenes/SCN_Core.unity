@@ -324,6 +324,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CurrentScenario>k__BackingField: {fileID: 0}
+--- !u!1 &424799807 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7645573936019145351, guid: 7fb4e7b716036ef4abf8d56d91136434,
+    type: 3}
+  m_PrefabInstance: {fileID: 4956004899123889678}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &759757744
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,6 +949,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5782732184512538843, guid: 7fb4e7b716036ef4abf8d56d91136434,
+        type: 3}
+      propertyPath: _helmet
+      value: 
+      objectReference: {fileID: 424799807}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
