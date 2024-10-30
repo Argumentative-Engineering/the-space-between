@@ -39,6 +39,7 @@ public class Scenario : MonoBehaviour
 
     protected void ShowHidden(bool visiblity)
     {
+        if (_hiddenTillRun == null) return;
         foreach (var hidden in _hiddenTillRun)
         {
             hidden.SetActive(visiblity);

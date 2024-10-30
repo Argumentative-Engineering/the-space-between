@@ -26,7 +26,7 @@ public class ScenarioManager : MonoBehaviour
             StopCoroutine(_currScenarioCoroutine);
             _currScenarioCoroutine = null;
         }
-
+        CurrentScenario = null;
         Scenarios.Clear();
     }
 
@@ -52,6 +52,7 @@ public class ScenarioManager : MonoBehaviour
 
             print("Running scenario: " + scenario.name);
             CurrentScenario = scenario;
+            CurrentScenario.enabled = true;
             _currScenarioCoroutine = StartCoroutine(CurrentScenario.RunScenario());
         }
     }

@@ -7,6 +7,7 @@ public class LenaSwingScenario : Scenario
     int _pushCount = 0;
     private void Start()
     {
+        GameManager.Instance.Player.GetComponent<PlayerThruster>().SetThrusterVisiblity(false);
         EventManager.Instance.RegisterListener("push-swing", OnPushSwing);
     }
 

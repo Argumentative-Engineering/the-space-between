@@ -47,7 +47,9 @@ public class LenaSpinningScenario : Scenario
             Camera.main.transform.DOLocalRotate(Vector3.zero, 3).OnComplete(() =>
             {
                 _player.GetComponent<PlayerLocalInput>().SnapToRotation(Camera.main.transform.localRotation);
-            });
+                _player.GetComponent<PlayerSettings>().UseLocalRot = false;
+            }
+            );
             ScenarioManager.Instance.RunNextScenario();
             return;
         }

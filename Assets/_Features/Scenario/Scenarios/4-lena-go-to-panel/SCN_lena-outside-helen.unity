@@ -844,6 +844,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 639671175}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &765477970 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3335529028753618045, guid: ba84eafaf1286ab439921f9d9a548d67,
+    type: 3}
+  m_PrefabInstance: {fileID: 270468112}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -6980,6 +6986,7 @@ MonoBehaviour:
   _hiddenTillRun: []
   _stopSpinningDialogue: {fileID: 11400000, guid: 0b0aa27d94d2a7448a3e6016b514c7be,
     type: 2}
+  _scoria: {fileID: 765477970}
 --- !u!1 &2091404983
 GameObject:
   m_ObjectHideFlags: 0

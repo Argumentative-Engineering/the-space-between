@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Features/Scenario/Scenarios/4-lena-go-to-panel/SCN_lena-outside-helen.unity
     guid: a9d92a0b444f7b24f920f04258bda60d
+  - enabled: 1
+    path: Assets/_Features/Scenario/Scenarios/7-lena-fb-swing/SCN_lena-fb-swing.unity
+    guid: a9ca85ad75f2b8043840edb7b8d5b3ec
   m_configObjects: {}

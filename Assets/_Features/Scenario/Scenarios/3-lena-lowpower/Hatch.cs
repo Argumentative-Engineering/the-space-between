@@ -43,7 +43,7 @@ public class Hatch : DialogueInteractable
         if (!base.TryInteract())
         {
             CutsceneManager.Instance.RunCutscene(_director,
-            () => GameManager.Instance.LoadLevel("SCN_lena-outside-helen"));
+            () => GameManager.Instance.LoadLevel(SceneDefinitions.HelenExterior));
         }
 
         return false;
