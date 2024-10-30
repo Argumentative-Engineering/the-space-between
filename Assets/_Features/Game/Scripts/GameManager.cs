@@ -78,4 +78,5 @@ public static class SceneDefinitions
     public static string HelenExterior = "SCN_lena-outside-helen";
     public static string SwingFlashback = "SCN_lena-fb-swing";
     public static string MarineFlashback = "SCN_lena-fb-swim";
+    public static string HelenBroken = "SCN_helen-broken";
 }
