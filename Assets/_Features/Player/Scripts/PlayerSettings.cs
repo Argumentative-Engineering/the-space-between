@@ -19,6 +19,7 @@ public class PlayerSettings : MonoBehaviour
     {
         PlayerMovementSettings = settings;
         _rb.useGravity = PlayerMovementSettings.UseGravity;
+        _rb.drag = PlayerMovementSettings.Drag;
         _helmet.SetActive(settings.ShowHelmet);
     }
 }

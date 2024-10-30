@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UseGravity: 0
   MoveSpeed: 5
+  Drag: 1
   ShowHelmet: 1
