@@ -43,9 +43,13 @@ public class GrabbableObject : GameInteractable
         _isheld = false;
         //_rb.isKinematic = false;
         _rb.drag = 0;
-        _rb.AddForce(Camera.main.transform.forward * 2f, ForceMode.Impulse);
+        var dir = Camera.main.transform.forward;
+        _rb.AddForce(dir * 2f, ForceMode.Impulse);
         GameManager.Instance.Player.GetComponent<PlayerInteraction>().IsInteracting = false;
-        GameManager.Instance.Player.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * -2f, ForceMode.Impulse);
+
+        // pusbback player
+        dir.y /= 2;
+        GameManager.Instance.Player.GetComponent<Rigidbody>().AddForce(dir * -2f, ForceMode.Impulse);
     }
 
     void FixedUpdate()

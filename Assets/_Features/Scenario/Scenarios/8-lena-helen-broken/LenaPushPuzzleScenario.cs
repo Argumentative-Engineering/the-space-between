@@ -9,4 +9,9 @@ public class LenaPushPuzzleScenario : Scenario
         GameManager.Instance.Player.GetComponent<Rigidbody>().drag = 0;
         return base.RunScenario();
     }
+
+    public void WithCommandModule()
+    {
+        ScenarioManager.Instance.RunNextScenario();
+    }
 }
