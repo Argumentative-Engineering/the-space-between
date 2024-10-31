@@ -9,11 +9,18 @@ public class PlayerSettings : MonoBehaviour
     public bool IsFrozen;
     public bool UseLocalRot;
 
+    [Header("Inventory Settings")]
+    public bool CanUseThrusters = false;
+    public bool CanUseTether = false;
+
     [field: SerializeField] public PlayerMovementSettingsData PlayerMovementSettings { get; private set; }
 
     [Header("References")]
     [SerializeField] Rigidbody _rb;
     [SerializeField] GameObject _helmet;
+
+    public static PlayerSettings Instance { get; private set; }
+    private void Awake() => Instance = this;
 
     public void UpdateSettings(PlayerMovementSettingsData settings)
     {

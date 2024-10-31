@@ -4,13 +4,8 @@ using UnityEngine.UI;
 public class Node : MonoBehaviour
 {
     private bool isPowered = false;
-    private Image nodeImage;
+    [SerializeField] Image nodeImage;
     private NodeManager nodeManager;
-
-    void Awake()
-    {
-        nodeImage = GetComponent<Image>();
-    }
 
     public void Init(NodeManager manager)
     {
