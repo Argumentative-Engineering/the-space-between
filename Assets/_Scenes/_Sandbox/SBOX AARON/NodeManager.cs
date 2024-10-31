@@ -11,7 +11,7 @@ public class NodeManager : MonoBehaviour
     public float spacing = 10f;
     public int targetPower = 100;
 
-    private int remainingPower = 0;
+    private int remainingPower = 30;
     private List<Node> nodes = new List<Node>();
 
     void Start()
@@ -51,7 +51,11 @@ public class NodeManager : MonoBehaviour
                 rt.anchoredPosition = new Vector2(startX + x * (rt.sizeDelta.x + spacing), startY + y * (rt.sizeDelta.y + spacing));
 
                 Node node = nodeObject.GetComponent<Node>();
-                node.Init(this);
+
+                // Assign a color based on the position for testing purposes
+                Node.NodeColor color = (x + y) % 3 == 0 ? Node.NodeColor.Blue : (x + y) % 3 == 1 ? Node.NodeColor.Green : Node.NodeColor.Yellow;
+                node.Init(this, color);
+
                 nodes.Add(node);
 
                 Button btn = nodeObject.GetComponent<Button>();
@@ -75,12 +79,12 @@ public class NodeManager : MonoBehaviour
         if (node.IsPowered)
         {
             node.SetPowered(false);
-            remainingPower -= 10;
+            DisconnectNode(node);
         }
         else
         {
             node.SetPowered(true);
-            remainingPower += 10;
+            ConnectSameColorNodes(node);
         }
 
         UpdatePowerStatus();
@@ -89,6 +93,23 @@ public class NodeManager : MonoBehaviour
         {
             CompletePuzzle();
         }
+    }
+
+    private void ConnectSameColorNodes(Node activeNode)
+    {
+        foreach (Node node in nodes)
+        {
+            if (node != activeNode && node.IsPowered && node.ColorType == activeNode.ColorType)
+            {
+                activeNode.ConnectTo(node);
+                break; // Connect only to the first valid node found (can be customized)
+            }
+        }
+    }
+
+    private void DisconnectNode(Node node)
+    {
+        node.Disconnect();
     }
 
     void UpdatePowerStatus()
