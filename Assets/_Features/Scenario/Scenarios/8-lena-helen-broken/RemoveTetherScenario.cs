@@ -4,4 +4,8 @@ using UnityEngine;
 
 public class RemoveTetherScenario : Scenario
 {
+    public override void ExitScenario()
+    {
+        ShowHidden(false);
+    }
 }

@@ -17,6 +17,7 @@ public class PlayerInventory : MonoBehaviour
     }
 
     [SerializeField] GameObject[] _items;
+    public GameObject EquippedItem { get; private set; }
     PlayerSettings _settings;
 
     void Start()
@@ -45,6 +46,7 @@ public class PlayerInventory : MonoBehaviour
             {
                 _items[i].SetActive(true);
                 SetVisible(i, true);
+                EquippedItem = _items[i];
                 continue;
             }
             SetVisible(i, false);

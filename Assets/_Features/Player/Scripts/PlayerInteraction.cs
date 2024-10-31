@@ -59,10 +59,11 @@ public class PlayerInteraction : MonoBehaviour
         else
         {
             _interactable = null;
+            _tooltipText.text = null;
             _opacity = Mathf.Clamp01(_opacity -= Time.deltaTime * _fadeSpeed);
         }
 
-        var opacity = IsInteracting ? 0 : _opacity;
+        var opacity = PlayerInventory.Instance.EquippedItem != null ? 1 : IsInteracting ? 0 : _opacity;
         _crosshairImage.color = new Color(1, 1, 1, opacity);
         _tooltipText.color = new Color(1, 1, 1, opacity);
     }

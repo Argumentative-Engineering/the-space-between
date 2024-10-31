@@ -257,8 +257,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 887783859}
   - {fileID: 1952039846}
+  - {fileID: 887783859}
   - {fileID: 66038878}
   - {fileID: 1297340299}
   - {fileID: 1860228892}
@@ -516,8 +516,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactionMask:
     serializedVersion: 2
-    m_Bits: 8
-  _pullForce: 5
+    m_Bits: 1024
+  _pullForce: 1
+  _tetherMaxLength: 20
   _input: {fileID: 887783863}
   _pullFrom: {fileID: 1180545446}
   _tether: {fileID: 1952039846}
@@ -1083,10 +1084,15 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 129582228}
     m_Modifications:
+    - target: {fileID: 981680554102756605, guid: 7fb4e7b716036ef4abf8d56d91136434,
+        type: 3}
+      propertyPath: _interactMask.m_Bits
+      value: 1032
+      objectReference: {fileID: 0}
     - target: {fileID: 1614658646629239188, guid: 7fb4e7b716036ef4abf8d56d91136434,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 381
+      value: 1405
       objectReference: {fileID: 0}
     - target: {fileID: 2115164739865227887, guid: 7fb4e7b716036ef4abf8d56d91136434,
         type: 3}
