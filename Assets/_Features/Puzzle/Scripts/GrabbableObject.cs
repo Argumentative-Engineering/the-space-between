@@ -44,7 +44,7 @@ public class GrabbableObject : GameInteractable
         _rb.drag = 20;
     }
 
-    private void DropItem()
+    public void DropItem()
     {
         if (_rb == null) return;
         Tooltip = "Grab " + _originalTooltip;
