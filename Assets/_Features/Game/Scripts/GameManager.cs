@@ -43,15 +43,18 @@ public class GameManager : MonoBehaviour
     public void MovePlayer(Transform targetTransform, Vector3 offset = default, bool rotate = true, bool move = true, bool snap = true)
     {
         var targPos = targetTransform.position + offset;
+        var playerRb = Player.GetComponent<Rigidbody>();
 
         if (move)
         {
-            if (snap) Player.GetComponent<Rigidbody>().position = targPos;
-            else Player.GetComponent<Rigidbody>().DOMove(targPos, 0.2f);
+            if (snap) playerRb.position = targPos;
+            else playerRb.DOMove(targPos, 0.2f);
         }
 
         if (rotate)
             Player.GetComponent<PlayerLocalInput>().SnapToRotation(targetTransform.rotation);
+
+        playerRb.velocity = Vector3.zero;
     }
 
     public void LoadLevel(string sceneName)

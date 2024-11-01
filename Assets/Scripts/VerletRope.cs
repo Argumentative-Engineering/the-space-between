@@ -11,6 +11,7 @@ public class VerletRope : MonoBehaviour
 {
     private VerletNode[] m_VerletNodes;
     [SerializeField] private float m_RopeLength;
+    [SerializeField] private float m_RopeExtraSlack = 10;
     [SerializeField] private int m_NumberOfNodes;
     [SerializeField] private int m_ConstraintIterationCount;
     [SerializeField] private Vector3 m_Gravity;
@@ -42,7 +43,7 @@ public class VerletRope : MonoBehaviour
 
     private void Update()
     {
-        m_RopeLength = Vector3.Distance(transform.position, EndThing.transform.position) + 10;
+        m_RopeLength = Vector3.Distance(transform.position, EndThing.transform.position) + m_RopeExtraSlack;
     }
 
     private void FixedUpdate()

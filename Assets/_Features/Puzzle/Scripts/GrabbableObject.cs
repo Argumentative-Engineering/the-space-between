@@ -7,6 +7,7 @@ public class GrabbableObject : GameInteractable
     [SerializeField] Transform _anchor;
     [SerializeField] float _holddistance = 1.5f;
     [SerializeField] float _holdforce = 5f;
+    [SerializeField] float _pushForce = 2;
     private Rigidbody _rb;
     private bool _isHeld = false;
 
@@ -51,12 +52,13 @@ public class GrabbableObject : GameInteractable
         _rb.drag = 0;
 
         var dir = Camera.main.transform.forward;
-        _rb.AddForce(dir * 2f, ForceMode.Impulse);
+        _rb.velocity = Vector3.zero;
+        _rb.AddForce(dir * _pushForce, ForceMode.Impulse);
         GameManager.Instance.Player.GetComponent<PlayerInteraction>().IsInteracting = false;
 
         // pusbback player
         dir.y /= 2;
-        GameManager.Instance.Player.GetComponent<Rigidbody>().AddForce(dir * -2f, ForceMode.Impulse);
+        GameManager.Instance.Player.GetComponent<Rigidbody>().AddForce(dir * -2f, ForceMode.VelocityChange);
     }
 
     private void Update()

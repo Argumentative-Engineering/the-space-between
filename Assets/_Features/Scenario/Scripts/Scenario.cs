@@ -28,7 +28,7 @@ public class Scenario : MonoBehaviour
     public virtual IEnumerator RunScenario()
     {
         if (_playerStart != null)
-            GameManager.Instance.MovePlayer(_playerStart);
+            GameManager.Instance.MovePlayer(_playerStart, snap: false);
 
         if (_playerSettingsData != null)
             GameManager.Instance.Player.GetComponent<PlayerSettings>().UpdateSettings(_playerSettingsData);

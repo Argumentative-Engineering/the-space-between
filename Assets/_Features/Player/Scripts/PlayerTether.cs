@@ -14,6 +14,7 @@ public class PlayerTether : MonoBehaviour
     [SerializeField] PlayerLocalInput _input;
     [SerializeField] Transform _pullFrom;
     [SerializeField] Transform _tether;
+    [SerializeField] Renderer[] _renderers;
 
     bool _isThrown = false;
     bool _canPull = false;
@@ -32,7 +33,12 @@ public class PlayerTether : MonoBehaviour
 
     void Update()
     {
-        if (!_isThrown) return;
+        if (!_isThrown)
+        {
+            _tether.position = Camera.main.transform.position + Camera.main.transform.forward * 2;
+            return;
+        }
+
         if (_connectedObject == null && Physics.Raycast(_tether.transform.position, _tether.transform.forward, out RaycastHit hit, 0.2f, _interactionMask))
         {
             _connectedObject = hit.collider.gameObject;
@@ -41,30 +47,42 @@ public class PlayerTether : MonoBehaviour
             _tetherRb.velocity = Vector3.zero;
             _connectedObject.GetComponent<FixedJoint>().connectedBody = _tetherRb;
         }
-
+        _dist = Vector3.Distance(_tether.position, Camera.main.transform.position);
         _tetherDir = _tether.position - Camera.main.transform.position;
-        if (_tetherDir.magnitude > _tetherMaxLength && _tetherDir.magnitude < 100)
+
+        if (_dist > _tetherMaxLength)
         {
             _tetherRb.velocity = Vector3.zero;
             _tetherRb.position = Camera.main.transform.position + _tetherDir.normalized * _tetherMaxLength;
         }
 
-        _dist = Mathf.Abs(_tetherDir.magnitude);
-        if (_dist > 4 && _dist < 100) _canPull = true;
-        if (_dist <= 4 && _canPull)
-        {
-            _tetherRb.velocity = Vector3.zero;
-            if (_connectedObject != null)
-            {
-                _connectedObject.transform.parent = null;
-                _connectedObject = null;
-            }
+        // _tetherDir = _tether.position - Camera.main.transform.position;
 
-            _tether.gameObject.SetActive(false);
-            _canPull = false;
-            _isThrown = false;
-        }
+        // if (_tetherDir.magnitude > _tetherMaxLength && _tetherDir.magnitude < 100)
+        // {
+        //     _tetherRb.velocity = Vector3.zero;
+        //     _tetherRb.position = Camera.main.transform.position + _tetherDir.normalized * _tetherMaxLength;
+        // }
+
+        // _dist = Mathf.Abs(_tetherDir.magnitude);
+        // if (_dist > 4 && _dist < 100) _canPull = true;
+
+        // if (_dist <= 4 && _canPull)
+        // {
+        //     _tetherRb.velocity = Vector3.zero;
+        //     if (_connectedObject != null)
+        //     {
+        //         _connectedObject.transform.parent = null;
+        //         _connectedObject = null;
+        //     }
+
+        //     ShowHeld(true);
+        //     _tether.gameObject.SetActive(false);
+        //     _canPull = false;
+        //     _isThrown = false;
+        // }
     }
+
     private void FixedUpdate()
     {
         if (!_isThrown) return;
@@ -89,11 +107,18 @@ public class PlayerTether : MonoBehaviour
     {
         if (_isThrown || !gameObject.activeSelf) return;
 
+        ShowHeld(false);
         _tether.gameObject.SetActive(true);
         _tetherRb.position = Camera.main.transform.position + Camera.main.transform.forward * 2;
         _isThrown = true;
 
+        _tetherRb.angularVelocity = Vector3.zero;
         _tetherRb.AddForce(Camera.main.transform.forward * 500);
         _tetherRb.rotation = Quaternion.LookRotation(Camera.main.transform.forward);
+    }
+
+    void ShowHeld(bool visible)
+    {
+        foreach (var renderer in _renderers) renderer.enabled = visible;
     }
 }
