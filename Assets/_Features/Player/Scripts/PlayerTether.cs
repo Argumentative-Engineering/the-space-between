@@ -63,15 +63,14 @@ public class PlayerTether : MonoBehaviour
         }
         else if (_dist <= 4 && _canPull)
         {
-            _tetherRb.drag = 20;
             if (_connectedObject != null)
             {
                 _connectedObject.transform.parent = null;
-                _connectedObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                _connectedObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+                var rb = _connectedObject.GetComponent<Rigidbody>();
+                rb.angularVelocity = Vector3.zero;
+                StartCoroutine(SetDrag(rb));
                 _connectedObject = null;
             }
-            _tetherRb.drag = 0;
             ShowHeld(true);
             _tether.gameObject.SetActive(false);
             _canPull = false;
@@ -86,6 +85,9 @@ public class PlayerTether : MonoBehaviour
         if (_input.IsFiring)
         {
             _tetherRb.AddForce(_pullForce * -_tetherDir);
+
+            if (_connectedObject != null)
+                _rb.AddForce(_pullForce * _tetherDir);
         }
     }
 
@@ -108,5 +110,13 @@ public class PlayerTether : MonoBehaviour
     void ShowHeld(bool visible)
     {
         foreach (var renderer in _renderers) renderer.enabled = visible;
+    }
+
+    IEnumerator SetDrag(Rigidbody rb)
+    {
+        rb.drag = 1;
+        yield return new WaitForSeconds(2);
+        if (rb != null)
+            rb.drag = 0;
     }
 }

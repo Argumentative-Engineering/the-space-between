@@ -32,7 +32,7 @@ public class GrabbableObject : GameInteractable
             PickupItem();
         }
 
-        return false;
+        return base.TryInteract();
     }
 
     private void PickupItem()

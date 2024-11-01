@@ -48,7 +48,14 @@ public class GameManager : MonoBehaviour
         if (move)
         {
             if (snap) playerRb.position = targPos;
-            else playerRb.DOMove(targPos, 0.2f);
+            else
+            {
+                playerRb.GetComponent<Collider>().enabled = false;
+                playerRb.DOMove(targPos, 0.2f).OnComplete(() =>
+                {
+                    playerRb.GetComponent<Collider>().enabled = true;
+                });
+            }
         }
 
         if (rotate)

@@ -7,7 +7,7 @@ public class LFS : DialogueInteractable
     public override bool TryInteract()
     {
         base.TryInteract();
-
+        EventManager.Instance.BroadcastEvent("got-lfs");
         Destroy(gameObject);
         return false;
     }
