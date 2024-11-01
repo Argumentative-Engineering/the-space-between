@@ -8,7 +8,7 @@ using UnityEngine;
 [RequireComponent(typeof(VerletRope))]
 public class RopeRenderer : MonoBehaviour
 {
-    [Min(3)] [SerializeField] private int m_RopeSegmentSides;
+    [Min(3)][SerializeField] private int m_RopeSegmentSides;
 
     private MeshFilter m_MeshFilter;
     private MeshRenderer m_MeshRenderer;
@@ -67,12 +67,13 @@ public class RopeRenderer : MonoBehaviour
             return;
 
         ComputeVertices(nodes, radius);
-        
-        if(!m_IsInitialized){
+
+        if (!m_IsInitialized)
+        {
             ComputeTriangles();
             m_IsInitialized = true;
         }
-        
+
         SetupMeshFilter();
     }
 
@@ -84,8 +85,8 @@ public class RopeRenderer : MonoBehaviour
         {
             var nodeindex = i / m_RopeSegmentSides;
             var sign = nodeindex == nodes.Length - 1 ? -1 : 1;
-            Debug.Log($"Node Index: {nodeindex}, Vert Index: {i} , {m_Vertices[i]}");
-            
+            // Debug.Log($"Node Index: {nodeindex}, Vert Index: {i} , {m_Vertices[i]}");
+
             var currNodePosition = nodes[nodeindex].Position;
             var normalOfPlane =
                 (sign * nodes[nodeindex].Position + -sign * nodes[nodeindex + (nodeindex == nodes.Length - 1 ? -1 : 1)].Position)
@@ -125,7 +126,7 @@ public class RopeRenderer : MonoBehaviour
         {
             m_Vertices[i] -= transform.position;
         }
-        
+
         m_RopeMesh.Clear();
         m_RopeMesh.vertices = m_Vertices;
         m_RopeMesh.triangles = m_Triangles;

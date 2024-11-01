@@ -18,7 +18,10 @@ public class VerletRope : MonoBehaviour
     [SerializeField] private float m_RopeRadius;
     [SerializeField] private int m_SubSteps = 4;
 
+    public GameObject EndThing;
+
     private RopeRenderer m_RopeRenderer;
+    private Collider[] m_Colliders;
 
     private void Awake()
     {
@@ -27,7 +30,7 @@ public class VerletRope : MonoBehaviour
 
         for (int i = 0; i < m_VerletNodes.Length; i++)
         {
-            m_VerletNodes[i].Position = transform.position - new Vector3(0f, (m_DistanceBetweenNodes * i), 0f);
+            m_VerletNodes[i].Position = transform.position - new Vector3(0f, m_DistanceBetweenNodes * i, 0f);
             m_VerletNodes[i].PrevoiusPosition = m_VerletNodes[i].Position;
         }
     }
@@ -35,6 +38,11 @@ public class VerletRope : MonoBehaviour
     private void Start()
     {
         m_RopeRenderer = GetComponent<RopeRenderer>();
+    }
+
+    private void Update()
+    {
+        m_RopeLength = Vector3.Distance(transform.position, EndThing.transform.position) + 10;
     }
 
     private void FixedUpdate()
@@ -49,27 +57,27 @@ public class VerletRope : MonoBehaviour
                     ApplyCollision();
             }
         }
-        
+        m_DistanceBetweenNodes = m_RopeLength / m_NumberOfNodes;
         m_RopeRenderer.RenderRope(m_VerletNodes, m_RopeRadius);
     }
 
-    // private void OnDrawGizmos()
-    // {
-    //     if (!Application.isPlaying)
-    //         return;
-    //
-    //     for (int i = 0; i < m_VerletNodes.Length; i++)
-    //     {
-    //         if (i != m_VerletNodes.Length - 1)
-    //         {
-    //             Gizmos.color = Color.green;
-    //             Gizmos.DrawLine(m_VerletNodes[i].Position, m_VerletNodes[i + 1].Position);
-    //         }
-    //         
-    //         Gizmos.color = Color.blue;
-    //         Gizmos.DrawLine(m_VerletNodes[i].Position, m_VerletNodes[i].PrevoiusPosition);
-    //     }
-    // }
+    private void OnDrawGizmos()
+    {
+        if (!Application.isPlaying)
+            return;
+
+        for (int i = 0; i < m_VerletNodes.Length; i++)
+        {
+            if (i != m_VerletNodes.Length - 1)
+            {
+                Gizmos.color = Color.green;
+                Gizmos.DrawLine(m_VerletNodes[i].Position, m_VerletNodes[i + 1].Position);
+            }
+
+            Gizmos.color = Color.blue;
+            Gizmos.DrawLine(m_VerletNodes[i].Position, m_VerletNodes[i].PrevoiusPosition);
+        }
+    }
 
     private void CalculateNewPositions(float deltaTime)
     {
@@ -78,15 +86,16 @@ public class VerletRope : MonoBehaviour
         for (int i = 0; i < m_VerletNodes.Length; i++)
         {
             var currNode = m_VerletNodes[i];
-            var newPreviousPosition = currNode.Position;
+            var pos = i == m_VerletNodes.Length - 1 ? EndThing.transform.position : currNode.Position;
+            var newPreviousPosition = pos;
 
-            var newPosition = (2 * currNode.Position) - currNode.PrevoiusPosition + gravityStep;
+            var newPosition = (2 * pos) - currNode.PrevoiusPosition + gravityStep;
 
-            Vector3 direction = newPosition - currNode.Position;
+            Vector3 direction = newPosition - pos;
             float distance = direction.magnitude;
             direction.Normalize();
 
-            if (Physics.SphereCast(currNode.Position, m_RopeRadius, direction, out RaycastHit hit, distance))
+            if (Physics.SphereCast(pos, m_RopeRadius, direction, out RaycastHit hit, distance))
             {
                 newPosition = hit.point + hit.normal * m_RopeRadius;
             }
@@ -124,9 +133,9 @@ public class VerletRope : MonoBehaviour
 
     private void ResolveCollision(ref VerletNode node)
     {
-        var colliders = Physics.OverlapSphere(node.Position, m_RopeRadius);
-
-        foreach (var col in colliders)
+        int count = Physics.OverlapSphereNonAlloc(node.Position, m_RopeRadius, m_Colliders);
+        if (count == 0) return;
+        foreach (var col in m_Colliders)
         {
             if (col.isTrigger) continue;
 

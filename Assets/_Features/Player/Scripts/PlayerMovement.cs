@@ -38,6 +38,6 @@ public class PlayerMovement : MonoBehaviour
             fwd.y = right.y = 0;
 
         var vec = (fwd * _input.MoveVector.y + right * _input.MoveVector.x).normalized * _settings.PlayerMovementSettings.MoveSpeed;
-        _rigidbody.AddForce(vec);
+        _rigidbody.AddForce(vec, ForceMode.Acceleration);
     }
 }

@@ -26,6 +26,8 @@ public class PlayerInteraction : MonoBehaviour
 
     public void Interact()
     {
+
+
         if (IsInteracting)
         {
             IsInteracting = false;
@@ -39,7 +41,9 @@ public class PlayerInteraction : MonoBehaviour
         if (_interactable != null && !IsInteracting)
         {
             if (_interactable.TryInteract())
+            {
                 IsInteracting = true;
+            }
         }
     }
 
@@ -52,8 +56,12 @@ public class PlayerInteraction : MonoBehaviour
                 _interactable = interactable;
 
                 _opacity = Mathf.Clamp01(_opacity += Time.deltaTime * _fadeSpeed);
+
                 if (_interactable.Tooltip != null)
                     _tooltipText.text = _interactable.Tooltip;
+
+                var xhairType = interactable is GrabbableObject ? CrosshairType.Grab : CrosshairType.Normal;
+                Crosshair.Instance.SetCrosshair(xhairType);
             }
         }
         else

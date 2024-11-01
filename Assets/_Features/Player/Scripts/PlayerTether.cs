@@ -93,7 +93,7 @@ public class PlayerTether : MonoBehaviour
         _tetherRb.position = Camera.main.transform.position + Camera.main.transform.forward * 2;
         _isThrown = true;
 
-        _tetherRb.AddForce(Camera.main.transform.forward * 100);
+        _tetherRb.AddForce(Camera.main.transform.forward * 500);
         _tetherRb.rotation = Quaternion.LookRotation(Camera.main.transform.forward);
     }
 }

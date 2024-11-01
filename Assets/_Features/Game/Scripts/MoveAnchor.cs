@@ -9,15 +9,19 @@ public class MoveAnchor : GameInteractable
 
     private void OnValidate()
     {
-        Tooltip = "Start";
+        Tooltip = "Move";
         _orientation = transform.GetChild(0);
     }
 
     public override bool TryInteract()
     {
-        var pos = _orientation.transform.position - Vector3.up;
-        _orientation.position = pos;
-        GameManager.Instance.MovePlayer(_orientation, rotate: false);
+        if (Vector3.Distance(GameManager.Instance.Player.transform.position, transform.position) > 4)
+        {
+            // TODO(dialogue): its too far
+            print("Dialogue: It's too far");
+            return false;
+        }
+        GameManager.Instance.MovePlayer(_orientation, offset: -Vector3.up, snap: false, rotate: false);
         return false;
     }
 }
