@@ -39,14 +39,15 @@ public class GameManager : MonoBehaviour
 
         GameState = newState;
     }
-    public void MovePlayer(Transform targetTransform)
+    public void MovePlayer(Transform targetTransform, bool rotate = true, bool move = true)
     {
         var currPos = Player.GetComponent<Rigidbody>().position;
         var targPos = targetTransform.position;
         var pos = Vector3.MoveTowards(currPos, targPos, (currPos - targPos).magnitude);
-
-        Player.GetComponent<Rigidbody>().position = pos;
-        Player.GetComponent<PlayerLocalInput>().SnapToRotation(targetTransform.localRotation);
+        if (move)
+            Player.GetComponent<Rigidbody>().position = pos;
+        if (rotate)
+            Player.GetComponent<PlayerLocalInput>().SnapToRotation(targetTransform.rotation);
     }
 
     public void LoadLevel(string sceneName)

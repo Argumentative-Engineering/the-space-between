@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class GrabbableObject : GameInteractable
 {
+    [SerializeField] Transform _anchor;
     [SerializeField] float _holddistance = 1.5f;
     [SerializeField] float _holdforce = 5f;
     private Rigidbody _rb;
-    private bool _isheld = false;
+    private bool _isHeld = false;
 
     void Start()
     {
@@ -16,23 +17,23 @@ public class GrabbableObject : GameInteractable
 
     public override bool TryInteract()
     {
-        if (_isheld)
+        if (_isHeld)
         {
             DropItem();
+            return false;
         }
         else
         {
             PickupItem();
+            return true;
         }
-
-        return base.TryInteract();
     }
 
     private void PickupItem()
     {
         if (_rb == null) return;
         // _rb.isKinematic = true;
-        _isheld = true;
+        _isHeld = true;
         _rb.drag = 10;
 
     }
@@ -40,7 +41,7 @@ public class GrabbableObject : GameInteractable
     private void DropItem()
     {
         if (_rb == null) return;
-        _isheld = false;
+        _isHeld = false;
         //_rb.isKinematic = false;
         _rb.drag = 0;
         var dir = Camera.main.transform.forward;
@@ -54,7 +55,7 @@ public class GrabbableObject : GameInteractable
 
     void FixedUpdate()
     {
-        if (_isheld && Camera.main != null)
+        if (_isHeld && Camera.main != null)
         {
             Vector3 targetPosition = Camera.main.transform.position + Camera.main.transform.forward * _holddistance;
             Vector3 directionToTarget = targetPosition - _rb.position;
