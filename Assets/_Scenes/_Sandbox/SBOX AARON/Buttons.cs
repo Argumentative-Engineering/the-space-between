@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Buttons : MonoBehaviour
+public class Buttons : GameInteractable
 {
     public int keypadNum = 1;
+    public UnityEvent OnKeypadClicked;
 
-    public UnityEvent KeypadClicked;
-
-    private void OnMouseDown()
+    public override bool TryInteract()
     {
-
-        KeypadClicked.Invoke();
+        OnKeypadClicked.Invoke();
+        return base.TryInteract();
     }
 }
