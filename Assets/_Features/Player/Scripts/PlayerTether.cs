@@ -52,6 +52,10 @@ public class PlayerTether : InventoryItem
             _connectedObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             _connectedObject.GetComponent<FixedJoint>().connectedBody = _tetherRb;
 
+            var parent = _connectedObject.transform.GetComponentInParent<Mover>();
+            if (parent != null)
+                parent.enabled = false;
+
             if (_connectedObject.CompareTag("Tether Move"))
             {
                 PullPlayer(_connectedObject.transform);
@@ -145,7 +149,7 @@ public class PlayerTether : InventoryItem
     void PullPlayer(Transform tetherPoint)
     {
         var player = GameManager.Instance.Player.GetComponent<Rigidbody>();
-        player.DOMove(_tetherRb.position - _tether.transform.forward, Vector3.Distance(player.position, _tetherRb.position) / 10)
+        player.DOMove(_tether.position + _tether.transform.forward, Vector3.Distance(player.position, _tetherRb.position) / 10)
             .OnComplete(() =>
             {
                 player.velocity = Vector3.zero;

@@ -28,7 +28,7 @@ public class PlayerInventory : MonoBehaviour
             item.gameObject.SetActive(false);
         }
 
-        DequipAll();
+        // DequipAll();
     }
 
     public void EquipItem(InventoryItems item)
@@ -47,7 +47,7 @@ public class PlayerInventory : MonoBehaviour
     public void EquipItem(int itemIndex)
     {
         DequipAll();
-        // bruteforced lol but its ok we only have 2 items
+
         if (itemIndex == 0 && !_settings.CanUseThrusters) return;
         if (itemIndex == 1 && !_settings.CanUseTether) return;
 

@@ -67,12 +67,11 @@ public class GrabbableObject : GameInteractable
             if (angle < 25)
             {
                 pushbackDir = anchorDir;
-                print("push");
             }
         }
 
         pushbackDir.y /= 2;
-        GameManager.Instance.Player.GetComponent<Rigidbody>().AddForce(pushbackDir * 2f, ForceMode.VelocityChange);
+        GameManager.Instance.Player.GetComponent<Rigidbody>().AddForce(pushbackDir * 2f, ForceMode.Impulse);
     }
 
     private void Update()

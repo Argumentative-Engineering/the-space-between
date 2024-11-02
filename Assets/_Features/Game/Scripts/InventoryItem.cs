@@ -6,21 +6,35 @@ public class InventoryItem : MonoBehaviour
     public bool IsEquipped { get; set; }
     Vector3 _startPos;
 
+    private void Awake()
+    {
+        _startPos = transform.localPosition;
+    }
+
     public virtual void Equip(bool isEquipped)
     {
-        if (!isEquipped) Dequip();
+        if (PlayerSettings.Instance.IsFrozen) return;
+        transform.DOKill(true);
+        if (!isEquipped)
+        {
+            Dequip();
+            return;
+        }
+
         gameObject.SetActive(isEquipped);
 
         if (!IsEquipped)
-            transform.DOMove(_startPos, 2);
+            transform.DOLocalMove(_startPos, 1);
 
         IsEquipped = isEquipped;
     }
 
     public virtual void Dequip()
     {
+        if (!IsEquipped) return;
+        transform.DOKill(true);
         IsEquipped = false;
-        transform.DOMove(_startPos + Vector3.down, 2).OnComplete(() =>
+        transform.DOLocalMove(_startPos + Vector3.down, 1).OnComplete(() =>
         {
             gameObject.SetActive(false);
         });
