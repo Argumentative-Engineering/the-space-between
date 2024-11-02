@@ -19,13 +19,14 @@ public class CutsceneManager : MonoBehaviour
 
     public void Fade(float fadeAmount, Action onFadeComplete, float duration = 2)
     {
+        _fadeImage.DOKill();
         var player = GameManager.Instance.Player;
-        player.GetComponent<PlayerSettings>().IsFrozen = true;
+        PlayerSettings.FreezePlayer(true);
 
         print("fade to " + fadeAmount);
         _fadeImage.DOFade(fadeAmount, duration).OnComplete(() =>
         {
-            player.GetComponent<PlayerSettings>().IsFrozen = false;
+            PlayerSettings.FreezePlayer(false);
             onFadeComplete?.Invoke();
         });
     }
@@ -33,13 +34,13 @@ public class CutsceneManager : MonoBehaviour
     public void RunCutscene(PlayableDirector director, Action OnComplete = null)
     {
         _hud.SetActive(false);
-        GameManager.Instance.Player.GetComponent<PlayerSettings>().IsFrozen = true;
+        PlayerSettings.FreezePlayer(true);
         director.Play();
 
         director.stopped += (_) =>
         {
             OnComplete?.Invoke();
-            GameManager.Instance.Player.GetComponent<PlayerSettings>().IsFrozen = false;
+            PlayerSettings.FreezePlayer(false);
             _hud.SetActive(true);
         };
     }

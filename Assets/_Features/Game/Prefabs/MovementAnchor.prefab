@@ -95,32 +95,32 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 162b45bc5eb47a240a8d339dffb8ef99,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.23998642
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 162b45bc5eb47a240a8d339dffb8ef99,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.23998642
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 162b45bc5eb47a240a8d339dffb8ef99,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.23998645
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 162b45bc5eb47a240a8d339dffb8ef99,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.1292237
+      value: -85.52135
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 162b45bc5eb47a240a8d339dffb8ef99,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.03839812
+      value: 2.452818
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 162b45bc5eb47a240a8d339dffb8ef99,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.2705488
+      value: 176.14525
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 162b45bc5eb47a240a8d339dffb8ef99,
         type: 3}
@@ -160,7 +160,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 162b45bc5eb47a240a8d339dffb8ef99,
         type: 3}
       propertyPath: m_Name
-      value: SM_GuideRails_Long
+      value: MovementAnchor
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 162b45bc5eb47a240a8d339dffb8ef99,
         type: 3}

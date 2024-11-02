@@ -41,6 +41,7 @@ public class GrabbableObject : GameInteractable
         Tooltip = "Throw " + _originalTooltip;
 
         _isHeld = true;
+        _rb.isKinematic = false;
         _rb.drag = 20;
     }
 
@@ -57,8 +58,21 @@ public class GrabbableObject : GameInteractable
         GameManager.Instance.Player.GetComponent<PlayerInteraction>().IsInteracting = false;
 
         // pusbback player
-        dir.y /= 2;
-        GameManager.Instance.Player.GetComponent<Rigidbody>().AddForce(dir * -2f, ForceMode.VelocityChange);
+        var pushbackDir = -dir;
+        if (_anchor != null)
+        {
+            var anchorDir = (_anchor.position - Camera.main.transform.position).normalized;
+            var angle = Vector3.Angle(-Camera.main.transform.forward, anchorDir);
+
+            if (angle < 25)
+            {
+                pushbackDir = anchorDir;
+                print("push");
+            }
+        }
+
+        pushbackDir.y /= 2;
+        GameManager.Instance.Player.GetComponent<Rigidbody>().AddForce(pushbackDir * 2f, ForceMode.VelocityChange);
     }
 
     private void Update()

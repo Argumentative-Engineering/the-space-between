@@ -15,6 +15,7 @@ public class Scenario : MonoBehaviour
     public string ScenarioName;
     [SerializeField] Transform _playerStart;
     public Dictionary<string, dynamic> ScenarioKeys = new();
+    [field: SerializeField] public bool MovePlayerOnRun { get; set; }
     [SerializeField] PlayerMovementSettingsData _playerSettingsData;
 
     [Header("Scenario Specific")]
@@ -27,7 +28,7 @@ public class Scenario : MonoBehaviour
 
     public virtual IEnumerator RunScenario()
     {
-        if (_playerStart != null)
+        if (_playerStart != null && MovePlayerOnRun)
             GameManager.Instance.MovePlayer(_playerStart, snap: false);
 
         if (_playerSettingsData != null)

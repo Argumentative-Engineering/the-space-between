@@ -19,7 +19,7 @@ public class HelenHitScenario : Scenario
             ShowHidden(false);
             StartCoroutine(PlayerImpact());
         });
-        settings.UseLocalRot = true;
+        settings.OverrideCameraRotation = true;
         yield return base.RunScenario();
     }
 

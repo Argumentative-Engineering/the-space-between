@@ -6,6 +6,6 @@ public class CleanPanels : DialogueTrigger
 {
     protected override void Trigger()
     {
-        GameManager.Instance.Player.GetComponent<PlayerThruster>().SetThrusterVisiblity(true);
+        PlayerInventory.Instance.EquipItem(InventoryItems.Thruster);
     }
 }

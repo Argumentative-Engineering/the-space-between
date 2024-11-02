@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     [field: SerializeField] public GameObject Player { get; private set; }
     [field: SerializeField] public GameState GameState { get; private set; }
 
+    public bool IsReloading = false;
+
     public static GameManager Instance { get; private set; }
     private void Awake()
     {
@@ -67,6 +69,7 @@ public class GameManager : MonoBehaviour
     public void LoadLevel(string sceneName)
     {
         var scn = ScenarioManager.Instance;
+        IsReloading = true;
         CutsceneManager.Instance.Fade(1, () =>
         {
             scn.UnloadScenarios();
@@ -80,6 +83,10 @@ public class GameManager : MonoBehaviour
                     scn.LoadScenarios();
                     scn.RunNextScenario();
                     CutsceneManager.Instance.Fade(0, null);
+                    PlayerSettings.Instance.SetUIVisiblity(true);
+                    PlayerOxygen.Instance.CurrentOxygen = 100;
+
+                    IsReloading = false;
                 }
             };
         });

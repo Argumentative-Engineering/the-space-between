@@ -17,7 +17,6 @@ public class RemoveTether : GameInteractable
             PlayerSettings.Instance.CanUseTether = true;
             PlayerInventory.Instance.EquipItem(InventoryItems.Tether);
             GameManager.Instance.Player.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            ScenarioManager.Instance.RunNextScenario();
             Destroy(gameObject);
         });
         return false;

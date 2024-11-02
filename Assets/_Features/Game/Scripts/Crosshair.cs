@@ -5,7 +5,8 @@ using UnityEngine.UI;
 public enum CrosshairType
 {
     Normal,
-    Grab
+    Grab,
+    Push
 }
 
 public class Crosshair : MonoBehaviour
@@ -13,6 +14,7 @@ public class Crosshair : MonoBehaviour
     [Header("Textures")]
     [SerializeField] Sprite _normal;
     [SerializeField] Sprite _grab;
+    [SerializeField] Sprite _push;
 
     [Header("References")]
     [SerializeField] Image _crosshair;
@@ -29,7 +31,8 @@ public class Crosshair : MonoBehaviour
     {
         var crosshair = type switch
         {
-            CrosshairType.Grab => (_grab, 0.3f),
+            CrosshairType.Grab => (_grab, 0.5f),
+            CrosshairType.Push => (_push, 1f),
             _ => (_normal, 0.1f)
         };
 

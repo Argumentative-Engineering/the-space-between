@@ -16,8 +16,8 @@ public class PlayerInventory : MonoBehaviour
         Instance = this;
     }
 
-    [SerializeField] GameObject[] _items;
-    public GameObject EquippedItem { get; private set; }
+    [SerializeField] InventoryItem[] _items;
+    public InventoryItem EquippedItem { get; private set; }
     PlayerSettings _settings;
 
     void Start()
@@ -25,8 +25,10 @@ public class PlayerInventory : MonoBehaviour
         _settings = PlayerSettings.Instance;
         foreach (var item in _items)
         {
-            item.SetActive(false);
+            item.gameObject.SetActive(false);
         }
+
+        DequipAll();
     }
 
     public void EquipItem(InventoryItems item)
@@ -34,8 +36,17 @@ public class PlayerInventory : MonoBehaviour
         EquipItem((int)item);
     }
 
+    public void DequipAll()
+    {
+        foreach (var item in _items)
+        {
+            item.Dequip();
+        }
+    }
+
     public void EquipItem(int itemIndex)
     {
+        DequipAll();
         // bruteforced lol but its ok we only have 2 items
         if (itemIndex == 0 && !_settings.CanUseThrusters) return;
         if (itemIndex == 1 && !_settings.CanUseTether) return;
@@ -44,19 +55,12 @@ public class PlayerInventory : MonoBehaviour
         {
             if (i == itemIndex)
             {
-                _items[i].SetActive(true);
-                SetVisible(i, true);
                 EquippedItem = _items[i];
+                EquippedItem.gameObject.SetActive(true);
+                EquippedItem.Equip(true);
                 continue;
             }
-            SetVisible(i, false);
+            _items[i].gameObject.SetActive(false);
         }
-
-    }
-
-    void SetVisible(int itemIndex, bool visible)
-    {
-        var item = _items[itemIndex].transform;
-        item.gameObject.SetActive(visible);
     }
 }

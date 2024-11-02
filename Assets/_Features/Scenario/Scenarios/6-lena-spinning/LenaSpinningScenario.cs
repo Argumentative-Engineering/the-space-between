@@ -25,7 +25,7 @@ public class LenaSpinningScenario : Scenario
     {
         yield return new WaitForSeconds(12);
         _startSpinning = true;
-        _player.GetComponent<PlayerThruster>().SetThrusterVisiblity(true);
+        PlayerInventory.Instance.EquipItem(InventoryItems.Thruster);
 
         yield return base.RunScenario();
     }
@@ -47,7 +47,7 @@ public class LenaSpinningScenario : Scenario
             Camera.main.transform.DOLocalRotate(Vector3.zero, 3).OnComplete(() =>
             {
                 _player.GetComponent<PlayerLocalInput>().SnapToRotation(Camera.main.transform.localRotation);
-                _player.GetComponent<PlayerSettings>().UseLocalRot = false;
+                _player.GetComponent<PlayerSettings>().OverrideCameraRotation = false;
             }
             );
             ScenarioManager.Instance.RunNextScenario();

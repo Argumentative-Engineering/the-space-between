@@ -19,14 +19,20 @@ public class GetLFSScenario : Scenario
     private void GotLfs(object[] obj)
     {
         Announcement.Instance.StopAnnouncement();
+        ScenarioManager.Instance.RunNextScenario();
     }
 
     private void OnTetherObject(object[] obj)
     {
         GameObject tethered = (GameObject)obj[0];
-        if (tethered.name == "LFS")
+        if (tethered.name == "Vitality Module")
         {
             print("got lfs!");
         }
+    }
+
+    public void WithCommandModule()
+    {
+        ScenarioManager.Instance.RunNextScenario(movePlayer: false);
     }
 }

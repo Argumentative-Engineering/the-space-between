@@ -1,3 +1,4 @@
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,13 +22,14 @@ public class PlayerInteraction : MonoBehaviour
 
     readonly float _fadeSpeed = 5;
 
+    Collider[] _moveAnchorsInRange;
+    bool _hasNearMoveAnchors;
+
     Vector3 _camPrevPos;
     Quaternion _camPrevRot;
 
     public void Interact()
     {
-
-
         if (IsInteracting)
         {
             IsInteracting = false;
@@ -49,6 +51,35 @@ public class PlayerInteraction : MonoBehaviour
 
     void Update()
     {
+        CheckForNearMoveAnchors();
+        CheckForInteractables();
+
+        UpdateUI();
+    }
+
+    void CheckForNearMoveAnchors()
+    {
+        _moveAnchorsInRange = Physics.OverlapSphere(transform.position, 10, _interactMask);
+
+        if (_moveAnchorsInRange.Length == 0) return;
+        var list = _moveAnchorsInRange.Where(m => m.name.Contains("MovementAnchor")).ToArray();
+        if (list.Length == 0) return;
+
+        Transform nearest = list[0].transform;
+        foreach (var col in list)
+        {
+            var nearestDist = Vector3.Distance(transform.position, nearest.transform.position);
+            var dist = Vector3.Distance(transform.position, col.transform.position);
+
+            if (dist < nearestDist) nearest = col.transform;
+        }
+
+        var dot = Vector3.Dot(Camera.main.transform.forward, (nearest.position - Camera.main.transform.position).normalized);
+        _hasNearMoveAnchors = dot > -0.2f;
+    }
+
+    void CheckForInteractables()
+    {
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, _range, _interactMask))
         {
             if (hit.collider.TryGetComponent(out GameInteractable interactable))
@@ -59,22 +90,27 @@ public class PlayerInteraction : MonoBehaviour
 
                 if (_interactable.Tooltip != null)
                     _tooltipText.text = _interactable.Tooltip;
-
-                var xhairType = interactable is GrabbableObject ? CrosshairType.Grab : CrosshairType.Normal;
-                Crosshair.Instance.SetCrosshair(xhairType);
             }
         }
         else
         {
             _interactable = null;
-            _tooltipText.text = null;
+            _tooltipText.text = _settings.IsAnchored && !_hasNearMoveAnchors ? "Push yourself" : null;
             _opacity = Mathf.Clamp01(_opacity -= Time.deltaTime * _fadeSpeed);
         }
+    }
 
-        var opacity = PlayerInventory.Instance.EquippedItem != null ? 1 : IsInteracting ? 0 : _opacity;
+    void UpdateUI()
+    {
+        var xhairType = _interactable is GrabbableObject ? CrosshairType.Grab : CrosshairType.Normal;
+        Crosshair.Instance.SetCrosshair(xhairType);
+
+        var opacity = (PlayerInventory.Instance.EquippedItem != null || _settings.IsAnchored) ? 1 : IsInteracting ? 0 : _opacity;
         _crosshairImage.color = new Color(1, 1, 1, opacity);
         _tooltipText.color = new Color(1, 1, 1, opacity);
     }
+
+    public void SetTooltip(string tooltip) => _tooltipText.text = tooltip;
 
     public void MoveCamera(Vector3 pos, Quaternion rot)
     {

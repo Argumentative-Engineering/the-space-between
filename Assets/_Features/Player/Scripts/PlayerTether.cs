@@ -1,9 +1,10 @@
 using System.Collections;
+using DG.Tweening;
 using NaughtyAttributes.Test;
 using TMPro.EditorUtilities;
 using UnityEngine;
 
-public class PlayerTether : MonoBehaviour
+public class PlayerTether : InventoryItem
 {
     [Header("Settings")]
     [SerializeField] LayerMask _interactionMask;
@@ -41,12 +42,20 @@ public class PlayerTether : MonoBehaviour
 
         if (_connectedObject == null && Physics.Raycast(_tether.transform.position, _tether.transform.forward, out RaycastHit hit, 0.2f, _interactionMask))
         {
+            if (hit.collider.gameObject.GetComponent<FixedJoint>() == null) return;
+
             _connectedObject = hit.collider.gameObject;
             _tetherRb.rotation = Quaternion.LookRotation(-hit.normal);
             _tetherRb.angularVelocity = Vector3.zero;
             _tetherRb.velocity = Vector3.zero;
             _canPull = true;
+            _connectedObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             _connectedObject.GetComponent<FixedJoint>().connectedBody = _tetherRb;
+
+            if (_connectedObject.CompareTag("Tether Move"))
+            {
+                PullPlayer(_connectedObject.transform);
+            }
         }
         else
         {
@@ -67,8 +76,11 @@ public class PlayerTether : MonoBehaviour
             {
                 _connectedObject.transform.parent = null;
                 var rb = _connectedObject.GetComponent<Rigidbody>();
-                rb.angularVelocity = Vector3.zero;
-                StartCoroutine(SetDrag(rb));
+                if (!rb.isKinematic)
+                {
+                    rb.angularVelocity = Vector3.zero;
+                    StartCoroutine(SetDrag(rb));
+                }
                 _connectedObject = null;
             }
             ShowHeld(true);
@@ -84,10 +96,8 @@ public class PlayerTether : MonoBehaviour
 
         if (_input.IsFiring)
         {
-            _tetherRb.AddForce(_pullForce * -_tetherDir);
-
-            if (_connectedObject != null)
-                _rb.AddForce(_pullForce * _tetherDir);
+            if (_connectedObject == null || (_connectedObject != null && !_connectedObject.TryGetComponent(out MoveAnchor _)))
+                _tetherRb.AddForce(_pullForce * -_tetherDir);
         }
     }
 
@@ -103,8 +113,20 @@ public class PlayerTether : MonoBehaviour
         _tetherRb.position = Camera.main.transform.position + Camera.main.transform.forward * 2;
         _isThrown = true;
 
-
         _tetherRb.AddForce(Camera.main.transform.forward * 500);
+        GameManager.Instance.Player.GetComponent<PlayerSettings>().IsAnchored = false;
+    }
+
+    private void OnEnable()
+    {
+        if (GameManager.Instance != null)
+            GameManager.Instance.Player.GetComponent<PlayerSettings>().IsAnchored = false;
+    }
+
+    public override void Equip(bool isEquipped)
+    {
+        ShowHeld(true);
+        base.Equip(isEquipped);
     }
 
     void ShowHeld(bool visible)
@@ -118,5 +140,18 @@ public class PlayerTether : MonoBehaviour
         yield return new WaitForSeconds(2);
         if (rb != null)
             rb.drag = 0;
+    }
+
+    void PullPlayer(Transform tetherPoint)
+    {
+        var player = GameManager.Instance.Player.GetComponent<Rigidbody>();
+        player.DOMove(_tetherRb.position - _tether.transform.forward, Vector3.Distance(player.position, _tetherRb.position) / 10)
+            .OnComplete(() =>
+            {
+                player.velocity = Vector3.zero;
+                GameManager.Instance.MovePlayer(tetherPoint, offset: tetherPoint.forward, snap: false, rotate: false);
+                EventManager.Instance.BroadcastEvent("on-tether", tetherPoint);
+                tetherPoint.GetComponent<FixedJoint>().connectedBody = null;
+            });
     }
 }

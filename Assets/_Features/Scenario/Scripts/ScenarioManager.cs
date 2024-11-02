@@ -16,7 +16,7 @@ public class ScenarioManager : MonoBehaviour
         Instance = this;
 
         LoadScenarios();
-        RunNextScenario();
+        RunNextScenario(movePlayer: true);
     }
 
     public void UnloadScenarios()
@@ -37,7 +37,7 @@ public class ScenarioManager : MonoBehaviour
             Scenarios.Enqueue(scenario);
     }
 
-    public void RunNextScenario()
+    public void RunNextScenario(bool movePlayer = false)
     {
         if (Scenarios.TryDequeue(out Scenario scenario))
         {
@@ -53,6 +53,7 @@ public class ScenarioManager : MonoBehaviour
             print("Running scenario: " + scenario.name);
             CurrentScenario = scenario;
             CurrentScenario.enabled = true;
+            CurrentScenario.MovePlayerOnRun = movePlayer;
             _currScenarioCoroutine = StartCoroutine(CurrentScenario.RunScenario());
         }
     }
@@ -61,27 +62,4 @@ public class ScenarioManager : MonoBehaviour
     {
         CurrentScenario = scenario;
     }
-
-#if UNITY_EDITOR
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            RunNextScenario();
-        }
-    }
-
-    private void OnGUI()
-    {
-        GUI.Label(new Rect(20, 30, 1000, 1000), $"Current Scenario: {CurrentScenario.name}");
-        if (Scenarios.Count == 0) return;
-        var scens = "Next: ";
-        foreach (var scenario in Scenarios)
-        {
-            scens += $"{scenario.name} ";
-        }
-        GUI.Label(new Rect(20, 48, 1000, 1000), $"{scens}");
-    }
-#endif
-
 }

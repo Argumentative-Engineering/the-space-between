@@ -181,7 +181,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{dcee0105-6ded-4d33-b4eb-67ceb2b9171b}">
 		<property name="name">
-			<value>Audio 2</value>
+			<value>TTS</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{5a1a1889-14ea-42fc-99b2-34d5e4204be8}</destination>
@@ -232,11 +232,7 @@
 	<object class="MixerBusPanner" id="{4a4d5067-42d7-40c9-92d5-c21b2d29e8a8}" />
 	<object class="MixerBusEffectChain" id="{5a1a1889-14ea-42fc-99b2-34d5e4204be8}">
 		<relationship name="effects">
-			<destination>{1f14b25b-7edc-4032-8277-1ec0f142a5b8}</destination>
-			<destination>{2024bcb9-0499-4e81-8efa-a433976b9b30}</destination>
 			<destination>{4d0a5e8e-a477-4c1b-a498-11184d5e735c}</destination>
-			<destination>{50775383-0c47-41ba-b8aa-53e0c78c848e}</destination>
-			<destination>{a2bd1d8e-6b5a-433b-956f-e14e3a1cad21}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{f5edca50-83c9-4a00-a792-e2ecf8df5f3c}" />
@@ -270,40 +266,5 @@
 			<value>-20.5</value>
 		</property>
 	</object>
-	<object class="MultibandEqEffect" id="{1f14b25b-7edc-4032-8277-1ec0f142a5b8}">
-		<property name="filterTypeA">
-			<value>7</value>
-		</property>
-		<property name="frequencyA">
-			<value>438.290649</value>
-		</property>
-		<property name="qualityA">
-			<value>0.141862065</value>
-		</property>
-		<property name="gainA">
-			<value>-14.4827595</value>
-		</property>
-	</object>
-	<object class="DistortionEffect" id="{2024bcb9-0499-4e81-8efa-a433976b9b30}">
-		<property name="level">
-			<value>0.694999993</value>
-		</property>
-	</object>
 	<object class="MixerBusFader" id="{4d0a5e8e-a477-4c1b-a498-11184d5e735c}" />
-	<object class="CompressorEffect" id="{50775383-0c47-41ba-b8aa-53e0c78c848e}">
-		<property name="threshold">
-			<value>-16.5</value>
-		</property>
-	</object>
-	<object class="ChorusEffect" id="{a2bd1d8e-6b5a-433b-956f-e14e3a1cad21}">
-		<property name="rate">
-			<value>3.70000005</value>
-		</property>
-		<property name="depth">
-			<value>30</value>
-		</property>
-		<property name="mix">
-			<value>34.5</value>
-		</property>
-	</object>
 </objects>
