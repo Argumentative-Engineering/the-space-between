@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Keypad : MonoBehaviour
 {
-    public string password = "1234";
+    public string password = "4716";
     private string userInput = "";
 
     private void Start()

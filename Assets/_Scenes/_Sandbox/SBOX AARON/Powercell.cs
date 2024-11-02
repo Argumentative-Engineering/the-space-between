@@ -39,6 +39,6 @@ public class PowerCell : MonoBehaviour
 
     private void OnPuzzleComplete()
     {
-        Debug.Log("Puzzle completed! The Power Cell is now connected.");
+        Debug.Log("Got it. Scoria has power now.");
     }
 }
