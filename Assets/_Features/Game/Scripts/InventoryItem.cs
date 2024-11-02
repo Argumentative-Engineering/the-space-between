@@ -9,6 +9,8 @@ public class InventoryItem : MonoBehaviour
     public virtual void Equip(bool isEquipped)
     {
         if (!isEquipped) Dequip();
+        gameObject.SetActive(isEquipped);
+
         if (!IsEquipped)
             transform.DOMove(_startPos, 2);
 
