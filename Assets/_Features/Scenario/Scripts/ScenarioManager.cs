@@ -62,4 +62,18 @@ public class ScenarioManager : MonoBehaviour
     {
         CurrentScenario = scenario;
     }
+
+    public T GetScenario<T>() where T : Scenario
+    {
+        foreach (var scenario in Scenarios)
+        {
+            if (scenario is T specificScenario)
+                return specificScenario;
+        }
+
+        if (CurrentScenario is T currentSpecific)
+            return currentSpecific;
+
+        return null;
+    }
 }

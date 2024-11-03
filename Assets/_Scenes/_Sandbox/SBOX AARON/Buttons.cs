@@ -6,11 +6,15 @@ using UnityEngine.Events;
 public class Buttons : GameInteractable
 {
     public int keypadNum = 1;
-    public UnityEvent OnKeypadClicked;
+
+    private void Start()
+    {
+        Tooltip = keypadNum.ToString();
+    }
 
     public override bool TryInteract()
     {
-        OnKeypadClicked.Invoke();
-        return base.TryInteract();
+        OnInteract?.Invoke();
+        return false;
     }
 }

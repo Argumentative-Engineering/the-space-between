@@ -9,6 +9,7 @@ public class Announcement : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        StopAnnouncement();
     }
 
     [SerializeField] Image _image;

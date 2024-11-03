@@ -98,6 +98,33 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Down"",
+                    ""type"": ""Button"",
+                    ""id"": ""a2be6f4c-09b5-40c5-be62-ea24f1a617f9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NextCam"",
+                    ""type"": ""Button"",
+                    ""id"": ""47ee988c-6b89-4b06-9f52-d394222ae0bc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PrevCam"",
+                    ""type"": ""Button"",
+                    ""id"": ""d1fc6651-3ecd-44d8-a187-d428ab7ef577"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -450,6 +477,72 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3fe6ab98-03a5-4c70-b9de-b473ff2433bd"",
+                    ""path"": ""<Keyboard>/period"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""NextCam"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f19a49ce-c8ba-4a87-8c8e-e765507fb2d2"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""NextCam"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4def62a6-a615-4ba4-be12-805d191b6b93"",
+                    ""path"": ""<Keyboard>/comma"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""PrevCam"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""42c1d07d-a7fe-47a4-a917-44d7cfb22d09"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""PrevCam"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""12529cef-5ecc-4a1f-b807-cce5f664865c"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b8a1c0eb-f10f-4733-863d-d3dbd8675c57"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Down"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1045,6 +1138,9 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
         m_Player_Zoom = m_Player.FindAction("Zoom", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_Down = m_Player.FindAction("Down", throwIfNotFound: true);
+        m_Player_NextCam = m_Player.FindAction("NextCam", throwIfNotFound: true);
+        m_Player_PrevCam = m_Player.FindAction("PrevCam", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1126,6 +1222,9 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Inventory;
     private readonly InputAction m_Player_Zoom;
     private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_Down;
+    private readonly InputAction m_Player_NextCam;
+    private readonly InputAction m_Player_PrevCam;
     public struct PlayerActions
     {
         private @GameInput m_Wrapper;
@@ -1138,6 +1237,9 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
         public InputAction @Zoom => m_Wrapper.m_Player_Zoom;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @Down => m_Wrapper.m_Player_Down;
+        public InputAction @NextCam => m_Wrapper.m_Player_NextCam;
+        public InputAction @PrevCam => m_Wrapper.m_Player_PrevCam;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1171,6 +1273,15 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @Down.started += instance.OnDown;
+            @Down.performed += instance.OnDown;
+            @Down.canceled += instance.OnDown;
+            @NextCam.started += instance.OnNextCam;
+            @NextCam.performed += instance.OnNextCam;
+            @NextCam.canceled += instance.OnNextCam;
+            @PrevCam.started += instance.OnPrevCam;
+            @PrevCam.performed += instance.OnPrevCam;
+            @PrevCam.canceled += instance.OnPrevCam;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1199,6 +1310,15 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @Down.started -= instance.OnDown;
+            @Down.performed -= instance.OnDown;
+            @Down.canceled -= instance.OnDown;
+            @NextCam.started -= instance.OnNextCam;
+            @NextCam.performed -= instance.OnNextCam;
+            @NextCam.canceled -= instance.OnNextCam;
+            @PrevCam.started -= instance.OnPrevCam;
+            @PrevCam.performed -= instance.OnPrevCam;
+            @PrevCam.canceled -= instance.OnPrevCam;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1389,6 +1509,9 @@ public partial class @GameInput: IInputActionCollection2, IDisposable
         void OnInventory(InputAction.CallbackContext context);
         void OnZoom(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnDown(InputAction.CallbackContext context);
+        void OnNextCam(InputAction.CallbackContext context);
+        void OnPrevCam(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

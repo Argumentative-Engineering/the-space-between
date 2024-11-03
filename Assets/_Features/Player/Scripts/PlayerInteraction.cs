@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -16,6 +17,8 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] Image _crosshairImage;
 
     public bool IsInteracting { get; set; }
+    bool _canInteract = true;
+
     GameInteractable _interactable;
 
     float _opacity;
@@ -32,21 +35,36 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (IsInteracting)
         {
-            IsInteracting = false;
-            MoveCamera(_camPrevPos, _camPrevRot);
-            _camPrevPos = Vector3.zero;
-            _camPrevRot = Quaternion.identity;
-            _settings.IsFrozen = false;
+            StopInteracting();
         }
         if (_settings.IsFrozen) return;
 
-        if (_interactable != null && !IsInteracting)
+        if (_interactable != null && !IsInteracting && _canInteract)
         {
+            _canInteract = false;
             if (_interactable.TryInteract())
             {
                 IsInteracting = true;
             }
+            if (!IsInteracting)
+                StartCoroutine(CanInteract());
         }
+    }
+
+    public void StopInteracting()
+    {
+        MoveCamera(_camPrevPos, _camPrevRot);
+        _camPrevPos = Vector3.zero;
+        _camPrevRot = Quaternion.identity;
+        _settings.IsFrozen = false;
+        IsInteracting = false;
+
+        StartCoroutine(CanInteract());
+    }
+    IEnumerator CanInteract()
+    {
+        yield return new WaitForSeconds(0.5f);
+        _canInteract = true;
     }
 
     void Update()

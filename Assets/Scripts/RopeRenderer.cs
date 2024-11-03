@@ -85,7 +85,6 @@ public class RopeRenderer : MonoBehaviour
         {
             var nodeindex = i / m_RopeSegmentSides;
             var sign = nodeindex == nodes.Length - 1 ? -1 : 1;
-            // Debug.Log($"Node Index: {nodeindex}, Vert Index: {i} , {m_Vertices[i]}");
 
             var currNodePosition = nodes[nodeindex].Position;
             var normalOfPlane =

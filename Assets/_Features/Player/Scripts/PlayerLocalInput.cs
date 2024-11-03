@@ -11,6 +11,7 @@ public class PlayerLocalInput : MonoBehaviour
     public UnityEvent OnInteract;
     public UnityEvent OnFire;
     public UnityEvent OnJump;
+    public UnityEvent<int> OnSwitchCamera;
 
     public bool IsFiring { get; private set; }
     public bool IsZooming { get; set; }
@@ -38,6 +39,7 @@ public class PlayerLocalInput : MonoBehaviour
         _input.Player.Zoom.performed += OnZoomPerformed;
         _input.Player.Zoom.canceled += OnZoomCanceled;
         _input.Player.Look.performed += OnLookPerformed;
+        _input.Player.NextCam.performed += (val) => OnSwitchCamera?.Invoke(1);
         _input.Player.Inventory.performed += OnInventoryPerformed;
         _input.Enable();
     }

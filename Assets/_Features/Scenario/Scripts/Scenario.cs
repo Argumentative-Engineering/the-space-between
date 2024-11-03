@@ -16,7 +16,9 @@ public class Scenario : MonoBehaviour
     [SerializeField] Transform _playerStart;
     public Dictionary<string, dynamic> ScenarioKeys = new();
     [field: SerializeField] public bool MovePlayerOnRun { get; set; }
+    [SerializeField] bool _snapPlayerOnMove = false;
     [SerializeField] PlayerMovementSettingsData _playerSettingsData;
+
 
     [Header("Scenario Specific")]
     [SerializeField] GameObject[] _hiddenTillRun;
@@ -29,7 +31,7 @@ public class Scenario : MonoBehaviour
     public virtual IEnumerator RunScenario()
     {
         if (_playerStart != null && MovePlayerOnRun)
-            GameManager.Instance.MovePlayer(_playerStart, snap: false);
+            GameManager.Instance.MovePlayer(_playerStart, snap: _snapPlayerOnMove);
 
         if (_playerSettingsData != null)
             GameManager.Instance.Player.GetComponent<PlayerSettings>().UpdateSettings(_playerSettingsData);

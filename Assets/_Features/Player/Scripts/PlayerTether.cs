@@ -58,7 +58,7 @@ public class PlayerTether : InventoryItem
 
             if (_connectedObject.CompareTag("Tether Move"))
             {
-                PullPlayer(_connectedObject.transform);
+                PullPlayer(hit.point, _connectedObject.transform);
             }
         }
         else
@@ -146,15 +146,16 @@ public class PlayerTether : InventoryItem
             rb.drag = 0;
     }
 
-    void PullPlayer(Transform tetherPoint)
+    void PullPlayer(Vector3 hitPoint, Transform tetherPoint)
     {
         var player = GameManager.Instance.Player.GetComponent<Rigidbody>();
-        player.DOMove(_tether.position + _tether.transform.forward, Vector3.Distance(player.position, _tetherRb.position) / 10)
+        player.DOMove(hitPoint - _tether.transform.forward, Vector3.Distance(player.position, _tetherRb.position) / 10)
             .OnComplete(() =>
             {
                 player.velocity = Vector3.zero;
                 GameManager.Instance.MovePlayer(tetherPoint, offset: tetherPoint.forward, snap: false, rotate: false);
-                EventManager.Instance.BroadcastEvent("on-tether", tetherPoint);
+                // EventManager.Instance.BroadcastEvent("on-tether", tetherPoint);
+                PlayerSettings.Instance.IsAnchored = true;
                 tetherPoint.GetComponent<FixedJoint>().connectedBody = null;
             });
     }

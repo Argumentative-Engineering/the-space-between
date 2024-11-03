@@ -1,4 +1,5 @@
 using DG.Tweening;
+using FMOD;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -17,7 +18,9 @@ public class PlayerInventory : MonoBehaviour
     }
 
     [SerializeField] InventoryItem[] _items;
+    [SerializeField] Transform _offhandPosition;
     public InventoryItem EquippedItem { get; private set; }
+    public GameObject CurrentOffhandItem { get; private set; }
     PlayerSettings _settings;
 
     void Start()
@@ -62,5 +65,20 @@ public class PlayerInventory : MonoBehaviour
             }
             _items[i].gameObject.SetActive(false);
         }
+    }
+
+    public void EquipOffhand(GameObject offhand)
+    {
+        if (CurrentOffhandItem != null)
+        {
+            CurrentOffhandItem.transform.parent = null;
+            CurrentOffhandItem.transform.position = Camera.main.transform.forward;
+            CurrentOffhandItem.GetComponent<Rigidbody>().isKinematic = true;
+        }
+
+        CurrentOffhandItem = offhand;
+        CurrentOffhandItem.transform.parent = Camera.main.transform;
+        CurrentOffhandItem.GetComponent<Rigidbody>().isKinematic = true;
+        CurrentOffhandItem.transform.position = _offhandPosition.position;
     }
 }

@@ -3,20 +3,12 @@ using UnityEngine;
 public class DialogueInteractable : GameInteractable
 {
     [SerializeField] DialogueData _dialogueEvent;
-    [SerializeField] Transform _cameraPoint;
 
     public override bool TryInteract()
     {
         if (NarrativeManager.Instance.IsRunning) return false;
         NarrativeManager.Instance.PlayDialogue(_dialogueEvent);
-        if (_cameraPoint != null)
-        {
-            GameManager.Instance.Player.GetComponent<PlayerInteraction>().MoveCamera(_cameraPoint.position, _cameraPoint.rotation);
-            return base.TryInteract();
-        }
 
-        // extreme jankiness to the max
-        base.TryInteract();
-        return false;
+        return base.TryInteract();
     }
 }

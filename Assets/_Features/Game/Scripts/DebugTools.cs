@@ -3,6 +3,11 @@ using UnityEngine;
 public class DebugTools : MonoBehaviour
 {
 #if UNITY_EDITOR
+    [SerializeField] PlayerMovementSettingsData _freeCamMovement;
+
+    PlayerMovementSettingsData _prevSettings;
+    bool _isFreeCam;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.K))
@@ -14,6 +19,28 @@ public class DebugTools : MonoBehaviour
         {
             ScenarioManager.Instance.RunNextScenario(movePlayer: true);
         }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            PlayerOxygen.Instance.RefreshOxygen();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Semicolon)) ToggleFreeCamMovement();
+    }
+
+    void ToggleFreeCamMovement()
+    {
+        if (_isFreeCam)
+        {
+            PlayerSettings.Instance.UpdateSettings(_prevSettings);
+            PlayerSettings.Instance.CanUseTether = true;
+            _isFreeCam = false;
+            return;
+        }
+
+        _prevSettings = PlayerSettings.Instance.PlayerMovementSettings;
+        PlayerSettings.Instance.UpdateSettings(_freeCamMovement);
+        _isFreeCam = true;
     }
 
     private void OnGUI()

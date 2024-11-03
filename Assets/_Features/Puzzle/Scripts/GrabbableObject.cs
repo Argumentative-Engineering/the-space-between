@@ -83,7 +83,7 @@ public class GrabbableObject : GameInteractable
 
             if (Vector3.Distance(transform.position, _targPos) > 0.1f)
             {
-                _rb.AddForce(_holdforce * 100 * Time.deltaTime * _dir.normalized, ForceMode.VelocityChange);
+                _rb.AddForce(_holdforce * 50 * Time.deltaTime * _dir.normalized, ForceMode.VelocityChange);
                 _rb.rotation = Camera.main.transform.rotation;
                 _rb.angularVelocity = Vector3.zero;
             }

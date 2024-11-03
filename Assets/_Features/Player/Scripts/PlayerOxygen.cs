@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
+using FMODUnity;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -15,12 +17,14 @@ public class PlayerOxygen : MonoBehaviour
 
     [Header("Settings")]
     public bool StartDecreasingOxygen;
+    public float CurrentOxygen { get; set; } = 100;
+    [SerializeField] EventReference _refreshOxygenAudio;
 
     [Header("References")]
     [SerializeField] TextMeshProUGUI _oxygenLevelText;
-    Volume _ppVolume;
 
-    public float CurrentOxygen { get; set; } = 100;
+    Volume _ppVolume;
+    bool _showAnnouncement = false;
 
     private void Start()
     {
@@ -38,11 +42,32 @@ public class PlayerOxygen : MonoBehaviour
         if (!StartDecreasingOxygen || PlayerSettings.Instance.IsFrozen || GameManager.Instance.IsReloading) return;
         CurrentOxygen -= Time.deltaTime * 0.2f;
 
+        if (CurrentOxygen < 20 && !_showAnnouncement)
+        {
+            Announcement.Instance.ShowAnnouncment("Low oxygen");
+            _showAnnouncement = true;
+        }
+        else if (CurrentOxygen > 20 && _showAnnouncement)
+        {
+            Announcement.Instance.StopAnnouncement();
+            _showAnnouncement = false;
+        }
+
         if (CurrentOxygen <= 0)
         {
             PlayerSettings.Instance.KillPlayer(KillType.NoOxygen);
             StartDecreasingOxygen = false;
         }
+    }
+
+    public void RefreshOxygen()
+    {
+        StartDecreasingOxygen = false;
+        RuntimeManager.PlayOneShot(_refreshOxygenAudio);
+        DOTween.To(() => CurrentOxygen, x => CurrentOxygen = x, 100, 3).OnComplete(() =>
+        {
+            StartDecreasingOxygen = true;
+        });
     }
 
     void UpdateUI()

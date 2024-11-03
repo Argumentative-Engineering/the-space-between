@@ -3,7 +3,42 @@ guid: 7cba83c07da9e0647bc0f3b9a494139f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Scoria_Accent
+    second: {fileID: 2100000, guid: 52939800662ccba4e991a6096efee143, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Scoria_Airlock
+    second: {fileID: 2100000, guid: 8099c217971bf6a4694c4b4695bafcc4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Scoria_Base
+    second: {fileID: 2100000, guid: 6782ecf989da0c447a147d63627f8ecf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Scoria_FuelTanks
+    second: {fileID: 2100000, guid: 49f555e9cc2158c44a54de91998c7620, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Scoria_Truss
+    second: {fileID: 2100000, guid: b2d543dcbbf2cc0499b1700a392628ba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Window
+    second: {fileID: 2100000, guid: c17692437c602914aa0b2f2e017937bf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Wire
+    second: {fileID: 2100000, guid: 1e72f6b06101c9349b5332f40914d6ad, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
