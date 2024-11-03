@@ -7,6 +7,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Light
+    second: {fileID: 2100000, guid: 7e67ce77f93def04e89e4b8e856463b9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Light_Red
+    second: {fileID: 2100000, guid: 339e18eb840dc4a41acf2104dd1553a1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_Scoria_Accent
     second: {fileID: 2100000, guid: 52939800662ccba4e991a6096efee143, type: 2}
   - first:
@@ -65,7 +75,9 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    extraUserProperties: []
+    extraUserProperties:
+    - '#BAKERY{"meshName":["Truss","Crew Module","Truss.001","Thrusters","Fuel Tanks","Module","Lights","SM_DoorHandle","Lights.001","Landing
+      Lengs","Airlock"],"padding":[4,2,9,3,2,3,19,65,28,4,14],"unwrapper":[0,0,0,0,0,0,0,0,0,0,0]}'
     clipAnimations: []
     isReadable: 0
   meshes:
@@ -83,7 +95,7 @@ ModelImporter:
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
