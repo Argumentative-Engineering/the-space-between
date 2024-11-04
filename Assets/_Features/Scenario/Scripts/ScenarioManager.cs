@@ -32,6 +32,7 @@ public class ScenarioManager : MonoBehaviour
 
     public void LoadScenarios()
     {
+        UnloadScenarios();
         var scenarios = FindObjectsOfType<Scenario>().ToList().OrderBy(s => s.ScenarioName);
         foreach (var scenario in scenarios)
             Scenarios.Enqueue(scenario);

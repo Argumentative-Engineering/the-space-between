@@ -85,6 +85,7 @@ public class PlayerLocalInput : MonoBehaviour
 
     private void OnLookPerformed(InputAction.CallbackContext context)
     {
+        if (_settings.IsFrozen) return;
         var rot = context.ReadValue<Vector2>();
         RotationVector.x += rot.x * (_settings.MouseSensitivity / 100);
         RotationVector.y -= rot.y * (_settings.MouseSensitivity / 100);

@@ -11,6 +11,7 @@ public class LenaIntroScenario : Scenario
     private void Start()
     {
         EventManager.Instance.RegisterListener("item-checked", CheckedItem);
+        CutsceneManager.Instance.Fade(0, null, startBlack: true);
     }
 
     private void OnDisable()

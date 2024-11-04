@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Features/Scenario/Scenarios/8-lena-helen-broken/SCN_helen-broken.unity
     guid: 7eb398788b2d28d4fa7db19817cba807
+  - enabled: 1
+    path: Assets/_Scenes/SCN_MainMenu.unity
+    guid: 98605762fa8afb14b83b9ef7168b9482
   m_configObjects: {}

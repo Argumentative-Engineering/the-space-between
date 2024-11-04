@@ -14,6 +14,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: M_MicMesh
     second: {fileID: 2100000, guid: bc1374da9c4b4bc41a811caa5852796c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Mic_Gooseneck
+    second: {fileID: 2100000, guid: 5f1cd8d927c3fc04b9537ef32cd83e14, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
             _rigidbody.velocity = Vector3.Lerp(_rigidbody.velocity, Vector3.zero, 10 * Time.deltaTime);
             return;
         }
+
         if (_settings.LookClamp.x != 0)
             _input.RotationVector.x = Mathf.Clamp(_input.RotationVector.x, -_settings.LookClamp.x, _settings.LookClamp.x);
 
@@ -40,7 +41,6 @@ public class PlayerMovement : MonoBehaviour
         if (_settings.IsFrozen) return;
         var fwd = Camera.main.transform.forward;
         var right = Camera.main.transform.right;
-
         if (_settings.PlayerMovementSettings.UseGravity)
             fwd.y = right.y = 0;
 
