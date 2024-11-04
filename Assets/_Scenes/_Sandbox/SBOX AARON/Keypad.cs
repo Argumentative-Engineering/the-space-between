@@ -19,11 +19,11 @@ public class Keypad : MonoBehaviour
         {
             if (userInput == password)
             {
-                Debug.Log("Entry Allowed");
+                Debug.Log("Access Granted. Welcome Back, Helen.");
             }
             else
             {
-                Debug.Log("Access Denied");
+                Debug.Log("Access Denied.");
                 userInput = "";
             }
         }
