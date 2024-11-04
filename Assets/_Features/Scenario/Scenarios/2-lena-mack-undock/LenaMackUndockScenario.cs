@@ -5,7 +5,7 @@ public class LenaMackUndockScenario : Scenario
 {
     public override IEnumerator RunScenario()
     {
-        EventManager.Instance.BroadcastEvent("start-beeping", true);
+        EventManager.Instance.BroadcastEvent(EventDefinitions.StartBeeping, true);
         yield return null;
     }
 }

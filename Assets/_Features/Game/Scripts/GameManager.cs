@@ -80,6 +80,7 @@ public class GameManager : MonoBehaviour
             {
                 if (op.isDone)
                 {
+                    SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
                     scn.LoadScenarios();
                     scn.RunNextScenario();
                     CutsceneManager.Instance.Fade(0, null);

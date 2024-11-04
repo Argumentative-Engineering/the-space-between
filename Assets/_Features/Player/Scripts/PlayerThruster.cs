@@ -17,7 +17,6 @@ public class PlayerThruster : InventoryItem
     void Start()
     {
         _evt = EventManager.Instance;
-        Equip(false);
     }
 
     void Update()
@@ -27,7 +26,7 @@ public class PlayerThruster : InventoryItem
         // lazy to rewrite to have generic player thruster so i'll just use events.
         // performance? idk lol dont care anymore
         // laziest piece of code ever
-        _evt.BroadcastEvent("player-thrust", this, _interactionMask);
-        _rb.AddForce(-Camera.main.transform.forward * 0.5f);
+        _evt.BroadcastEvent(EventDefinitions.PlayerThrust, this, _interactionMask);
+        _rb.AddForce(-Camera.main.transform.forward * 0.5f, ForceMode.Acceleration);
     }
 }

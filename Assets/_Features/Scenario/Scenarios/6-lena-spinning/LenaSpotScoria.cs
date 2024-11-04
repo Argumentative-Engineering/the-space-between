@@ -12,34 +12,33 @@ public class LenaSpotScoria : Scenario
 
     private void Start()
     {
-        EventManager.Instance.RegisterListener("check-comms", CheckComms);
-        EventManager.Instance.RegisterListener("look-at-scoria", LookAtScoria);
+        EventManager.Instance.RegisterListener("check-comms", OnCheckComms);
+        EventManager.Instance.RegisterListener(EventDefinitions.LookAtScoria, OnLookAtScoria);
     }
 
     private void OnDisable()
     {
-        EventManager.Instance.UnregisterListener("check-comms", CheckComms);
-        EventManager.Instance.UnregisterListener("look-at-scoria", LookAtScoria);
+        EventManager.Instance.UnregisterListener("check-comms", OnCheckComms);
+        EventManager.Instance.UnregisterListener(EventDefinitions.LookAtScoria, OnLookAtScoria);
     }
 
-    private void CheckComms(object[] obj)
+    private void OnCheckComms(object[] obj)
     {
         print("checking comms");
     }
 
-    private void LookAtScoria(object[] obj)
+    private void OnLookAtScoria(object[] obj)
     {
         var prevRot = Camera.main.transform.rotation;
         GameManager.Instance.Player.GetComponent<PlayerSettings>().IsFrozen = true;
         var seq = DOTween.Sequence();
-        seq.Append(Camera.main.transform.DOLookAt(_scoria.position, 2))
-            .Append(Camera.main.transform.DORotate(prevRot.eulerAngles, 2).SetDelay(5))
-            .OnComplete(() =>
-            {
-                GameManager.Instance.Player.GetComponent<PlayerSettings>().IsFrozen = false;
-                CutsceneManager.Instance.Fade(1, null, duration: 0.001f);
-                GameManager.Instance.LoadLevel(SceneDefinitions.SwingFlashback);
-            });
+        seq.Append(Camera.main.transform.DOLookAt(_scoria.position, 2)).AppendInterval(5).AppendCallback(() =>
+        {
+            GameManager.Instance.Player.GetComponent<PlayerSettings>().IsFrozen = false;
+            CutsceneManager.Instance.Fade(1, null, duration: 0.001f);
+            GameManager.Instance.LoadLevel(SceneDefinitions.HelenBroken);
+        });
+        seq.Play();
     }
 
     public override IEnumerator RunScenario()

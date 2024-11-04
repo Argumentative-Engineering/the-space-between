@@ -30,7 +30,7 @@ public class CutsceneManager : MonoBehaviour
         });
     }
 
-    public void RunCutscene(PlayableDirector director, Action OnComplete = null)
+    public void RunCutscene(PlayableDirector director, Action OnComplete = null, bool unfreezePlayerOnCutsceneEnd = true)
     {
         _hud.SetActive(false);
         PlayerSettings.FreezePlayer(true);
@@ -39,7 +39,8 @@ public class CutsceneManager : MonoBehaviour
         director.stopped += (_) =>
         {
             OnComplete?.Invoke();
-            PlayerSettings.FreezePlayer(false);
+            if (unfreezePlayerOnCutsceneEnd)
+                PlayerSettings.FreezePlayer(false);
             _hud.SetActive(true);
         };
     }

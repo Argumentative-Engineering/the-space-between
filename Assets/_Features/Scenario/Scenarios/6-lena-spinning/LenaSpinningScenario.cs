@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -13,27 +14,43 @@ public class LenaSpinningScenario : Scenario
     private void Start()
     {
         _player = GameManager.Instance.Player;
-        EventManager.Instance.RegisterListener("player-thrust", OnPlayerThrust);
+        EventManager.Instance.RegisterListener(EventDefinitions.PlayerThrust, OnPlayerThrust);
+        EventManager.Instance.RegisterListener(EventDefinitions.DoSpinning, OnSpinningStart);
     }
 
     private void OnDisable()
     {
-        EventManager.Instance.UnregisterListener("player-thrust", OnPlayerThrust);
+        EventManager.Instance.UnregisterListener(EventDefinitions.PlayerThrust, OnPlayerThrust);
+        EventManager.Instance.UnregisterListener(EventDefinitions.DoSpinning, OnSpinningStart);
     }
 
     public override IEnumerator RunScenario()
     {
-        yield return new WaitForSeconds(12);
-        _startSpinning = true;
-        PlayerInventory.Instance.EquipItem(InventoryItems.Thruster);
-
         yield return base.RunScenario();
     }
-
 
     private void OnPlayerThrust(object[] obj)
     {
         _spinningPercent -= Time.deltaTime * 5;
+    }
+
+    private void OnSpinningStart(object[] obj)
+    {
+        _startSpinning = true;
+        StartCoroutine(SpinSequence());
+    }
+
+    IEnumerator SpinSequence()
+    {
+        yield return new WaitForSeconds(10);
+        CutsceneManager.Instance.Fade(0, null, duration: 7, startBlack: true);
+        PlayerSettings.Instance.CanUseThrusters = true;
+        if (PlayerInventory.Instance.EquippedItem is not PlayerThruster)
+            PlayerInventory.Instance.EquipItem((int)InventoryItems.Thruster, forceEquip: true);
+
+        PlayerSettings.Instance.OverrideCameraRotation = true;
+        ShowHidden(false);
+
     }
 
     private void Update()
@@ -48,8 +65,7 @@ public class LenaSpinningScenario : Scenario
             {
                 _player.GetComponent<PlayerLocalInput>().SnapToRotation(Camera.main.transform.localRotation);
                 _player.GetComponent<PlayerSettings>().OverrideCameraRotation = false;
-            }
-            );
+            });
             ScenarioManager.Instance.RunNextScenario();
             return;
         }

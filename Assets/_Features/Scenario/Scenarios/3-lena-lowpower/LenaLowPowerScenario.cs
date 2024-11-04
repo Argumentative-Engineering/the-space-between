@@ -9,11 +9,11 @@ public class LenaLowPowerScenario : Scenario
 
     private void Start()
     {
-        EventManager.Instance.RegisterListener("wearing-spacesuit", WearingSpacesuit);
+        EventManager.Instance.RegisterListener(EventDefinitions.WearingSpacesuit, OnWearingSpacesuit);
     }
     private void OnDisable()
     {
-        EventManager.Instance.UnregisterListener("wearing-spacesuit", WearingSpacesuit);
+        EventManager.Instance.UnregisterListener(EventDefinitions.WearingSpacesuit, OnWearingSpacesuit);
     }
 
     public override IEnumerator RunScenario()
@@ -24,7 +24,7 @@ public class LenaLowPowerScenario : Scenario
         yield return base.RunScenario();
     }
 
-    private void WearingSpacesuit(object[] obj)
+    private void OnWearingSpacesuit(object[] obj)
     {
         ScenarioKeys.Add("wearing-spacesuit", true);
     }

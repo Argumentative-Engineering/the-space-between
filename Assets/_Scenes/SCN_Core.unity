@@ -96,7 +96,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000002, guid: 5f085f1ca7e21314193974522e13ff5b,
+  m_LightingDataAsset: {fileID: 112000004, guid: a9fd1c81afabb4e4fa67432ffa7aa3c1,
     type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: a89686427817c1f42a0174511ca83fc5,
     type: 2}
@@ -1283,6 +1283,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 129582228}
     m_Modifications:
+    - target: {fileID: 440756062395409512, guid: 7fb4e7b716036ef4abf8d56d91136434,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 589380918369522315, guid: 7fb4e7b716036ef4abf8d56d91136434,
         type: 3}
       propertyPath: _tether
@@ -1312,6 +1317,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2220895500570385721, guid: 7fb4e7b716036ef4abf8d56d91136434,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3387017715205814578, guid: 7fb4e7b716036ef4abf8d56d91136434,
         type: 3}

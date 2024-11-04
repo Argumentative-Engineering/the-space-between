@@ -42,6 +42,7 @@ public class PlayerTether : InventoryItem
 
         if (_connectedObject == null && Physics.Raycast(_tether.transform.position, _tether.transform.forward, out RaycastHit hit, 0.2f, _interactionMask))
         {
+            if (hit.collider.gameObject.TryGetComponent(out GrabbableObject grabbable) && !grabbable.CanTether) return;
             if (hit.collider.gameObject.GetComponent<FixedJoint>() == null) return;
 
             _connectedObject = hit.collider.gameObject;
@@ -117,7 +118,7 @@ public class PlayerTether : InventoryItem
         _tetherRb.position = Camera.main.transform.position + Camera.main.transform.forward * 2;
         _isThrown = true;
 
-        _tetherRb.AddForce(Camera.main.transform.forward * 500);
+        _tetherRb.AddForce(Camera.main.transform.forward * 1000);
         GameManager.Instance.Player.GetComponent<PlayerSettings>().IsAnchored = false;
     }
 
@@ -127,7 +128,7 @@ public class PlayerTether : InventoryItem
             GameManager.Instance.Player.GetComponent<PlayerSettings>().IsAnchored = false;
     }
 
-    public override void Equip(bool isEquipped)
+    public override void Equip(bool isEquipped, bool forceEquip = false)
     {
         ShowHeld(true);
         base.Equip(isEquipped);

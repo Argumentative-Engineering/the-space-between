@@ -10,13 +10,13 @@ public class LenaDockButton : DialogueInteractable
     private void Start()
     {
         _evt = EventManager.Instance;
-        _evt.RegisterListener("dock-button", OnEnableDockButton);
+        _evt.RegisterListener(EventDefinitions.DockButtonPressed, OnEnableDockButton);
         Tooltip = "";
     }
 
     private void OnDisable()
     {
-        _evt.RegisterListener("dock-button", OnEnableDockButton);
+        _evt.UnregisterListener(EventDefinitions.DockButtonPressed, OnEnableDockButton);
     }
 
     private void OnEnableDockButton(object[] obj)

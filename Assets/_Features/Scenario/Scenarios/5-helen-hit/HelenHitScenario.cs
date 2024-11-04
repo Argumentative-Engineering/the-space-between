@@ -13,20 +13,14 @@ public class HelenHitScenario : Scenario
         var settings = GameManager.Instance.Player.GetComponent<PlayerSettings>();
         settings.IsFrozen = true;
         yield return new WaitForSeconds(7);
-        ScenarioManager.Instance.RunNextScenario();
+        ScenarioManager.Instance.RunNextScenario(movePlayer: true);
         CutsceneManager.Instance.RunCutscene(_director, () =>
         {
             ShowHidden(false);
-            StartCoroutine(PlayerImpact());
-        });
+            CutsceneManager.Instance.Fade(1, null, duration: 0.01f);
+            EventManager.Instance.BroadcastEvent(EventDefinitions.DoSpinning);
+        }, unfreezePlayerOnCutsceneEnd: false);
         settings.OverrideCameraRotation = true;
         yield return base.RunScenario();
-    }
-
-    IEnumerator PlayerImpact()
-    {
-        CutsceneManager.Instance.Fade(1, null, duration: 0.01f);
-        yield return new WaitForSeconds(8);
-        CutsceneManager.Instance.Fade(0, null, duration: 7);
     }
 }

@@ -10,16 +10,16 @@ public class LenaIntroScenario : Scenario
 
     private void Start()
     {
-        EventManager.Instance.RegisterListener("item-checked", CheckedItem);
+        EventManager.Instance.RegisterListener(EventDefinitions.ItemChecked, OnCheckedItem);
         CutsceneManager.Instance.Fade(0, null, startBlack: true);
     }
 
     private void OnDisable()
     {
-        EventManager.Instance.UnregisterListener("item-checked", CheckedItem);
+        EventManager.Instance.UnregisterListener(EventDefinitions.ItemChecked, OnCheckedItem);
     }
 
-    public void CheckedItem(object[] obj)
+    public void OnCheckedItem(object[] obj)
     {
         var count = ScenarioKeys["item-checked-count"];
         count++;

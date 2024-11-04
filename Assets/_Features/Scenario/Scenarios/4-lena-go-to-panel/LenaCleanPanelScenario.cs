@@ -9,12 +9,12 @@ public class LenaCleanPanelScenario : Scenario
 
     private void Start()
     {
-        EventManager.Instance.RegisterListener("player-thrust", OnPlayerThrust);
+        EventManager.Instance.RegisterListener(EventDefinitions.PlayerThrust, OnPlayerThrust);
     }
 
     private void OnDisable()
     {
-        EventManager.Instance.UnregisterListener("player-thrust", OnPlayerThrust);
+        EventManager.Instance.UnregisterListener(EventDefinitions.PlayerThrust, OnPlayerThrust);
     }
 
     private void OnPlayerThrust(object[] obj)

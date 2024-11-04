@@ -11,9 +11,10 @@ public class InventoryItem : MonoBehaviour
         _startPos = transform.localPosition;
     }
 
-    public virtual void Equip(bool isEquipped)
+    public virtual void Equip(bool isEquipped, bool forceEquip = false)
     {
-        if (PlayerSettings.Instance.IsFrozen) return;
+        print("Equip");
+        if (PlayerSettings.Instance.IsFrozen && !forceEquip) return;
         transform.DOKill(true);
         if (!isEquipped)
         {

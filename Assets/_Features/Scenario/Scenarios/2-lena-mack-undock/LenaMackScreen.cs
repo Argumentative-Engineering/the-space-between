@@ -15,16 +15,16 @@ public class LenaMackScreen : DialogueInteractable
     private void Start()
     {
         _evt = EventManager.Instance;
-        _evt.RegisterListener("start-beeping", StartBeeping);
+        _evt.RegisterListener(EventDefinitions.StartBeeping, OnStartBeeping);
         Tooltip = "";
     }
 
     private void OnDisable()
     {
-        _evt.UnregisterListener("start-beeping", StartBeeping);
+        _evt.UnregisterListener(EventDefinitions.StartBeeping, OnStartBeeping);
     }
 
-    private void StartBeeping(object[] obj)
+    private void OnStartBeeping(object[] obj)
     {
         _isBeeping = (bool)obj[0];
         if (!_isBeeping)

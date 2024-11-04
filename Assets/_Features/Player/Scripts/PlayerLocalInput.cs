@@ -102,8 +102,6 @@ public class PlayerLocalInput : MonoBehaviour
     private void OnInventoryPerformed(InputAction.CallbackContext context)
     {
         var val = context.ReadValue<float>();
-
-        print(val);
         PlayerInventory.Instance.EquipItem((int)val);
     }
 

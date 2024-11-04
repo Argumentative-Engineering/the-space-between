@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(FixedJoint))]
 public class GrabbableObject : GameInteractable
 {
     [SerializeField] Transform _anchor;
@@ -13,6 +14,8 @@ public class GrabbableObject : GameInteractable
 
     Vector3 _targPos, _dir;
     string _originalTooltip;
+
+    [field: SerializeField] public bool CanTether { get; set; }
 
     void Start()
     {
@@ -71,7 +74,9 @@ public class GrabbableObject : GameInteractable
         }
 
         pushbackDir.y /= 2;
-        GameManager.Instance.Player.GetComponent<Rigidbody>().AddForce(pushbackDir * 2f, ForceMode.Impulse);
+        var playerRb = GameManager.Instance.Player.GetComponent<Rigidbody>();
+        playerRb.velocity = Vector3.zero;
+        playerRb.AddForce(pushbackDir * 2f, ForceMode.VelocityChange);
     }
 
     private void Update()

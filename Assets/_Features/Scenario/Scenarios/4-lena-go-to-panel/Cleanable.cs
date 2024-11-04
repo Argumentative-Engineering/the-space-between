@@ -6,14 +6,14 @@ public class Cleanable : MonoBehaviour
     [SerializeField] UnityEvent _onCleaned;
     public float CleanPercent = 5;
     [SerializeField] float _cleanThresholdPercent = 40;
-    Vector3 _startScale;
 
     float _startPercent;
+    Material _mat;
 
     private void Start()
     {
+        _mat = GetComponent<Renderer>().material;
         _startPercent = CleanPercent;
-        _startScale = transform.localScale;
     }
 
     private void Update()
@@ -23,6 +23,7 @@ public class Cleanable : MonoBehaviour
             _onCleaned?.Invoke();
             Destroy(gameObject);
         }
-        transform.localScale = _startScale * (CleanPercent / 5);
+
+        _mat.SetFloat("_CircleRadius", Mathf.Lerp(1, 0, CleanPercent / _startPercent));
     }
 }

@@ -15,25 +15,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        float targFov = _input.IsZooming ? 30 : 60;
-        Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, targFov, 10 * Time.deltaTime);
-
+        UpdateCameraZoom();
+        UpdateCameraRotation();
         if (_settings.IsFrozen)
-        {
             _rigidbody.velocity = Vector3.Lerp(_rigidbody.velocity, Vector3.zero, 10 * Time.deltaTime);
-            return;
-        }
-
-        if (_settings.LookClamp.x != 0)
-            _input.RotationVector.x = Mathf.Clamp(_input.RotationVector.x, -_settings.LookClamp.x, _settings.LookClamp.x);
-
-        _input.RotationVector.y = Mathf.Clamp(_input.RotationVector.y, -_settings.LookClamp.y, _settings.LookClamp.y);
-
-        _rigidbody.angularVelocity = Vector3.zero;
-        if (_settings.OverrideCameraRotation)
-            Camera.main.transform.localRotation = Quaternion.Euler(_input.RotationVector.y, _input.RotationVector.x, 0);
-        else
-            Camera.main.transform.rotation = Quaternion.Euler(_input.RotationVector.y, _input.RotationVector.x, 0);
     }
 
     void FixedUpdate()
@@ -55,6 +40,28 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody.AddForce(Camera.main.transform.forward * _jumpForce, ForceMode.Impulse);
         _settings.IsAnchored = false;
         GetComponent<PlayerInteraction>().IsInteracting = false;
+    }
+
+    void UpdateCameraZoom()
+    {
+        float targFov = _input.IsZooming ? 30 : 60;
+        Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, targFov, 10 * Time.deltaTime);
+    }
+
+    void UpdateCameraRotation()
+    {
+        if (_settings.IsFrozen) return;
+
+        if (_settings.LookClamp.x != 0)
+            _input.RotationVector.x = Mathf.Clamp(_input.RotationVector.x, -_settings.LookClamp.x, _settings.LookClamp.x);
+
+        _input.RotationVector.y = Mathf.Clamp(_input.RotationVector.y, -_settings.LookClamp.y, _settings.LookClamp.y);
+
+        _rigidbody.angularVelocity = Vector3.zero;
+        if (_settings.OverrideCameraRotation)
+            Camera.main.transform.localRotation = Quaternion.Euler(_input.RotationVector.y, _input.RotationVector.x, 0);
+        else
+            Camera.main.transform.rotation = Quaternion.Euler(_input.RotationVector.y, _input.RotationVector.x, 0);
     }
 
     private void OnCollisionEnter(Collision other)

@@ -47,7 +47,7 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    public void EquipItem(int itemIndex)
+    public void EquipItem(int itemIndex, bool forceEquip = false)
     {
         DequipAll();
 
@@ -60,7 +60,7 @@ public class PlayerInventory : MonoBehaviour
             {
                 EquippedItem = _items[i];
                 EquippedItem.gameObject.SetActive(true);
-                EquippedItem.Equip(true);
+                EquippedItem.Equip(true, forceEquip);
                 continue;
             }
             _items[i].gameObject.SetActive(false);
