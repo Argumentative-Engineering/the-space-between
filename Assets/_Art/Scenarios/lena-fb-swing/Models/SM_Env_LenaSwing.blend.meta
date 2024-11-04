@@ -22,6 +22,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Swing_Chain
+    second: {fileID: 2100000, guid: 991807182d9913343b43862a07b4b7f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Swing_Chair
+    second: {fileID: 2100000, guid: 041e998be9062e748a7c68095d680212, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_Void
     second: {fileID: 2100000, guid: 0dfb01fd005a9ad44b3de184037f0fa7, type: 2}
   materials:

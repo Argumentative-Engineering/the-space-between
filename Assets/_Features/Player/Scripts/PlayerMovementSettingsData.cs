@@ -8,5 +8,4 @@ public class PlayerMovementSettingsData : ScriptableObject
     public float MoveSpeed;
     public float Drag = 1f;
     public bool ShowHelmet = false;
-
 }

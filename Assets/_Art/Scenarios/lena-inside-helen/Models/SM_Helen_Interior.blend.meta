@@ -12,8 +12,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_MetalClip_Base_Gold
+    second: {fileID: 2100000, guid: 76b37fc8946443b4db3a9b26cfd36210, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_MetalClip_Magnet
+    second: {fileID: 2100000, guid: 578535cbdf95a17468a600d59136f469, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Material
     second: {fileID: 2100000, guid: 60a088d16eb58f843a8cd83fa0a5149b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SM_Whiteboard_Base
+    second: {fileID: 2100000, guid: c2ac4f1c6d31762418b942a9b17e1cb0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SM_Whiteboard_Border
+    second: {fileID: 2100000, guid: cd1e7a0b0f45d924897fdf8ecaf6bf48, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
