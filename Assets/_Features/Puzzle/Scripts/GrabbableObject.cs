@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(FixedJoint))]
+// [RequireComponent(typeof(FixedJoint))]
 public class GrabbableObject : GameInteractable
 {
     [SerializeField] Transform _anchor;
