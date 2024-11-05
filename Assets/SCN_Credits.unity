@@ -8062,6 +8062,7 @@ GameObject:
   - component: {fileID: 1459802495}
   - component: {fileID: 1459802496}
   - component: {fileID: 1459802497}
+  - component: {fileID: 1459802498}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8217,11 +8218,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1868851742
-      Data2: 1104578813
-      Data3: -2128562786
-      Data4: 1344397168
-    Path: event:/BGM/BGM_main
+      Data1: 627074327
+      Data2: 1098915001
+      Data3: -1651138124
+      Data4: -1758318069
+    Path: event:/BGM/BGM_Main
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 2
@@ -8233,6 +8234,20 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &1459802498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459802491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1 &1475457220 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 311dc370a5a37074ba4c64c2fdf6252c,
@@ -9314,15 +9329,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _creditimage: {fileID: 1047945901}
   _creditsprites:
-  - {fileID: 21300000, guid: 9d2d0430306ab424098ccf81e56c6634, type: 3}
-  - {fileID: 21300000, guid: 613eaa0257ed917419fea9d16e7dac0a, type: 3}
-  - {fileID: 21300000, guid: 79f7a8de2c164d94cbfa395ee7616e4b, type: 3}
-  - {fileID: 21300000, guid: 4186f19960d0e734ab2dd8fb1b3a00c5, type: 3}
-  - {fileID: 21300000, guid: 299fca7ff84bed04ba0522fbd1a435bf, type: 3}
-  - {fileID: 21300000, guid: fbea6cd635750f04f88534a504b72166, type: 3}
-  - {fileID: 21300000, guid: 40cd3026c7d73404387dc10f932b0e99, type: 3}
-  - {fileID: 21300000, guid: 47ec99f510056a346a35a88948e01714, type: 3}
-  - {fileID: 21300000, guid: d15d3e499eb435b43941189a2d52542f, type: 3}
+  - {fileID: 21300000, guid: 110eeb3551b4c5840b311fc2901165a2, type: 3}
+  - {fileID: 21300000, guid: b3777aeee84c19147b463a79ba72f77d, type: 3}
+  - {fileID: 21300000, guid: 93f52d27223872f41a858c448b4e99b3, type: 3}
+  - {fileID: 21300000, guid: 4062111bf9af2fc49959fbcc61f655b4, type: 3}
+  - {fileID: 21300000, guid: b8ccbe0a2b483c14d8c42c0e84021c98, type: 3}
+  - {fileID: 21300000, guid: 82feb31f0ca59424f9eccd1612a690db, type: 3}
+  - {fileID: 21300000, guid: 8cbd9a544075c1e4d9f8c7d0682e10ee, type: 3}
+  - {fileID: 21300000, guid: d5f3e89184f1e8244aad2374bc20cd44, type: 3}
+  - {fileID: 21300000, guid: f8d618b34c1a8794e814d47c208c9380, type: 3}
+  - {fileID: 21300000, guid: 1b376b4d73da7204592a6b8ca35255c1, type: 3}
   _switchtime: 3
   _menuscene: SCN_MainMenu
 --- !u!1001 &1667559818

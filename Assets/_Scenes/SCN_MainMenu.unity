@@ -6437,7 +6437,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d15d3e499eb435b43941189a2d52542f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1b376b4d73da7204592a6b8ca35255c1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8107,6 +8107,7 @@ GameObject:
   - component: {fileID: 1459802495}
   - component: {fileID: 1459802496}
   - component: {fileID: 1459802497}
+  - component: {fileID: 1459802498}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8262,11 +8263,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1868851742
-      Data2: 1104578813
-      Data3: -2128562786
-      Data4: 1344397168
-    Path: event:/BGM/BGM_main
+      Data1: 627074327
+      Data2: 1098915001
+      Data3: -1651138124
+      Data4: -1758318069
+    Path: event:/BGM/BGM_Main
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 2
@@ -8278,6 +8279,20 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &1459802498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459802491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1 &1475457220 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 311dc370a5a37074ba4c64c2fdf6252c,
