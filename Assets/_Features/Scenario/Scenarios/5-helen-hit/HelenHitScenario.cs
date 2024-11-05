@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.Playables;
 
 public class HelenHitScenario : Scenario
 {
     [SerializeField] PlayableDirector _director;
+    [SerializeField] EventReference _hitBoom;
 
     public override IEnumerator RunScenario()
     {
@@ -17,8 +19,9 @@ public class HelenHitScenario : Scenario
         CutsceneManager.Instance.RunCutscene(_director, () =>
         {
             ShowHidden(false);
+            RuntimeManager.PlayOneShot(_hitBoom);
             ScenarioManager.Instance.RunNextScenario(movePlayer: true);
-            CutsceneManager.Instance.Fade(1, null, duration: 0.01f);
+            CutsceneManager.Instance.Fade(1, null, duration: 0.01f, startBlack: true);
             EventManager.Instance.BroadcastEvent(EventDefinitions.DoSpinning);
         }, unfreezePlayerOnCutsceneEnd: false);
         settings.OverrideCameraRotation = true;

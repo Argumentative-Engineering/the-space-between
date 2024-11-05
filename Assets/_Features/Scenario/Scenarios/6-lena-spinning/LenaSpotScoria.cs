@@ -26,7 +26,6 @@ public class LenaSpotScoria : Scenario
 
     private void OnCheckComms(object[] obj)
     {
-        print("checking comms");
     }
 
     private void OnLookAtScoria(object[] obj)
@@ -45,6 +44,7 @@ public class LenaSpotScoria : Scenario
 
     public override IEnumerator RunScenario()
     {
+        PlayerSettings.Instance.GetComponent<Rigidbody>().velocity = Vector3.zero;
         PlayerInventory.Instance.DequipAll();
         NarrativeManager.Instance.PlayDialogue(_stopSpinningDialogue);
         yield return new WaitForSeconds(3);

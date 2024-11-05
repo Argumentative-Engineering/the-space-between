@@ -22,16 +22,22 @@ MonoBehaviour:
   Subtitles:
   - Key: lena-fuck
     Speaker: Lena
-    Text: Freak !!
+    Text: Fuck!
   - Key: lena-jesus
     Speaker: Lena
-    Text: jesus
+    Text: Okay, Jesus. I can't
+  - Key: lena-uthere
+    Speaker: Lena
+    Text: Mack, are you there?
+  - Key: lena-beenhit
+    Speaker: Lena
+    Text: We've been hit
+  - Key: lena-macpls
+    Speaker: Lena
+    Text: Mack, please.
   - Key: lena-wth
     Speaker: Lena
-    Text: mack r u there
-  - Key: lena-wth
-    Speaker: Lena
-    Text: mack r u there
+    Text: What the hell do I do now?
   - Key: lena-spot-scoria
     Speaker: Lena
-    Text: Scoria.
+    Text: Scoria...

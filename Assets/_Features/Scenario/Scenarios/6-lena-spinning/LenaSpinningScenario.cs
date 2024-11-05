@@ -31,6 +31,7 @@ public class LenaSpinningScenario : Scenario
 
     public override IEnumerator RunScenario()
     {
+        MusicManager.Instance.PlayMusic();
         yield return base.RunScenario();
     }
 
