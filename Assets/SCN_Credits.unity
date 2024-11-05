@@ -8061,6 +8061,7 @@ GameObject:
   - component: {fileID: 1459802492}
   - component: {fileID: 1459802495}
   - component: {fileID: 1459802496}
+  - component: {fileID: 1459802497}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8201,6 +8202,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _zoomoutrate: 1
   _maxzoomoutvalue: 200
+--- !u!114 &1459802497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459802491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1868851742
+      Data2: 1104578813
+      Data3: -2128562786
+      Data4: 1344397168
+    Path: event:/BGM/BGM_main
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1475457220 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 311dc370a5a37074ba4c64c2fdf6252c,
