@@ -9289,6 +9289,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 299fca7ff84bed04ba0522fbd1a435bf, type: 3}
   - {fileID: 21300000, guid: fbea6cd635750f04f88534a504b72166, type: 3}
   - {fileID: 21300000, guid: 40cd3026c7d73404387dc10f932b0e99, type: 3}
+  - {fileID: 21300000, guid: 47ec99f510056a346a35a88948e01714, type: 3}
   - {fileID: 21300000, guid: d15d3e499eb435b43941189a2d52542f, type: 3}
   _switchtime: 3
   _menuscene: SCN_MainMenu
