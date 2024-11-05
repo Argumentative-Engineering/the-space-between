@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class LenaSwingScenario : Scenario
@@ -8,6 +9,15 @@ public class LenaSwingScenario : Scenario
     private void Start()
     {
         EventManager.Instance.RegisterListener("push-swing", OnPushSwing);
+    }
+
+    public override IEnumerator RunScenario()
+    {
+        PlayerSettings.Instance.CanUseTether = false;
+        PlayerSettings.Instance.CanUseThrusters = false;
+        PlayerInventory.Instance.DequipAll();
+        CutsceneManager.Instance.Fade(0, null, startBlack: true);
+        return base.RunScenario();
     }
 
     private void OnDisable()
@@ -28,10 +38,9 @@ public class LenaSwingScenario : Scenario
 
     public void NextScene()
     {
-        CutsceneManager.Instance.Fade(1, () =>
-        {
-            GameManager.Instance.LoadLevel("SCN_lena-outside-helen");
-        });
+        PlayerSettings.Instance.CanUseTether = true;
+        PlayerSettings.Instance.CanUseThrusters = true;
+        FlashbackManager.Instance.ExitFlashback();
     }
 
     public void KidYell()

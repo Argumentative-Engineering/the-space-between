@@ -11,17 +11,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2e205d6482129394daa5bb7cde68dc0c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -178.07373
+      value: 7.4737434
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2e205d6482129394daa5bb7cde68dc0c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.743294
+      value: -2.6754937
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2e205d6482129394daa5bb7cde68dc0c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 110.09409
+      value: -5.7363157
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2e205d6482129394daa5bb7cde68dc0c,
         type: 3}
@@ -68,7 +68,13 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3451118302482216456, guid: 2e205d6482129394daa5bb7cde68dc0c,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3451118302482216456, guid: 2e205d6482129394daa5bb7cde68dc0c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -185,12 +191,12 @@ LODGroup:
   m_GameObject: {fileID: 5769727792888202486}
   serializedVersion: 2
   m_LocalReferencePoint: {x: 0.116402924, y: 0.09609604, z: -0.15216911}
-  m_Size: 3.3646755
-  m_FadeMode: 1
+  m_Size: 1
+  m_FadeMode: 2
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.1
+  - screenRelativeHeight: 0.029720549
     fadeTransitionWidth: 0.421
     renderers:
     - renderer: {fileID: 5409611139642516771}

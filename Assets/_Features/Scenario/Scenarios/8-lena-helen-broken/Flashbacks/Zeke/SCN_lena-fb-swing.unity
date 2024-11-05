@@ -1209,7 +1209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScenarioName: 1-lena-fb-swing
   _playerStart: {fileID: 2051727940}
-  <MovePlayerOnRun>k__BackingField: 0
+  <MovePlayerOnRun>k__BackingField: 1
   _snapPlayerOnMove: 1
   _playerSettingsData: {fileID: 11400000, guid: 24f8d885ffe098645a78c54fa44f9fc7,
     type: 2}

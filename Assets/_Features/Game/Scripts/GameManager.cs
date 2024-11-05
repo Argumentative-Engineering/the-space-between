@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
                 {
                     SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
                     scn.LoadScenarios();
-                    scn.RunNextScenario();
+                    scn.RunNextScenario(movePlayer: true);
                     CutsceneManager.Instance.Fade(0, null);
                     PlayerSettings.Instance.SetUIVisiblity(true);
                     PlayerOxygen.Instance.CurrentOxygen = 100;
@@ -98,6 +98,6 @@ public static class SceneDefinitions
 {
     public static string HelenExterior = "SCN_lena-outside-helen";
     public static string SwingFlashback = "SCN_lena-fb-swing";
-    public static string MarineFlashback = "SCN_lena-fb-swim";
+    public static string MarineFlashback = "SCN_lena-fb-marine";
     public static string HelenBroken = "SCN_helen-broken";
 }

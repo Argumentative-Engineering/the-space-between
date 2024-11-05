@@ -11,6 +11,9 @@ public class LenaSpinningScenario : Scenario
     bool _startSpinning = false;
 
     GameObject _player;
+
+    float _currFuel;
+    PlayerThruster _thruster;
     private void Start()
     {
         _player = GameManager.Instance.Player;
@@ -42,11 +45,14 @@ public class LenaSpinningScenario : Scenario
 
     IEnumerator SpinSequence()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(15);
         CutsceneManager.Instance.Fade(0, null, duration: 7, startBlack: true);
         PlayerSettings.Instance.CanUseThrusters = true;
         if (PlayerInventory.Instance.EquippedItem is not PlayerThruster)
             PlayerInventory.Instance.EquipItem((int)InventoryItems.Thruster, forceEquip: true);
+
+        _thruster = PlayerInventory.Instance.EquippedItem.GetComponent<PlayerThruster>();
+        _currFuel = _thruster.ThrusterFuel;
 
         PlayerSettings.Instance.OverrideCameraRotation = true;
         ShowHidden(false);
@@ -56,16 +62,12 @@ public class LenaSpinningScenario : Scenario
     private void Update()
     {
         if (!_startSpinning) return;
+        if (_thruster != null)
+            _thruster.ThrusterFuel = Mathf.Lerp(0, _currFuel, (_spinningPercent - 10) / 100);
 
         if (_spinningPercent <= 10)
         {
             _startSpinning = false;
-            _player.transform.DORotate(Vector3.up * 180, 3);
-            Camera.main.transform.DOLocalRotate(Vector3.zero, 3).OnComplete(() =>
-            {
-                _player.GetComponent<PlayerLocalInput>().SnapToRotation(Camera.main.transform.localRotation);
-                _player.GetComponent<PlayerSettings>().OverrideCameraRotation = false;
-            });
             ScenarioManager.Instance.RunNextScenario();
             return;
         }

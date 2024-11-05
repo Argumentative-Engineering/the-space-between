@@ -37,6 +37,7 @@ public class PlayerSettings : MonoBehaviour
         PlayerMovementSettings = settings;
         _rb.useGravity = PlayerMovementSettings.UseGravity;
         _rb.drag = PlayerMovementSettings.Drag;
+        LookClamp = PlayerMovementSettings.LookClamp;
         GetComponent<CapsuleCollider>().height = PlayerMovementSettings.UseGravity ? 2 : 1.5f;
         foreach (var helmet in _helmet)
         {

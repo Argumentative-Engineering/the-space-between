@@ -12,6 +12,7 @@ public class HelenHitScenario : Scenario
     {
         var settings = GameManager.Instance.Player.GetComponent<PlayerSettings>();
         settings.IsFrozen = true;
+        PlayerInventory.Instance.DequipAll();
         yield return new WaitForSeconds(7);
         ScenarioManager.Instance.RunNextScenario(movePlayer: true);
         CutsceneManager.Instance.RunCutscene(_director, () =>

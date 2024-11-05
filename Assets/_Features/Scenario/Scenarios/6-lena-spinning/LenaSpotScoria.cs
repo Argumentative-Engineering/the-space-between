@@ -9,9 +9,11 @@ public class LenaSpotScoria : Scenario
     [SerializeField]
     DialogueData _stopSpinningDialogue;
     [SerializeField] Transform _scoria;
+    GameObject _player;
 
     private void Start()
     {
+        _player = GameManager.Instance.Player;
         EventManager.Instance.RegisterListener("check-comms", OnCheckComms);
         EventManager.Instance.RegisterListener(EventDefinitions.LookAtScoria, OnLookAtScoria);
     }
@@ -43,7 +45,16 @@ public class LenaSpotScoria : Scenario
 
     public override IEnumerator RunScenario()
     {
+        PlayerInventory.Instance.DequipAll();
         NarrativeManager.Instance.PlayDialogue(_stopSpinningDialogue);
-        return base.RunScenario();
+        yield return new WaitForSeconds(3);
+        _player.transform.DORotate(Vector3.up * 180, 3);
+        Camera.main.transform.DOLocalRotate(Vector3.zero, 3).OnComplete(() =>
+        {
+            _player.GetComponent<PlayerLocalInput>().SnapToRotation(Camera.main.transform.localRotation);
+            _player.GetComponent<PlayerSettings>().OverrideCameraRotation = false;
+        });
+
+        yield return base.RunScenario();
     }
 }

@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/_Features/Scenario/Scenarios/4-lena-go-to-panel/SCN_lena-outside-helen.unity
     guid: a9d92a0b444f7b24f920f04258bda60d
   - enabled: 1
-    path: Assets/_Features/Scenario/Scenarios/7-lena-fb-swing/SCN_lena-fb-swing.unity
+    path: Assets/_Features/Scenario/Scenarios/8-lena-helen-broken/Flashbacks/Zeke/SCN_lena-fb-swing.unity
     guid: a9ca85ad75f2b8043840edb7b8d5b3ec
   - enabled: 1
     path: Assets/_Features/Scenario/Scenarios/8-lena-helen-broken/SCN_helen-broken.unity

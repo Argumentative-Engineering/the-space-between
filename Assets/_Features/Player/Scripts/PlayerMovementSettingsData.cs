@@ -8,4 +8,6 @@ public class PlayerMovementSettingsData : ScriptableObject
     public float MoveSpeed;
     public float Drag = 1f;
     public bool ShowHelmet = false;
+
+    public Vector2 LookClamp = new(0, 90);
 }

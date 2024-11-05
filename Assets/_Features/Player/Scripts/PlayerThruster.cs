@@ -8,9 +8,12 @@ public class PlayerThruster : InventoryItem
     [SerializeField] LayerMask _interactionMask;
     [field: SerializeField] public float ThrusterRange { get; private set; } = 5;
 
+    public float ThrusterFuel = 100f;
+
     [Header("References")]
     [SerializeField] PlayerLocalInput _input;
     [SerializeField] Rigidbody _rb;
+    [SerializeField] ParticleSystem _thrusterParticles;
 
     EventManager _evt;
 
@@ -21,7 +24,15 @@ public class PlayerThruster : InventoryItem
 
     void Update()
     {
-        if (!IsEquipped || !_input.IsFiring) return;
+        if (!IsEquipped || !_input.IsFiring || ThrusterFuel <= 0)
+        {
+            _thrusterParticles.Stop();
+            return;
+        }
+
+        if (!_thrusterParticles.isPlaying) _thrusterParticles.Play();
+
+        ThrusterFuel -= Time.deltaTime * 0.5f;
 
         // lazy to rewrite to have generic player thruster so i'll just use events.
         // performance? idk lol dont care anymore
