@@ -17,8 +17,8 @@ public class FlashbackManager : MonoBehaviour
 
     public void RunFlashback(string flashbackSceneName)
     {
-
         CheckpointManager.Instance.Save();
+        PlayerSettings.Instance.IsAnchored = false;
         CutsceneManager.Instance.Fade(1, () =>
         {
             HideStuff(true);

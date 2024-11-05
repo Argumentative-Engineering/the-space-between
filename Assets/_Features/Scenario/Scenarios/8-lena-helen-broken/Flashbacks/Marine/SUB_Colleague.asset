@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe2486cf161aa8489498b93df701f1b, type: 3}
+  m_Name: SUB_Colleague
+  m_EditorClassIdentifier: 
+  DialogueEvent:
+    Guid:
+      Data1: -1781072929
+      Data2: 1140326396
+      Data3: 390203810
+      Data4: -1307644423
+    Path: event:/Dialogue/flashbacks/Colleague
+  Subtitles:
+  - Key: 1
+    Speaker: 
+    Text: Dr Marquez!
+  - Key: 2
+    Speaker: 
+    Text: God, you're really something huh
+  - Key: 4
+    Speaker: 
+    Text: First, the oceans. And now, everything else
+  - Key: 5
+    Speaker: 
+    Text: I don't want to get all serious,
+  - Key: 6
+    Speaker: 
+    Text: but, I hope you just how much you inspire us at home
+  - Key: 7
+    Speaker: 
+    Text: I think a lot about the talk you gave our first batch of interns.
+  - Key: 8
+    Speaker: 
+    Text: About how this world has to grab on to each other to survive,
+  - Key: 9
+    Speaker: 
+    Text: 'and somebody''s going to have to be the ones our oceans can grab onto
+      after all that''s been done to them. '
+  - Key: 10
+    Speaker: 
+    Text: I know you taking on this huge responsibility is letting the world grab
+      onto you.
+  - Key: 11
+    Speaker: 
+    Text: 'God, I can''t imagine how the weight of that must feel. '
+  - Key: 12
+    Speaker: 
+    Text: But if I know anyone who can handle it,
+  - Key: 13
+    Speaker: 
+    Text: it'd be you, doc.
+  - Key: 14
+    Speaker: 
+    Text: And when you need it,
+  - Key: 15
+    Speaker: 
+    Text: make sure to grab onto something too.

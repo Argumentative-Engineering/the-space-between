@@ -13,5 +13,11 @@ public static class EventDefinitions
     public static string LookAtScoria = "look-at-scoria";
 
     // HELEN BROKEN
+    public static string LookAtVitalityModule = "look-at-vitality-module";
+    public static string PropUp = "prop";
+    public static string AimVM = "aim-vm";
+    public static string AimTether = "aim-tether";
     public static string CheckPipe = "check-pipe";
+
+    public static string RefreshOxygen = "refresh-oxy";
 }

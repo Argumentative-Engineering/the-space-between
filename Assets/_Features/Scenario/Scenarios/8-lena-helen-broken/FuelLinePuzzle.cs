@@ -17,10 +17,16 @@ public class FuelLinePuzzle : GameInteractable
         PlayerSettings.Instance.GetComponent<PlayerLocalInput>().OnJump.AddListener(PutFuelLine);
     }
 
+    public override bool TryInteract()
+    {
+        PlayerSettings.Instance.IsAnchored = false;
+        return base.TryInteract();
+    }
+
     private void PutFuelLine()
     {
         _scena = ScenarioManager.Instance.GetScenario<FixScoriaScenario>();
-        if (_scena.AreFuelLinesFixed) return;
+        if (_scena.AreFuelLinesFixed || !PlayerInteraction.Instance.IsInteracting) return;
 
         if (!_scena.HasFuelPipe)
         {

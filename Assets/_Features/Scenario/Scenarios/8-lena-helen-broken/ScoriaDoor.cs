@@ -6,6 +6,7 @@ using UnityEngine;
 public class ScoriaDoor : GameInteractable
 {
     FixScoriaScenario _scoriaScenario;
+    [SerializeField] DialogueData _insufficientPower;
 
     void Start()
     {
@@ -19,7 +20,7 @@ public class ScoriaDoor : GameInteractable
             transform.DOShakePosition(0.5f, 0.05f);
 
             if (_scoriaScenario.PowerCellConnectionCount < 2)
-                print("SCORIA: insufficient power");
+                NarrativeManager.Instance.PlayDialogue(_insufficientPower);
             else if (!_scoriaScenario.AreFuelLinesFixed)
                 print("SCORIA: fuel lines damaged");
 

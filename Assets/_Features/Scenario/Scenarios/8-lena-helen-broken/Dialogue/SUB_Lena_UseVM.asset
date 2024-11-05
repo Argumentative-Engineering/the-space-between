@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe2486cf161aa8489498b93df701f1b, type: 3}
+  m_Name: SUB_Lena_UseVM
+  m_EditorClassIdentifier: 
+  DialogueEvent:
+    Guid:
+      Data1: 2050173230
+      Data2: 1074371042
+      Data3: 1464813228
+      Data4: 260299085
+    Path: event:/Dialogue/helen-broken/Lena_UseVitalityModule
+  Subtitles:
+  - Key: lena-vm-001
+    Speaker: Lena
+    Text: Okay, thank god
+  - Key: lena-vm-002
+    Speaker: Lena
+    Text: The tether...
+  - Key: lena-vm-003
+    Speaker: Lena
+    Text: I can keep using it to bring items to me
+  - Key: lena-vm-004
+    Speaker: Lena
+    Text: or to bring myself elsewhere..

@@ -8,6 +8,9 @@ public class FixScoriaScenario : Scenario
     public bool MarineFlashbackDone = false;
     public bool ZekeFlashbackDone = false;
 
+    public bool CanLookAtPowerCell { get; set; }
+    public bool LookedAtPowerCell { get; set; }
+
     public int PowerCellConnectionCount;
     public bool AreFuelLinesFixed;
 
@@ -16,6 +19,10 @@ public class FixScoriaScenario : Scenario
     [Header("Dialogue Lines")]
     [SerializeField] DialogueData _notProperPipe;
     [SerializeField] DialogueData _properPipe;
+    [SerializeField] DialogueData _lookAtCell;
+
+    [Header("References")]
+    [SerializeField] Transform _euler;
 
     public bool IsScoriaWorking()
     {
@@ -26,11 +33,23 @@ public class FixScoriaScenario : Scenario
     private void Start()
     {
         EventManager.Instance.RegisterListener(EventDefinitions.CheckPipe, OnCheckPipe);
+        EventManager.Instance.RegisterListener("look-at-power-cell", OnLookPowercell);
+        EventManager.Instance.RegisterListener("look-euler", OnLookEuler);
     }
-
     private void OnDisable()
     {
         EventManager.Instance.UnregisterListener(EventDefinitions.CheckPipe, OnCheckPipe);
+        EventManager.Instance.UnregisterListener("look-at-power-cell", OnLookPowercell);
+        EventManager.Instance.UnregisterListener("look-euler", OnLookEuler);
+    }
+    private void OnLookPowercell(object[] obj)
+    {
+        var pos = (Vector3)obj[0];
+        LookedAtPowerCell = true;
+        AnimationUtils.AnimateLookAt(pos, zoom: true, duration: 1, delay: 4, onComplete: () =>
+        {
+            NarrativeManager.Instance.PlayDialogue(_lookAtCell);
+        });
     }
 
     private void OnCheckPipe(object[] obj)
@@ -48,6 +67,11 @@ public class FixScoriaScenario : Scenario
         {
             NarrativeManager.Instance.PlayDialogue(_notProperPipe);
         }
+    }
+
+    private void OnLookEuler(object[] obj)
+    {
+        AnimationUtils.AnimateLookAt(_euler.position, zoom: true, duration: 1, delay: 3);
     }
 
     public void Complete()

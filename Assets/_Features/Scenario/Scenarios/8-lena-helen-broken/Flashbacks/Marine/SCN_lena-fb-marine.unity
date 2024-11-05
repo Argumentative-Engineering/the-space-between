@@ -96,7 +96,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000004, guid: 5f085f1ca7e21314193974522e13ff5b,
+  m_LightingDataAsset: {fileID: 112000004, guid: a9ce87387812c1f41b8c7965a9767c7d,
     type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: a89686427817c1f42a0174511ca83fc5,
     type: 2}
@@ -280,6 +280,67 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 300784362}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &326960583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 326960584}
+  - component: {fileID: 326960585}
+  - component: {fileID: 326960586}
+  m_Layer: 0
+  m_Name: Text Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &326960584
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326960583}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 22.17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1254689345}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &326960585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326960583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726d14cd31608fe4388af7cf89a35e9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dialogue: {fileID: 11400000, guid: ed62d2ed7dcfc964eb327e019c0fdefd, type: 2}
+  _source: {fileID: 326960586}
+  _textPrefab: {fileID: 5022322665253490501, guid: 47235dfb33184a04c8607ea49717865d,
+    type: 3}
+--- !u!114 &326960586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326960583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3c9e8ba5cb7ff478369ddd0b7418e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &379390955 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 54e940e3959e9044f8696ecf7528e7c1,
@@ -698,6 +759,7 @@ Transform:
   - {fileID: 1451461819}
   - {fileID: 149741073}
   - {fileID: 2051727940}
+  - {fileID: 326960584}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1451461818
@@ -710,6 +772,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1451461819}
   - component: {fileID: 1451461820}
+  - component: {fileID: 1451461821}
   m_Layer: 0
   m_Name: marine
   m_TagString: Untagged
@@ -751,6 +814,37 @@ MonoBehaviour:
   _playerSettingsData: {fileID: 11400000, guid: 7cb392531ccd2cd40a15d88e0f4fc92a,
     type: 2}
   _hiddenTillRun: []
+--- !u!114 &1451461821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451461818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1781072929
+      Data2: 1140326396
+      Data3: 390203810
+      Data4: -1307644423
+    Path: event:/Dialogue/flashbacks/marine/Colleague
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1469578969
 GameObject:
   m_ObjectHideFlags: 0

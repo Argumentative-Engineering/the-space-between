@@ -29,6 +29,7 @@ public class PlayerSettings : MonoBehaviour
     [SerializeField] GameObject[] _ui;
     [SerializeField] GameObject[] _helmet;
 
+
     public static PlayerSettings Instance { get; private set; }
     private void Awake() => Instance = this;
 
@@ -72,4 +73,6 @@ public class PlayerSettings : MonoBehaviour
     {
         Instance.IsFrozen = isFrozen;
     }
+
+    public void PlaySuit() { }
 }

@@ -11,8 +11,9 @@ public class VitalityModule : GameInteractable
 
     public override bool TryInteract()
     {
-        Destroy(gameObject);
         PlayerOxygen.Instance.RefreshOxygen();
+        EventManager.Instance.BroadcastEvent("refresh-oxy");
+        Destroy(gameObject);
         return false;
     }
 }

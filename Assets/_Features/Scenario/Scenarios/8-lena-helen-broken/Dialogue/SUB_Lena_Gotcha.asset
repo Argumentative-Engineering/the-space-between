@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe2486cf161aa8489498b93df701f1b, type: 3}
+  m_Name: SUB_Lena_Gotcha
+  m_EditorClassIdentifier: 
+  DialogueEvent:
+    Guid:
+      Data1: 853278172
+      Data2: 1291914229
+      Data3: 1346845357
+      Data4: 799760905
+    Path: event:/Dialogue/helen-broken/Lena_Gotcha
+  Subtitles:
+  - Key: 1
+    Speaker: Lena
+    Text: Gotcha.
+  - Key: 2
+    Speaker: Lena
+    Text: I can't drag it to me, it's too heavy
+  - Key: 3
+    Speaker: Lena
+    Text: I'd just get dragged to it.
+  - Key: 4
+    Speaker: Lena
+    Text: If I can just get to that module...

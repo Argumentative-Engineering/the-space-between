@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class EventManager : MonoBehaviour
 {
     private readonly Dictionary<string, Action<object[]>> _eventsDictionary = new();

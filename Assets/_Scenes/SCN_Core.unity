@@ -96,7 +96,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000004, guid: a9fd1c81afabb4e4fa67432ffa7aa3c1,
+  m_LightingDataAsset: {fileID: 112000002, guid: a9ce87387812c1f41b8c7965a9767c7d,
     type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: a89686427817c1f42a0174511ca83fc5,
     type: 2}
@@ -312,6 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed06c4db4c4d6d94ab83dc2cfcba43a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HasShownJumpHint: 0
   _hintUI: {fileID: 955278424}
 --- !u!1 &181265486
 GameObject:
@@ -1581,6 +1582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LastPlayerMovementSettings: {fileID: 0}
+  LastAnchored: 0
   _lastCheckpointTransform: {fileID: 181265487}
   LastActiveScenario: {fileID: 0}
 --- !u!1001 &4956004899123889678
@@ -1690,11 +1692,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6534505383492183262, guid: 7fb4e7b716036ef4abf8d56d91136434,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe2486cf161aa8489498b93df701f1b, type: 3}
+  m_Name: SUB_Lena_WakesUp
+  m_EditorClassIdentifier: 
+  DialogueEvent:
+    Guid:
+      Data1: 951987120
+      Data2: 1283548118
+      Data3: 1835165322
+      Data4: -1122715520
+    Path: event:/Dialogue/lena-low-oxy/Lena_LowOxy
+  Subtitles:
+  - Key: lena-low-oxy-001
+    Speaker: Lena
+    Text: Fuck, fuck!
+  - Key: lena-low-oxy-002
+    Speaker: Lena
+    Text: Okay, what can I do?
+  - Key: lena-low-oxy-003
+    Speaker: Lena
+    Text: Oh god, okay
+  - Key: lena-low-oxy-004
+    Speaker: Lena
+    Text: okay, FUCK, what can I do?
+  - Key: lena-vitality-001
+    Speaker: Lena
+    Text: 'A vitality module...
+
+'
+  - Key: lena-vitality-002
+    Speaker: Lena
+    Text: Fuck,
+  - Key: lena-vitality-003
+    Speaker: Lena
+    Text: 'If I can get to that, then...
+
+'
+  - Key: lena-vitality-004
+    Speaker: Lena
+    Text: Okay, if I can prop myself

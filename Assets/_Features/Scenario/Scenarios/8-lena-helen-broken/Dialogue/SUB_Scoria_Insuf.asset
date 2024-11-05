@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe2486cf161aa8489498b93df701f1b, type: 3}
+  m_Name: SUB_Scoria_Insuf
+  m_EditorClassIdentifier: 
+  DialogueEvent:
+    Guid:
+      Data1: -870966495
+      Data2: 1283552034
+      Data3: 655210641
+      Data4: 624236304
+    Path: event:/Dialogue/helen-broken/Scoria_InsufficientPower
+  Subtitles:
+  - Key: scoria-insf
+    Speaker: <color=blue>SCORIA</color>
+    Text: SCORIA. INSUFFICIENT POWER
+  - Key: lena-insf-01
+    Speaker: Lena
+    Text: Come on
+  - Key: lena-insf-02
+    Speaker: Lena
+    Text: Insufficient...
+  - Key: lena-insf-03
+    Speaker: Lena
+    Text: That's amazing, that's just great.
+  - Key: lena-insf-04
+    Speaker: Lena
+    Text: Seriously, it's like you're trying to kill me.

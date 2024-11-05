@@ -14,12 +14,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DialogueEvent:
     Guid:
-      Data1: -753728976
-      Data2: 1336914936
-      Data3: 1955695028
-      Data4: 2132654109
-    Path: event:/Dialogue/lena-fb-swing/Husband_Letter
+      Data1: 961878387
+      Data2: 1085156047
+      Data3: 1990489731
+      Data4: 1923194464
+    Path: event:/Dialogue/flashbacks/Husband
   Subtitles:
-  - Key: husband_letter001
-    Speaker: ...
-    Text: Test dialogue
+  - Key: 1
+    Speaker: 
+    Text: 'Lena, '
+  - Key: 2
+    Speaker: 
+    Text: I hope you're always safe.
+  - Key: 3
+    Speaker: 
+    Text: I miss you.
+  - Key: 4
+    Speaker: 
+    Text: Zeke, misses you more. though,
+  - Key: 5
+    Speaker: 
+    Text: I feel like he's gotten tired of saying it
+  - Key: 6
+    Speaker: 
+    Text: Or he's grown to think he shouldn't say it anymore
+  - Key: 7
+    Speaker: 
+    Text: He doesn't even go on the swing anymore, you know?
+  - Key: 8
+    Speaker: 
+    Text: 'He did before, '
+  - Key: 9
+    Speaker: 
+    Text: and I would wait for him to ask me to push him the same way you did.
+  - Key: 10
+    Speaker: 
+    Text: But I guess,
+  - Key: 11
+    Speaker: 
+    Text: even at his young age,
+  - Key: 12
+    Speaker: 
+    Text: he knows what it means to keep something special
+  - Key: 13
+    Speaker: 
+    Text: between him,
+  - Key: 14
+    Speaker: 
+    Text: and someone he just can't really see anymore.

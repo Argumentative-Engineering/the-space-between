@@ -15,6 +15,7 @@ public class LenaSwingScenario : Scenario
     {
         PlayerSettings.Instance.CanUseTether = false;
         PlayerSettings.Instance.CanUseThrusters = false;
+        PlayerOxygen.Instance.StartDecreasingOxygen = false;
         PlayerInventory.Instance.DequipAll();
         CutsceneManager.Instance.Fade(0, null, startBlack: true);
         return base.RunScenario();

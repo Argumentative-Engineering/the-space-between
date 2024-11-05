@@ -22,6 +22,12 @@ public class MoveAnchor : GameInteractable
             print("Dialogue: It's too far");
             return false;
         }
+        if (!GameHints.Instance.HasShownJumpHint)
+        {
+
+            GameHints.Instance.ShowHint("Press SPACE to push yourself");
+            GameHints.Instance.HasShownJumpHint = true;
+        }
         GameManager.Instance.MovePlayer(_orientation, offset: -Vector3.up, snap: false, rotate: false);
         PlayerSettings.Instance.IsAnchored = CanPushAway;
         PlayerSettings.Instance.GetComponent<PlayerInteraction>().SetTooltip("Push yourself");

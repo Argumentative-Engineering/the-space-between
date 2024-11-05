@@ -66,6 +66,12 @@ public class NarrativeManager : MonoBehaviour
         _dialogueSeq = null;
     }
 
+    void HideText()
+    {
+        _dialogueSpeakerUI.DOFade(0, _fadeDuration);
+        _dialogueTextUI.DOFade(0, _fadeDuration);
+    }
+
     public void StopSequence()
     {
         _dialogueSpeakerUI.DOFade(0, _fadeDuration).SetDelay(5);
@@ -79,8 +85,7 @@ public class NarrativeManager : MonoBehaviour
 
     void OnDestroy()
     {
-        _dialogueInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-        _dialogueInstance.release();
+        UnloadAllAudio();
 
         IsRunning = false;
     }
@@ -93,6 +98,12 @@ public class NarrativeManager : MonoBehaviour
         if (marker.StartsWith("evt:"))
         {
             EventManager.Instance.BroadcastEvent(marker.Split(":")[1]);
+            return;
+        }
+
+        if (marker == "hide")
+        {
+            HideText();
             return;
         }
 

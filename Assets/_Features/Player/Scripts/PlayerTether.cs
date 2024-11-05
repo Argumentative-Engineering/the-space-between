@@ -1,5 +1,6 @@
 using System.Collections;
 using DG.Tweening;
+using FMODUnity;
 using NaughtyAttributes.Test;
 using TMPro.EditorUtilities;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class PlayerTether : InventoryItem
     [SerializeField] LayerMask _interactionMask;
     [SerializeField] float _pullForce = 5;
     [SerializeField] float _tetherMaxLength = 20;
+    [SerializeField] EventReference _tetherSFX;
 
     [Header("References")]
     [SerializeField] PlayerLocalInput _input;
@@ -45,7 +47,10 @@ public class PlayerTether : InventoryItem
             if (hit.collider.gameObject.TryGetComponent(out GrabbableObject grabbable) && !grabbable.CanTether) return;
             if (hit.collider.gameObject.GetComponent<FixedJoint>() == null) return;
 
+
             _connectedObject = hit.collider.gameObject;
+            GameManager.Instance.Player.GetComponent<PlayerSettings>().IsAnchored = false;
+            RuntimeManager.PlayOneShot(_tetherSFX);
             _tetherRb.rotation = Quaternion.LookRotation(-hit.normal);
             _tetherRb.angularVelocity = Vector3.zero;
             _tetherRb.velocity = Vector3.zero;
@@ -119,7 +124,6 @@ public class PlayerTether : InventoryItem
         _isThrown = true;
 
         _tetherRb.AddForce(Camera.main.transform.forward * 1000);
-        GameManager.Instance.Player.GetComponent<PlayerSettings>().IsAnchored = false;
     }
 
     private void OnEnable()

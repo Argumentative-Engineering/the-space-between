@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameHints : MonoBehaviour
 {
+    public bool HasShownJumpHint;
+
     [SerializeField] TextMeshProUGUI _hintUI;
     public static GameHints Instance { get; private set; }
     private void Awake()

@@ -7,6 +7,8 @@ public class GameInteractable : MonoBehaviour
     public UnityEvent OnInteract;
     public bool RunOnce;
 
+    protected bool hasRun;
+
     [SerializeField] Transform _cameraPoint;
 
     private void Start() { }
@@ -22,6 +24,12 @@ public class GameInteractable : MonoBehaviour
 
         OnInteract?.Invoke();
         if (RunOnce) Destroy(this);
+
         return res;
+    }
+
+    public void ShowInteractableHint(string hint)
+    {
+        GameHints.Instance.ShowHint(hint);
     }
 }

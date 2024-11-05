@@ -6986,6 +6986,13 @@ MonoBehaviour:
     m_Bits: 1032
   _pullForce: 5
   _tetherMaxLength: 20
+  _tetherSFX:
+    Guid:
+      Data1: -756504251
+      Data2: 1322373649
+      Data3: -107734654
+      Data4: -1351462357
+    Path: event:/SFX/Hook
   _input: {fileID: 7718282090340846793}
   _pullFrom: {fileID: 3981513290107898461}
   _tether: {fileID: 0}
@@ -7117,6 +7124,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   <ThrusterRange>k__BackingField: 10
+  ThrusterFuel: 100
   _input: {fileID: 7718282090340846793}
   _rb: {fileID: 4910854096135679959}
   _thrusterParticles: {fileID: 542326767395077965}

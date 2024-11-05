@@ -4,6 +4,7 @@ using UnityEngine;
 public class CheckpointManager : MonoBehaviour
 {
     public PlayerMovementSettingsData LastPlayerMovementSettings;
+    public bool LastAnchored = false;
     [SerializeField] Transform _lastCheckpointTransform;
     public Scenario LastActiveScenario;
     public Queue<Scenario> LastScenarioQueue = new();
@@ -20,6 +21,7 @@ public class CheckpointManager : MonoBehaviour
         LastPlayerMovementSettings = PlayerSettings.Instance.PlayerMovementSettings;
         LastActiveScenario = ScenarioManager.Instance.CurrentScenario;
         LastScenarioQueue = ScenarioManager.Instance.Scenarios;
+        LastAnchored = PlayerSettings.Instance.IsAnchored;
     }
 
     public void Load()
@@ -29,5 +31,6 @@ public class CheckpointManager : MonoBehaviour
         ScenarioManager.Instance.Scenarios.Clear();
         ScenarioManager.Instance.Scenarios = LastScenarioQueue;
         ScenarioManager.Instance.CurrentScenario = LastActiveScenario;
+        PlayerSettings.Instance.IsAnchored = LastAnchored;
     }
 }

@@ -8,15 +8,15 @@ public class MarineFlashback : GameInteractable
     FixScoriaScenario _scen;
     private void Start()
     {
-        _scen = ScenarioManager.Instance.GetScenario<FixScoriaScenario>();
         _canadarm.enabled = false;
     }
 
     public override bool TryInteract()
     {
+        _scen = ScenarioManager.Instance.GetScenario<FixScoriaScenario>();
         _scen.MarineFlashbackDone = true;
         _canadarm.enabled = true;
-        FlashbackManager.Instance.RunFlashback(SceneDefinitions.SwingFlashback);
+        FlashbackManager.Instance.RunFlashback(SceneDefinitions.MarineFlashback);
         return base.TryInteract();
     }
 }
