@@ -4959,7 +4959,6 @@ GameObject:
   - component: {fileID: 567490127}
   - component: {fileID: 567490126}
   - component: {fileID: 567490125}
-  - component: {fileID: 567490132}
   m_Layer: 3
   m_Name: Power Port positive
   m_TagString: Untagged
@@ -5118,21 +5117,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1254689345}
   m_LocalEulerAnglesHint: {x: -70.575, y: -121.689, z: -77.37}
---- !u!138 &567490132
-FixedJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 567490124}
-  m_ConnectedBody: {fileID: 0}
-  m_ConnectedArticulationBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
 --- !u!1001 &585554436
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6984,7 +6968,6 @@ GameObject:
   - component: {fileID: 789417126}
   - component: {fileID: 789417127}
   - component: {fileID: 789417128}
-  - component: {fileID: 789417129}
   m_Layer: 3
   m_Name: Power Port negative
   m_TagString: Untagged
@@ -7143,21 +7126,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isPositive: 0
---- !u!138 &789417129
-FixedJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 789417121}
-  m_ConnectedBody: {fileID: 0}
-  m_ConnectedArticulationBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
 --- !u!1001 &793987697
 PrefabInstance:
   m_ObjectHideFlags: 0

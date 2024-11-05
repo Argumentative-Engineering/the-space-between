@@ -8,13 +8,10 @@ public class PowerPort : MonoBehaviour
     [SerializeField] bool _isPositive;
 
     FixScoriaScenario _scenario;
-    private void Start()
-    {
-        _scenario = ScenarioManager.Instance.GetScenario<FixScoriaScenario>();
-    }
 
     private void OnTriggerEnter(Collider other)
     {
+        _scenario = ScenarioManager.Instance.GetScenario<FixScoriaScenario>();
         if (other.CompareTag("Fuel Cell") && (_isPositive ? other.name == "pos" : other.name == "neg"))
         {
             Destroy(GetComponent<GrabbableObject>());
