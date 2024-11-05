@@ -3,7 +3,62 @@ guid: ba84eafaf1286ab439921f9d9a548d67
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Light
+    second: {fileID: 2100000, guid: 0205d0cd8abb149498a264494fc13c17, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Light_Red
+    second: {fileID: 2100000, guid: f13cc80d96a6cb04fba5a1e902476944, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Scoria_Accent
+    second: {fileID: 2100000, guid: 388e60dc8d5957d42833f0ee743fdf20, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Scoria_Airlock
+    second: {fileID: 2100000, guid: c1727fd2288b9724393f54c896c0a6d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Scoria_Base
+    second: {fileID: 2100000, guid: a17d58d3e48d3cb4aa57ef288ea27619, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Scoria_FuelTanks
+    second: {fileID: 2100000, guid: 11389f05d317ac040a513bcf48c19f22, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Scoria_Truss
+    second: {fileID: 2100000, guid: e9772c859d833554aba8b6015d53bb70, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_SolarPanel
+    second: {fileID: 2100000, guid: 1f536ba400eaaa5468604dc5cfddb91b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_SolarPanel_Blue
+    second: {fileID: 2100000, guid: dd903129a227654468a8611c513aaed0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Window
+    second: {fileID: 2100000, guid: b3af75acc5a3e0e4fb729e79365ed114, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Wire
+    second: {fileID: 2100000, guid: 231f723dda405314a8d4012076e6effa, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

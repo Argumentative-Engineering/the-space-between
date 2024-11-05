@@ -23,6 +23,7 @@ public class CutsceneManager : MonoBehaviour
         var player = GameManager.Instance.Player;
         PlayerSettings.FreezePlayer(true);
 
+        if (_fadeImage == null) return;
         _fadeImage.DOFade(fadeAmount, duration).From(startBlack ? 1 : 0).OnComplete(() =>
         {
             PlayerSettings.FreezePlayer(false);

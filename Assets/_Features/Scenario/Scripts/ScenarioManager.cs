@@ -14,7 +14,10 @@ public class ScenarioManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+    }
 
+    void Start()
+    {
         LoadScenarios();
         RunNextScenario(movePlayer: true);
     }
