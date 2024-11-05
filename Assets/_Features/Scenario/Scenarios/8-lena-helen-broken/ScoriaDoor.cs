@@ -9,11 +9,11 @@ public class ScoriaDoor : GameInteractable
 
     void Start()
     {
-        _scoriaScenario = ScenarioManager.Instance.GetScenario<FixScoriaScenario>();
     }
 
     public override bool TryInteract()
     {
+        _scoriaScenario = ScenarioManager.Instance.GetScenario<FixScoriaScenario>();
         if (!_scoriaScenario.IsScoriaWorking())
         {
             transform.DOShakePosition(0.5f, 0.05f);
@@ -25,6 +25,8 @@ public class ScoriaDoor : GameInteractable
 
             return false;
         }
+
+        _scoriaScenario.Complete();
         return base.TryInteract();
     }
 

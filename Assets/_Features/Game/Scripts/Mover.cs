@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Mover : MonoBehaviour
 {
+    [SerializeField] bool _rotateOnStart = true;
     [SerializeField] Vector3 _velocity;
     [SerializeField] Vector3 _angularVelocity;
 
     void Start()
     {
-        transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, Random.Range(0, 360));
+        if (_rotateOnStart)
+            transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, Random.Range(0, 360));
     }
 
     void Update()

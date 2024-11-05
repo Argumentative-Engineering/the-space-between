@@ -1354,6 +1354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LastPlayerMovementSettings: {fileID: 0}
   _lastCheckpointTransform: {fileID: 181265487}
+  LastActiveScenario: {fileID: 0}
 --- !u!1001 &4956004899123889678
 PrefabInstance:
   m_ObjectHideFlags: 0

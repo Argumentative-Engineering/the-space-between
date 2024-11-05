@@ -31,6 +31,12 @@ public class PlayerInteraction : MonoBehaviour
     Vector3 _camPrevPos;
     Quaternion _camPrevRot;
 
+    public static PlayerInteraction Instance { get; private set; }
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     public void Interact()
     {
         if (IsInteracting)
