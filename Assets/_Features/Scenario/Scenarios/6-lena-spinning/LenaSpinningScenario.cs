@@ -14,6 +14,8 @@ public class LenaSpinningScenario : Scenario
 
     float _currFuel;
     PlayerThruster _thruster;
+
+    [SerializeField] DialogueData _ohFuckDialogue;
     private void Start()
     {
         _player = GameManager.Instance.Player;
@@ -72,5 +74,10 @@ public class LenaSpinningScenario : Scenario
             return;
         }
         _player.transform.Rotate(Vector3.one, _spinningPercent * 1 * Time.deltaTime);
+    }
+
+    public void OhFuck()
+    {
+        NarrativeManager.Instance.PlayDialogue(_ohFuckDialogue);
     }
 }

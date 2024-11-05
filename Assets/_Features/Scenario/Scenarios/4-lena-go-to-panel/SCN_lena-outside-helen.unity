@@ -344,7 +344,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1181778931}
   - {fileID: 988377255}
   - {fileID: 352563318}
   - {fileID: 1281593442}
@@ -369,7 +368,8 @@ MonoBehaviour:
   _snapPlayerOnMove: 1
   _playerSettingsData: {fileID: 11400000, guid: 7743f4a19e3c76647b10f68d3d2e3e23,
     type: 2}
-  _hiddenTillRun: []
+  _hiddenTillRun:
+  - {fileID: 1181778932}
   _finishedCleaningDialogue: {fileID: 11400000, guid: 9f0f25a4622743744931a723f09cf44b,
     type: 2}
 --- !u!114 &268924459
@@ -493,7 +493,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: ba84eafaf1286ab439921f9d9a548d67,
+        type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 1181778931}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba84eafaf1286ab439921f9d9a548d67, type: 3}
 --- !u!4 &270468113 stripped
@@ -2194,7 +2198,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 268924456}
+    m_TransformParent: {fileID: 270468113}
     m_Modifications:
     - target: {fileID: 409653612959265872, guid: 07cf3ffc5361bea41acf0e1c6203b7d7,
         type: 3}
@@ -2214,7 +2218,7 @@ PrefabInstance:
     - target: {fileID: 409653612959265872, guid: 07cf3ffc5361bea41acf0e1c6203b7d7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.07
+      value: -0.53249586
       objectReference: {fileID: 0}
     - target: {fileID: 409653612959265872, guid: 07cf3ffc5361bea41acf0e1c6203b7d7,
         type: 3}
@@ -2224,7 +2228,7 @@ PrefabInstance:
     - target: {fileID: 409653612959265872, guid: 07cf3ffc5361bea41acf0e1c6203b7d7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -82.99
+      value: -37.49539
       objectReference: {fileID: 0}
     - target: {fileID: 409653612959265872, guid: 07cf3ffc5361bea41acf0e1c6203b7d7,
         type: 3}
@@ -7955,7 +7959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a771981cf2a5dbb46b0f84fbf712667b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotateOnStart: 1
+  _rotateOnStart: 0
   _velocity: {x: 0, y: 0, z: 50}
   _angularVelocity: {x: 0, y: 0, z: 0}
 --- !u!1001 &1527050542
@@ -8519,6 +8523,8 @@ PlayableDirector:
     value: {fileID: 1180823411}
   - key: {fileID: -4967752994170709205, guid: cced99005b46afe498977acb1d5e8e34, type: 2}
     value: {fileID: 1254689344}
+  - key: {fileID: -7206448415520309613, guid: cced99005b46afe498977acb1d5e8e34, type: 2}
+    value: {fileID: 1916203693}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &1670410991
@@ -8790,6 +8796,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1916203691}
   - component: {fileID: 1916203692}
+  - component: {fileID: 1916203693}
   m_Layer: 0
   m_Name: lena-spinning
   m_TagString: Untagged
@@ -8832,6 +8839,37 @@ MonoBehaviour:
   _playerSettingsData: {fileID: 11400000, guid: 7743f4a19e3c76647b10f68d3d2e3e23,
     type: 2}
   _hiddenTillRun: []
+  _ohFuckDialogue: {fileID: 11400000, guid: b871c131d55ef1941b8dda51dea603c5, type: 2}
+--- !u!114 &1916203693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916203690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 5f7a39d9181341744b6c8b2c907af1d9, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1916203692}
+          m_TargetAssemblyTypeName: LenaSpinningScenario, Assembly-CSharp
+          m_MethodName: OhFuck
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &1927704914
 PrefabInstance:
   m_ObjectHideFlags: 0
