@@ -17,9 +17,21 @@ public class PlayerThruster : InventoryItem
 
     EventManager _evt;
 
+    bool _hasShownHint = false;
+
     void Start()
     {
         _evt = EventManager.Instance;
+    }
+
+    public override void Equip(bool isEquipped, bool forceEquip = false)
+    {
+        base.Equip(isEquipped, forceEquip);
+        if (!_hasShownHint)
+        {
+            GameHints.Instance.ShowHint("Press LMB to fire thrusters");
+            _hasShownHint = true;
+        }
     }
 
     void Update()

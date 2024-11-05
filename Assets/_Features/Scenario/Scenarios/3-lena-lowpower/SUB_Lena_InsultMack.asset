@@ -22,6 +22,7 @@ MonoBehaviour:
   Subtitles:
   - Key: lena-insult-001
     Speaker: Lena
-    Text: 'Mack you dumbass leaving these floating boxes everywhere
-
-'
+    Text: God Mack, couldn't have cleaned up first?
+  - Key: lena-insult-002
+    Speaker: Lena
+    Text: Who would leave stuff blocking the hatch?

@@ -31,13 +31,13 @@ public class Hatch : DialogueInteractable
         if (!_scenario.ScenarioKeys.ContainsKey("removed-items"))
         {
             NarrativeManager.Instance.PlayDialogue(_hasntRemovedItemsDialogue);
-            return true;
+            return false;
         }
 
         if (!_scenario.ScenarioKeys.ContainsKey("wearing-spacesuit"))
         {
             NarrativeManager.Instance.PlayDialogue(_noSuitDialogue);
-            return true;
+            return false;
         }
 
         if (!base.TryInteract())
