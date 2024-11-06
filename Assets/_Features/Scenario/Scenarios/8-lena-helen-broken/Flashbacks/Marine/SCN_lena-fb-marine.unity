@@ -811,6 +811,7 @@ MonoBehaviour:
   _playerStart: {fileID: 2051727940}
   <MovePlayerOnRun>k__BackingField: 1
   _snapPlayerOnMove: 1
+  _flashlightEnabled: 1
   _playerSettingsData: {fileID: 11400000, guid: 7cb392531ccd2cd40a15d88e0f4fc92a,
     type: 2}
   _hiddenTillRun: []
@@ -833,7 +834,7 @@ MonoBehaviour:
       Data2: 1140326396
       Data3: 390203810
       Data4: -1307644423
-    Path: event:/Dialogue/flashbacks/marine/Colleague
+    Path: event:/Dialogue/flashbacks/Colleague
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 2

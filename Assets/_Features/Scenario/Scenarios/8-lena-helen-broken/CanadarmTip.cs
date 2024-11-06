@@ -13,6 +13,7 @@ public class CanadarmTip : MonoBehaviour
 
     Vector3 _angularVel;
 
+    bool _didHit;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,16 +23,20 @@ public class CanadarmTip : MonoBehaviour
         }
     }
 
-    private void Update()
+    public IEnumerator WaitDialogue(DialogueData success, DialogueData fail)
     {
-        if (Input.GetKeyDown(KeyCode.N)) DetachFuelCell();
+        float elapsed = 0;
+        while (elapsed < 4 && !_didHit)
+        {
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        NarrativeManager.Instance.PlayDialogue(_didHit ? success : fail);
     }
 
-    private void DetachFuelCell()
+    public void DetachFuelCell()
     {
-        _fuelCell.transform.parent = null;
-        _fuelCell.GetComponent<Collider>().isTrigger = true;
-
         var rb = _fuelCell.GetComponent<Rigidbody>();
         var fuelCellDir = -_fuelCell.right;
         fuelCellDir.y = 0;
@@ -39,6 +44,11 @@ public class CanadarmTip : MonoBehaviour
 
         if (angle < 180 && angle > 140)
         {
+            _fuelCell.transform.parent = null;
+            _fuelCell.GetComponent<Collider>().isTrigger = true;
+
+            _didHit = true;
+
             rb.angularVelocity = transform.up * 5;
             DOTween.Sequence()
                     .Append(_fuelCell.transform.DOMove(_path1.position, 10).SetEase(Ease.Linear)
@@ -50,13 +60,9 @@ public class CanadarmTip : MonoBehaviour
                     {
                         _fuelCell.GetComponent<Collider>().isTrigger = false;
                         rb.isKinematic = true;
-                        print("DIALOGUE: yes!");
+                        _controller.LeaveDialogue();
                         _controller.Leave();
                     });
-        }
-        else
-        {
-            rb.velocity = fuelCellDir * 10;
         }
     }
 }

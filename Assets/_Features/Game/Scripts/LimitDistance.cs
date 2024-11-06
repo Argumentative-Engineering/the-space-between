@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LimitDistance : MonoBehaviour
 {
+    [SerializeField] bool _useRb;
     [SerializeField] Transform _targetToLimit;
     [SerializeField] float _limit;
 

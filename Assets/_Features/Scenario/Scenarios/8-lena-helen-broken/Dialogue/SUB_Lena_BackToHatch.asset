@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe2486cf161aa8489498b93df701f1b, type: 3}
+  m_Name: SUB_Lena_BackToHatch
+  m_EditorClassIdentifier: 
+  DialogueEvent:
+    Guid:
+      Data1: 271476641
+      Data2: 1204038471
+      Data3: 1100916669
+      Data4: 315532492
+    Path: event:/Dialogue/helen-broken/Lena_Back_To_Hatch
+  Subtitles:
+  - Key: 1
+    Speaker: Lena
+    Text: 'I need to go back to the hatch.
+
+'

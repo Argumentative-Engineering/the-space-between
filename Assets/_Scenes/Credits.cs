@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class Credits : MonoBehaviour
 {
@@ -10,8 +11,11 @@ public class Credits : MonoBehaviour
     [SerializeField] Sprite[] _creditsprites;
     [SerializeField] float _switchtime = 3.0f;
     [SerializeField] string _menuscene;
+    [SerializeField] bool _switchOnEnd = true;
 
-    private int currentImageIndex = 0;  
+    public UnityEvent OnCreditsEnd;
+
+    private int currentImageIndex = 0;
 
     void Start()
     {
@@ -30,7 +34,9 @@ public class Credits : MonoBehaviour
             currentImageIndex++;
         }
 
-        MenuScene();
+        OnCreditsEnd?.Invoke();
+        if (_switchOnEnd)
+            MenuScene();
     }
 
     void MenuScene()

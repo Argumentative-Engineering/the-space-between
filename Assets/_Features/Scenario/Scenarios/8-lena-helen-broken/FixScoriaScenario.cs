@@ -20,13 +20,14 @@ public class FixScoriaScenario : Scenario
     [SerializeField] DialogueData _notProperPipe;
     [SerializeField] DialogueData _properPipe;
     [SerializeField] DialogueData _lookAtCell;
+    [SerializeField] DialogueData _powercellConnected;
 
     [Header("References")]
     [SerializeField] Transform _euler;
 
     public bool IsScoriaWorking()
     {
-        return PowerCellConnectionCount == 2
+        return PowerCellConnectionCount >= 2
             && AreFuelLinesFixed;
     }
 
@@ -59,13 +60,8 @@ public class FixScoriaScenario : Scenario
 
         if (isProper)
         {
-            NarrativeManager.Instance.PlayDialogue(_properPipe);
             HasFuelPipe = true;
             Destroy(pipe);
-        }
-        else
-        {
-            NarrativeManager.Instance.PlayDialogue(_notProperPipe);
         }
     }
 
@@ -76,12 +72,14 @@ public class FixScoriaScenario : Scenario
 
     public void Complete()
     {
-        StartCoroutine(CompleteSequence());
+        GameManager.Instance.LoadLevel(SceneDefinitions.InsideScoria);
     }
 
-    IEnumerator CompleteSequence()
+    public void ConnectPowercell()
     {
-        yield return new WaitForSeconds(10);
-        GameManager.Instance.LoadLevel(SceneDefinitions.InsideScoria);
+        PowerCellConnectionCount++;
+
+        if (PowerCellConnectionCount == 2)
+            NarrativeManager.Instance.PlayDialogue(_powercellConnected);
     }
 }

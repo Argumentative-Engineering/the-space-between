@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class LenaCleanPanelScenario : Scenario
@@ -10,6 +11,12 @@ public class LenaCleanPanelScenario : Scenario
     private void Start()
     {
         EventManager.Instance.RegisterListener(EventDefinitions.PlayerThrust, OnPlayerThrust);
+    }
+
+    public override IEnumerator RunScenario()
+    {
+        CutsceneManager.Instance.Fade(0, null, startBlack: true);
+        return base.RunScenario();
     }
 
     private void OnDisable()

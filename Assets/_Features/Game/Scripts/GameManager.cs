@@ -83,10 +83,7 @@ public class GameManager : MonoBehaviour
                     SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
                     scn.LoadScenarios();
                     scn.RunNextScenario(movePlayer: true);
-                    CutsceneManager.Instance.Fade(0, null);
                     PlayerSettings.Instance.SetUIVisiblity(true);
-                    PlayerOxygen.Instance.CurrentOxygen = 100;
-
                     IsReloading = false;
                 }
             };
@@ -101,4 +98,5 @@ public static class SceneDefinitions
     public static string MarineFlashback = "SCN_lena-fb-marine";
     public static string HelenBroken = "SCN_helen-broken";
     public static string InsideScoria = "SCEN_AARON-SCORIA-INTERIOR";
+    public static string Outro = "SCN_outro";
 }

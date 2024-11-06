@@ -25,6 +25,11 @@ public class DebugTools : MonoBehaviour
             PlayerOxygen.Instance.RefreshOxygen();
         }
 
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            GameObject.FindObjectOfType<CanadarmTip>().DetachFuelCell();
+        }
+
         if (Input.GetKeyDown(KeyCode.Semicolon)) ToggleFreeCamMovement();
     }
 

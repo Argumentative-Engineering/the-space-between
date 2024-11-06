@@ -7,20 +7,18 @@ public class PowerPort : MonoBehaviour
 {
     [SerializeField] bool _isPositive;
 
-    FixScoriaScenario _scenario;
+    [SerializeField] FixScoriaScenario _scenario;
 
     private void OnTriggerEnter(Collider other)
     {
-        _scenario = ScenarioManager.Instance.GetScenario<FixScoriaScenario>();
         if (other.CompareTag("Fuel Cell") && (_isPositive ? other.name == "pos" : other.name == "neg"))
         {
             Destroy(GetComponent<GrabbableObject>());
-            PlayerSettings.Instance.GetComponent<PlayerInteraction>().StopInteracting();
+            PlayerInteraction.Instance.StopInteracting();
             GetComponent<Rigidbody>().isKinematic = true;
             GetComponent<Collider>().isTrigger = true;
             transform.DOMove(other.transform.position, 2);
-
-            _scenario.PowerCellConnectionCount++;
+            _scenario.ConnectPowercell();
         }
     }
 }

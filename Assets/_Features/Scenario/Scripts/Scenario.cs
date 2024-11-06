@@ -17,6 +17,7 @@ public class Scenario : MonoBehaviour
     public Dictionary<string, dynamic> ScenarioKeys = new();
     [field: SerializeField] public bool MovePlayerOnRun { get; set; }
     [SerializeField] bool _snapPlayerOnMove = false;
+    [SerializeField] bool _flashlightEnabled = true;
     [SerializeField] PlayerMovementSettingsData _playerSettingsData;
 
 
@@ -35,6 +36,10 @@ public class Scenario : MonoBehaviour
 
         if (_playerSettingsData != null)
             GameManager.Instance.Player.GetComponent<PlayerSettings>().UpdateSettings(_playerSettingsData);
+
+        var flashlight = GameManager.Instance.Player.GetComponentInChildren<Light>();
+        if (flashlight != null)
+            flashlight.enabled = _flashlightEnabled;
 
         ShowHidden(true);
         yield return null;

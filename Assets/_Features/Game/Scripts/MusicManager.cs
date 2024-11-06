@@ -17,6 +17,7 @@ public class MusicManager : MonoBehaviour
 
     public void StopMusic()
     {
+        _emitter.AllowFadeout = true;
         _emitter.Stop();
     }
 }

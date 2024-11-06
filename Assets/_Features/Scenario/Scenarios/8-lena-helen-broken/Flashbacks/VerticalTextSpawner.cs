@@ -51,7 +51,6 @@ public class VerticalTextSpawner : MonoBehaviour
         var line = _dialogue.Subtitles.Where(d => d.Key == marker).FirstOrDefault();
         if (line == null)
         {
-            Debug.LogError($"Missing dialogue for: {marker}; Current dialogue: {_dialogue.DialogueEvent.Path}");
             return;
         }
 

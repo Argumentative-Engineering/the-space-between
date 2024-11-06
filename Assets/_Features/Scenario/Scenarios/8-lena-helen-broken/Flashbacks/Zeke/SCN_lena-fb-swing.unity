@@ -142,6 +142,13 @@ MonoBehaviour:
       m_Calls: []
   RunOnce: 0
   _cameraPoint: {fileID: 0}
+  _swingSfx:
+    Guid:
+      Data1: -976816151
+      Data2: 1191967157
+      Data3: -602088062
+      Data4: -30513239
+    Path: event:/SFX/Swing
   _rb: {fileID: 509557706}
 --- !u!1 &156503014
 GameObject:
@@ -509,7 +516,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 509557703}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}

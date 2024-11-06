@@ -3,7 +3,22 @@ guid: 1defc27eb3ae98445ae3b29745f96f18
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Emission
+    second: {fileID: 2100000, guid: 85d3d8d0a37b8714a96127cfd7a586d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Lightbar
+    second: {fileID: 2100000, guid: ea7feafba9f401546a49efb677bc36eb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Screw
+    second: {fileID: 2100000, guid: 3cedb37ce29eb1543b5fb767e7708fa8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

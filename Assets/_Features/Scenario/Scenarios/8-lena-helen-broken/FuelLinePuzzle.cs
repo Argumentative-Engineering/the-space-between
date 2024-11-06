@@ -11,6 +11,8 @@ public class FuelLinePuzzle : GameInteractable
     [SerializeField] DialogueData _fixedFuelPipe;
 
     FixScoriaScenario _scena;
+
+    bool _hasChecked = false;
     void Start()
     {
         _fixedPipe.SetActive(false);
@@ -19,6 +21,11 @@ public class FuelLinePuzzle : GameInteractable
 
     public override bool TryInteract()
     {
+        if (!_hasChecked)
+        {
+            _hasChecked = true;
+            NarrativeManager.Instance.PlayDialogue(_noFuelPipe);
+        }
         PlayerSettings.Instance.IsAnchored = false;
         return base.TryInteract();
     }
@@ -27,22 +34,18 @@ public class FuelLinePuzzle : GameInteractable
     {
         _scena = ScenarioManager.Instance.GetScenario<FixScoriaScenario>();
         if (_scena.AreFuelLinesFixed || !PlayerInteraction.Instance.IsInteracting) return;
-
-        if (!_scena.HasFuelPipe)
-        {
-            NarrativeManager.Instance.PlayDialogue(_noFuelPipe);
-            return;
-        }
-
+        if (PlayerInteraction.Instance.CurrentInteractable != this) return;
+        if (!_scena.HasFuelPipe) return;
 
         _fixedPipe.SetActive(true);
+        _scena.AreFuelLinesFixed = true;
         StartCoroutine(FixedDatShit());
     }
 
     IEnumerator FixedDatShit()
     {
         NarrativeManager.Instance.PlayDialogue(_fixedFuelPipe);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(4);
 
         PlayerInteraction.Instance.StopInteracting();
     }

@@ -19,7 +19,7 @@ public class PlayerInteraction : MonoBehaviour
     public bool IsInteracting { get; set; }
     bool _canInteract = true;
 
-    GameInteractable _interactable;
+    public GameInteractable CurrentInteractable { get; private set; }
 
     float _opacity;
 
@@ -45,10 +45,10 @@ public class PlayerInteraction : MonoBehaviour
         }
         if (_settings.IsFrozen) return;
 
-        if (_interactable != null && !IsInteracting && _canInteract)
+        if (CurrentInteractable != null && !IsInteracting && _canInteract)
         {
             _canInteract = false;
-            if (_interactable.TryInteract())
+            if (CurrentInteractable.TryInteract())
             {
                 IsInteracting = true;
             }
@@ -108,17 +108,17 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (hit.collider.TryGetComponent(out GameInteractable interactable))
             {
-                _interactable = interactable;
+                CurrentInteractable = interactable;
 
                 _opacity = Mathf.Clamp01(_opacity += Time.deltaTime * _fadeSpeed);
 
-                if (_interactable.Tooltip != null)
-                    _tooltipText.text = _interactable.Tooltip;
+                if (CurrentInteractable.Tooltip != null)
+                    _tooltipText.text = CurrentInteractable.Tooltip;
             }
         }
         else
         {
-            _interactable = null;
+            CurrentInteractable = null;
             _tooltipText.text = _settings.IsAnchored && !_hasNearMoveAnchors ? "Push yourself" : null;
             _opacity = Mathf.Clamp01(_opacity -= Time.deltaTime * _fadeSpeed);
         }
@@ -126,7 +126,7 @@ public class PlayerInteraction : MonoBehaviour
 
     void UpdateUI()
     {
-        var xhairType = _interactable is GrabbableObject ? CrosshairType.Grab : CrosshairType.Normal;
+        var xhairType = CurrentInteractable is GrabbableObject ? CrosshairType.Grab : CrosshairType.Normal;
         Crosshair.Instance.SetCrosshair(xhairType);
 
         var opacity = (PlayerInventory.Instance.EquippedItem != null || _settings.IsAnchored) ? 1 : IsInteracting ? 0 : _opacity;
@@ -139,6 +139,7 @@ public class PlayerInteraction : MonoBehaviour
     public void MoveCamera(Vector3 pos, Quaternion rot)
     {
         if (pos == Vector3.zero || rot == Quaternion.identity) return;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
         _settings.IsFrozen = true;
         _camPrevPos = Camera.main.transform.position;
         _camPrevRot = Camera.main.transform.rotation;

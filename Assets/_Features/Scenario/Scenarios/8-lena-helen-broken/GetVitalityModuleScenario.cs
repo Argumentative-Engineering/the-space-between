@@ -62,11 +62,10 @@ public class GetVitalityModuleScenario : Scenario
 
     public override IEnumerator RunScenario()
     {
-        CutsceneManager.Instance.Fade(1, null, duration: 0.01f, startBlack: true);
         PlayerSettings.FreezePlayer(true);
+        NarrativeManager.Instance.PlayDialogue(_wakeUpDialogue);
         PlayerOxygen.Instance.CurrentOxygen = 12;
         PlayerOxygen.Instance.StartDecreasingOxygen = true;
-        NarrativeManager.Instance.PlayDialogue(_wakeUpDialogue);
         yield return base.RunScenario();
         yield return new WaitForSeconds(5);
         CutsceneManager.Instance.Fade(0, () => _start = false, duration: 3, startBlack: true);

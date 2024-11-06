@@ -1,8 +1,6 @@
 using System.Collections;
 using DG.Tweening;
 using FMODUnity;
-using NaughtyAttributes.Test;
-using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class PlayerTether : InventoryItem

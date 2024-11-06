@@ -21,7 +21,7 @@ public class AnimationUtils
             .JoinCallback(() => input.IsZooming = zoom)
             .AppendInterval(delay)
             .Append(Camera.main.transform.DOLocalRotate(lastRot.eulerAngles, duration))
-            .JoinCallback(() => input.IsZooming = !zoom)
+            .JoinCallback(() => input.IsZooming = !zoom ? false : zoom)
             .AppendCallback(() =>
             {
                 PlayerSettings.Instance.OverrideCameraRotation = false;

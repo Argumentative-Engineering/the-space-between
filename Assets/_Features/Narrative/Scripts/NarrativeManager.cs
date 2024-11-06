@@ -116,7 +116,9 @@ public class NarrativeManager : MonoBehaviour
         var line = _currentDialogue.Subtitles.Where(d => d.Key == marker).FirstOrDefault();
         if (line == null)
         {
+#if UNITY_EDITOR
             Debug.LogError($"Missing dialogue for: {marker}; Current dialogue: {_currentDialogue.DialogueEvent.Path}");
+#endif
             return;
         }
 

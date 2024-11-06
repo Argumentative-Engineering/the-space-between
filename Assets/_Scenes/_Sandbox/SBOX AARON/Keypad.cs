@@ -7,6 +7,10 @@ public class Keypad : MonoBehaviour
     public string password = "4716";
     private string userInput = "";
 
+    bool _success = false;
+
+    [SerializeField] DialogueData _rightPasswordVO, _wrongPasswordVO;
+
     private void Start()
     {
         userInput = "";
@@ -14,16 +18,19 @@ public class Keypad : MonoBehaviour
 
     public void ButtonClicked(string num)
     {
+        if (_success) return;
         userInput += num;
-        if (userInput.Length >= 4) 
+        if (userInput.Length >= 4)
         {
             if (userInput == password)
             {
-                Debug.Log("Access Granted. Welcome Back, Helen.");
+                _success = true;
+                NarrativeManager.Instance.PlayDialogue(_rightPasswordVO);
+                ScenarioManager.Instance.RunNextScenario();
             }
             else
             {
-                Debug.Log("Access Denied.");
+                NarrativeManager.Instance.PlayDialogue(_wrongPasswordVO);
                 userInput = "";
             }
         }
