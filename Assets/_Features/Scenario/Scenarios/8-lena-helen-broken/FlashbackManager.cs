@@ -22,6 +22,7 @@ public class FlashbackManager : MonoBehaviour
         CutsceneManager.Instance.Fade(1, () =>
         {
             HideStuff(true);
+            PlayerInventory.Instance.DequipAll();
             _currentFlashback = flashbackSceneName;
             var loading = SceneManager.LoadSceneAsync(flashbackSceneName, LoadSceneMode.Additive);
             loading.completed += (op) =>

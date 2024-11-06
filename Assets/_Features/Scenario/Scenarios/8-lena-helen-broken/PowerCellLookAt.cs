@@ -10,8 +10,8 @@ public class PowerCellLookAt : MonoBehaviour
     {
         if (!_scen.CanLookAtPowerCell || _scen.LookedAtPowerCell) return;
 
-        var dot = Vector3.Dot(Camera.main.transform.forward, transform.position - Camera.main.transform.position);
-        if (dot < 20 && dot > 0)
+        var angle = Vector3.Angle(Camera.main.transform.forward, transform.position - Camera.main.transform.position);
+        if (angle < 10 && angle > 0)
         {
             EventManager.Instance.BroadcastEvent("look-at-power-cell", transform.position);
         }

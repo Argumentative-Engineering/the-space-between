@@ -44,15 +44,24 @@ public class PlayerInventory : MonoBehaviour
         foreach (var item in _items)
         {
             item.Dequip();
+            item.gameObject.SetActive(false);
         }
+        EquippedItem = null;
     }
 
     public void EquipItem(int itemIndex, bool forceEquip = false)
     {
-        DequipAll();
+        // DequipAll();
 
         if (itemIndex == 0 && !_settings.CanUseThrusters) return;
         if (itemIndex == 1 && !_settings.CanUseTether) return;
+
+        if (EquippedItem == _items[itemIndex])
+        {
+            EquippedItem.Dequip();
+            EquippedItem = null;
+            return;
+        }
 
         for (int i = 0; i < _items.Length; i++)
         {

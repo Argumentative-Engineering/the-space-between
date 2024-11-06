@@ -38,7 +38,7 @@ public class GetVitalityModuleScenario : Scenario
         => AnimationUtils.AnimateLookAt(_vitalityModule.position, zoom: true);
 
     private void OnPropUp(object[] obj)
-        => AnimationUtils.AnimateLookAt(_prop.position, duration: 1);
+        => AnimationUtils.AnimateLookAt(_prop.position, duration: 1, delay: 1);
 
     private void OnAimVM(object[] obj)
         => AnimationUtils.AnimateLookAt(_vitalityModule.position);
@@ -62,6 +62,7 @@ public class GetVitalityModuleScenario : Scenario
 
     public override IEnumerator RunScenario()
     {
+        yield return new WaitForSeconds(5);
         PlayerSettings.FreezePlayer(true);
         NarrativeManager.Instance.PlayDialogue(_wakeUpDialogue);
         PlayerOxygen.Instance.CurrentOxygen = 12;

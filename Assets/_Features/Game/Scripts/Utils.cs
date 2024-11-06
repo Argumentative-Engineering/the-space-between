@@ -16,12 +16,13 @@ public class AnimationUtils
         PlayerSettings.Instance.OverrideCameraRotation = true;
         PlayerSettings.FreezePlayer(true);
         var lastRot = Camera.main.transform.localRotation;
+        var lastZoom = input.IsZooming;
         var seq = DOTween.Sequence()
             .Append(Camera.main.transform.DOLookAt(position, duration))
             .JoinCallback(() => input.IsZooming = zoom)
             .AppendInterval(delay)
             .Append(Camera.main.transform.DOLocalRotate(lastRot.eulerAngles, duration))
-            .JoinCallback(() => input.IsZooming = !zoom ? false : zoom)
+            .JoinCallback(() => input.IsZooming = false)
             .AppendCallback(() =>
             {
                 PlayerSettings.Instance.OverrideCameraRotation = false;

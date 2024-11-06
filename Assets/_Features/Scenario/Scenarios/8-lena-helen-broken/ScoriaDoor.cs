@@ -6,24 +6,21 @@ using UnityEngine;
 public class ScoriaDoor : GameInteractable
 {
     FixScoriaScenario _scoriaScenario;
-    [SerializeField] DialogueData _insufficientPower;
 
-    void Start()
-    {
-    }
+    bool _interactedOnce = false;
+    [SerializeField] DialogueData _insufficientPower, _insufficientNoLena;
 
     public override bool TryInteract()
     {
         _scoriaScenario = ScenarioManager.Instance.GetScenario<FixScoriaScenario>();
         if (!_scoriaScenario.IsScoriaWorking())
         {
+
             transform.DOShakePosition(0.5f, 0.05f);
 
             if (_scoriaScenario.PowerCellConnectionCount < 2)
-                NarrativeManager.Instance.PlayDialogue(_insufficientPower);
-            else if (!_scoriaScenario.AreFuelLinesFixed)
-                print("SCORIA: fuel lines damaged");
-
+                NarrativeManager.Instance.PlayDialogue(_interactedOnce ? _insufficientNoLena : _insufficientPower);
+            if (!_interactedOnce) _interactedOnce = true;
             return false;
         }
 

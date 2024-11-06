@@ -104,6 +104,7 @@ public class PlayerInteraction : MonoBehaviour
 
     void CheckForInteractables()
     {
+        if (_settings.IsFrozen) return;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, _range, _interactMask))
         {
             if (hit.collider.TryGetComponent(out GameInteractable interactable))
@@ -129,7 +130,7 @@ public class PlayerInteraction : MonoBehaviour
         var xhairType = CurrentInteractable is GrabbableObject ? CrosshairType.Grab : CrosshairType.Normal;
         Crosshair.Instance.SetCrosshair(xhairType);
 
-        var opacity = (PlayerInventory.Instance.EquippedItem != null || _settings.IsAnchored) ? 1 : IsInteracting ? 0 : _opacity;
+        var opacity = ((!PlayerSettings.Instance.IsFrozen && PlayerInventory.Instance.EquippedItem != null) || _settings.IsAnchored) ? 1 : IsInteracting ? 0 : _opacity;
         _crosshairImage.color = new Color(1, 1, 1, opacity);
         _tooltipText.color = new Color(1, 1, 1, opacity);
     }

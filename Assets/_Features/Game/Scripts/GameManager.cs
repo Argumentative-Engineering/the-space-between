@@ -61,7 +61,10 @@ public class GameManager : MonoBehaviour
         }
 
         if (rotate)
+        {
             Player.GetComponent<PlayerLocalInput>().SnapToRotation(targetTransform.rotation);
+            playerRb.rotation = targetTransform.rotation;
+        }
 
         playerRb.velocity = Vector3.zero;
     }
