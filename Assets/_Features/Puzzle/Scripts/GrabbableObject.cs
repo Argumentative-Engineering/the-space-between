@@ -5,7 +5,7 @@ using UnityEngine;
 // [RequireComponent(typeof(FixedJoint))]
 public class GrabbableObject : GameInteractable
 {
-    [SerializeField] Transform _anchor;
+    public Transform _anchor;
     [SerializeField] float _holddistance = 1.5f;
     [SerializeField] float _holdforce = 5f;
     [SerializeField] float _pushForce = 2;

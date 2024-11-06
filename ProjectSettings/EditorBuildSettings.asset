@@ -30,9 +30,9 @@ EditorBuildSettings:
     path: Assets/_Scenes/_Sandbox/SBOX AARON/SCEN_AARON-SCORIA-INTERIOR.unity
     guid: 7f66b6bfd490dc34094c79411c3d2aae
   - enabled: 1
-    path: Assets/_Scenes/SCN_Credits.unity
-    guid: 88d6bfa3d3a37324f8341553ff05b1ff
-  - enabled: 1
     path: Assets/_Features/Scenario/Scenarios/10-outro/SCN_Outro.unity
     guid: 15a21043a574e4b4284e41f82b30e4df
+  - enabled: 1
+    path: Assets/_Scenes/SCN_Credits.unity
+    guid: 88d6bfa3d3a37324f8341553ff05b1ff
   m_configObjects: {}

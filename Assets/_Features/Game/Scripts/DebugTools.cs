@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class DebugTools : MonoBehaviour
 {
-#if UNITY_EDITOR
     [SerializeField] PlayerMovementSettingsData _freeCamMovement;
 
     PlayerMovementSettingsData _prevSettings;
@@ -48,6 +47,8 @@ public class DebugTools : MonoBehaviour
         _isFreeCam = true;
     }
 
+#if UNITY_EDITOR
+
     private void OnGUI()
     {
         DebugScenarios();
@@ -69,5 +70,6 @@ public class DebugTools : MonoBehaviour
         GUI.Label(new Rect(19, 48, 1000, 1000), $"{scenList}");
 
     }
+
 #endif
 }

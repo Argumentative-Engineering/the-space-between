@@ -10,7 +10,7 @@ public class FuelLinePuzzle : GameInteractable
     [SerializeField] DialogueData _noFuelPipe;
     [SerializeField] DialogueData _fixedFuelPipe;
 
-    FixScoriaScenario _scena;
+    [SerializeField] FixScoriaScenario _scena;
 
     bool _hasChecked = false;
     void Start()
@@ -32,7 +32,6 @@ public class FuelLinePuzzle : GameInteractable
 
     private void PutFuelLine()
     {
-        _scena = ScenarioManager.Instance.GetScenario<FixScoriaScenario>();
         if (_scena.AreFuelLinesFixed || !PlayerInteraction.Instance.IsInteracting) return;
         if (PlayerInteraction.Instance.CurrentInteractable != this) return;
         if (!_scena.HasFuelPipe) return;

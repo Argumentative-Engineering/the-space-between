@@ -97,7 +97,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2e205d6482129394daa5bb7cde68dc0c,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6817070636429818649}
+      addedObject: {fileID: -5551452312071177771}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2e205d6482129394daa5bb7cde68dc0c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -7167428949752367357}
   m_SourcePrefab: {fileID: 100100000, guid: 2e205d6482129394daa5bb7cde68dc0c, type: 3}
 --- !u!23 &5409611139642516771 stripped
 MeshRenderer:
@@ -201,7 +205,7 @@ LODGroup:
     renderers:
     - renderer: {fileID: 5409611139642516771}
   m_Enabled: 1
---- !u!138 &6817070636429818649
+--- !u!138 &-5551452312071177771
 FixedJoint:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -216,3 +220,15 @@ FixedJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &-7167428949752367357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5769727792888202486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16500ce54cbeb494a9c69c960cf5398e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

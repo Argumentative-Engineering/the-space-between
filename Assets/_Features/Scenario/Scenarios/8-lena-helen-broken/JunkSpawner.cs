@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class JunkSpawner : MonoBehaviour
 {
+    [SerializeField] Transform _properPipe;
     [SerializeField] GameObject[] _junkList;
     [SerializeField] int _spawnCount;
 
@@ -15,6 +16,7 @@ public class JunkSpawner : MonoBehaviour
         for (int i = 0; i < _spawnCount; i++)
         {
             var toSpawn = _junkList[Random.Range(0, _junkList.Length - 1)];
+            toSpawn.GetComponent<GrabbableObject>()._anchor = _properPipe;
 
             var pos = new Vector3(Random.Range(min.x, max.x), Random.Range(min.y, max.y), Random.Range(min.z, max.z));
 

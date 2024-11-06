@@ -71,6 +71,7 @@ public class CanadarmController : GameInteractable
 
     public override bool TryInteract()
     {
+        PlayerInteraction.Instance.StopInteracting();
         if (!_saidVO)
         {
             StartCoroutine(Startup());

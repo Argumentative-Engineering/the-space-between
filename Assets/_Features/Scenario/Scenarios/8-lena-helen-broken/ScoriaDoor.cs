@@ -5,17 +5,15 @@ using UnityEngine;
 
 public class ScoriaDoor : GameInteractable
 {
-    FixScoriaScenario _scoriaScenario;
+    [SerializeField] FixScoriaScenario _scoriaScenario;
 
     bool _interactedOnce = false;
     [SerializeField] DialogueData _insufficientPower, _insufficientNoLena;
 
     public override bool TryInteract()
     {
-        _scoriaScenario = ScenarioManager.Instance.GetScenario<FixScoriaScenario>();
         if (!_scoriaScenario.IsScoriaWorking())
         {
-
             transform.DOShakePosition(0.5f, 0.05f);
 
             if (_scoriaScenario.PowerCellConnectionCount < 2)

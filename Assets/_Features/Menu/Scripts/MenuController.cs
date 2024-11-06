@@ -51,13 +51,13 @@ public class MenuController : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         var core = SceneManager.LoadSceneAsync("SCN_Core");
-        var scene = SceneManager.LoadSceneAsync("SCN_lena-inside-helen", LoadSceneMode.Additive);
+        var toLoad = SceneDefinitions.HelenInterior;
+        var scene = SceneManager.LoadSceneAsync(toLoad, LoadSceneMode.Additive);
         scene.completed += (_) =>
         {
-            SceneManager.SetActiveScene(SceneManager.GetSceneByName("SCN_lena-inside-helen"));
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName(toLoad));
             ScenarioManager.Instance.LoadScenarios();
             ScenarioManager.Instance.RunNextScenario(movePlayer: true);
         };
     }
-
 }

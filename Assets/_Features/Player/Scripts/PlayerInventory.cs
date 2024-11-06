@@ -19,6 +19,7 @@ public class PlayerInventory : MonoBehaviour
 
     [SerializeField] InventoryItem[] _items;
     [SerializeField] Transform _offhandPosition;
+    public Transform ThrownTether;
     public InventoryItem EquippedItem { get; private set; }
     public GameObject CurrentOffhandItem { get; private set; }
     PlayerSettings _settings;

@@ -1628,6 +1628,11 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3222278550749704312, guid: 7fb4e7b716036ef4abf8d56d91136434,
+        type: 3}
+      propertyPath: _jumpForce
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 3387017715205814578, guid: 7fb4e7b716036ef4abf8d56d91136434,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1678,6 +1683,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3782693213311553355, guid: 7fb4e7b716036ef4abf8d56d91136434,
+        type: 3}
+      propertyPath: ThrownTether
+      value: 
+      objectReference: {fileID: 1952039846}
     - target: {fileID: 5219275378264635981, guid: 7fb4e7b716036ef4abf8d56d91136434,
         type: 3}
       propertyPath: m_AnchorMax.y
